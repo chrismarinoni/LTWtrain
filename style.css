@@ -1,0 +1,44 @@
+body {
+  /*min-height: 75rem;*/
+  padding-top: 3.5rem;
+}
+
+.bg-red {
+  background-color: #c41329;
+}
+
+.splash {
+  max-width: 100%;
+}
+
+.bg-splash {
+  background-color: #f6f6f6;
+}
+
+.search {
+  padding-top: 1rem;
+  padding-bottom: 1.5rem;
+  background-color: #c41329;
+}
+
+.search-button {
+  position: absolute;
+  bottom: 0;
+
+}
+
+.img-bottom {
+  position: absolute;
+  bottom: 0;
+}
+
+.fixed-search {
+  position: fixed;
+  z-index: 1029;
+  width: 100%
+}
+
+.success {
+  margin-top: 6rem;
+
+}
