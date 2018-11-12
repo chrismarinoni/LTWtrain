@@ -27,7 +27,7 @@
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-red"  >
         <div class="container" >
           <a class="navbar-brand" href="#">LTWtrain</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="return increasedTop()">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -275,14 +275,6 @@
         }
       }
     }
-
-    function increasedTop() {
-      if(topReached==1){
-        fixId.style.top = navH + 158 + "px";
-        return 1;
-      else 0;
-    }
-
     window.onload = function() {setParameters();}
 
     window.onscroll = function() {fixBox();}
@@ -291,3 +283,4 @@
 
   </body>
 </html>
+
