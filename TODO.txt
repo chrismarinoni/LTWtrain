@@ -1,0 +1,17 @@
+-------------
+PROBLEMI NOTI
+-------------
+
+La funzione di autocomplete nella Home non funziona come dovrebbe.
+
+Mancano controlli sul testo inserito nella home per la ricerca.
+
+La pagina di login e registrazione non è correttamente visualizzata su schermi piccoli.
+
+-----------------------------
+PROSSIME COSE DA IMPLEMENTARE
+-----------------------------
+
+Login e registrazione funzionanti.
+
+Aggiornare database.
