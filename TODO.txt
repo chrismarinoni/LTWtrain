@@ -15,3 +15,5 @@ PROSSIME COSE DA IMPLEMENTARE
 Login e registrazione funzionanti.
 
 Aggiornare database.
+
+Rotazione freccia risultati ricerca.

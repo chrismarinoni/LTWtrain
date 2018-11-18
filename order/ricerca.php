@@ -28,6 +28,8 @@
 
      <!-- Custom styles for this template -->
      <link href="../css/style.css" rel="stylesheet">
+     
+     
 
      <!-- <script type="text/javascript" lang="javascript" scr="js/searchScript.js"></script>
 
@@ -65,7 +67,7 @@
        </nav>
      </header>
 
-     <div class="container mt-4 mb-4">
+     <div class="container mt-4">
        <p style="font-size: 1.3rem;">Ricerca per partenza da <strong><?php echo($partenza); ?></strong> e arrivo a <strong><?php echo($destinazione); ?></strong> il <strong><?php echo($data); ?></strong></p>
      </div>
      <div class="container">
@@ -78,8 +80,10 @@
             $durataViaggio = mysql_result($result, $i, "durataViaggio");
             $tipoTreno = mysql_result($result, $i, "tipoTreno");
             $prezzo = mysql_result($result, $i, "prezzo");
+            $dettagli = mysql_result($result, $i, "dettagli");
+            
 
-            echo("<div class='card bg-light mb-4'>
+            echo("<div class='card bg-light mt-4'>
             <div class='row mb-4 mt-4'>
               <div class='col-md-2 text-center mt-1 mb-1'>
                 <span>".$partenza."<br />"."<strong style='font-size: 1.2rem;'>".$orarioPart."</strong></span>
@@ -99,13 +103,34 @@
               <div class='col-md-2 text-center mt-1 mb-1 result-box'>
                 <span>da<strong style='font-size:1.5rem;'>".$prezzo."€</strong></span></div>
                 <div class='col-md-1 text-center mt-1 mb-1 result-box'>
-                  <img id='arrow-down' src='https://static.thenounproject.com/png/551749-200.png' alt='' width='25px' height='21px'>
+                  <a data-toggle='collapse' href='#collapseResult".$i."' role='button' aria-expanded='false' aria-controls='collapseResult".$i."' >
+                  <img class='clickable' id='arrow-down' src='https://static.thenounproject.com/png/551749-200.png' alt='' width='25px' height='21px'>
+				  </a>
                 </div>
               </div>
-            </div>");
+            </div>
+            <div class='collapse' id='collapseResult".$i."'>
+				<div class='card card-body'>
+					".$dettagli."
+				</div>
+			</div>");
             $i--;
           }
         ?>
      </div>
+		
 
+	
+	<script
+		src="https://code.jquery.com/jquery-3.3.1.min.js"
+		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+		crossorigin="anonymous">
+	</script>
+	
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+    <!-- <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery-slim.min.js"><\/script>')</script> -->
+    <script src="../assets/js/vendor/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+	
    </body>
+</html>
