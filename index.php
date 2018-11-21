@@ -85,7 +85,7 @@
                 <a class="nav-link" href="order/biglietteria.php">Biglietteria</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="tabellone.html">Tabellone</a>
+                <a class="nav-link" href="tabellone.php">Tabellone</a>
               </li>
             </ul>
             <a href="account/signin.php" class="btn btn-light" role="button" aria-pressed="true">Area Personale</a>

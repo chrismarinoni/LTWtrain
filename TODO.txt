@@ -8,12 +8,21 @@ Mancano controlli sul testo inserito nella home per la ricerca.
 
 La pagina di login e registrazione non è correttamente visualizzata su schermi piccoli.
 
+Collegamenti a pagine mancanti ed alcune sezioni del sito inagibili (login, checkout, biglietteria, tabellone).
+
 -----------------------------
 PROSSIME COSE DA IMPLEMENTARE
 -----------------------------
 
 Login e registrazione funzionanti.
 
-Aggiornare database.
+Collegare area di ordine biglietti al proprio account per pagamento.
 
-Rotazione freccia risultati ricerca.
+Sistemare pagina checkout.
+
+Verificare correttezza generale del codice. Ridenominare i file per uniformarli (o in inglese o in italiano).
+
+Aggiornare database (parzialmente fatto per la prima settiamana di Dicembre)
+
+Rotazione freccia risultati ricerca (opzionale - a tempo perso)
+

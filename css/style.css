@@ -37,7 +37,7 @@ body {
 .fixed-search {
   position: fixed;
   z-index: 1020;
-  width: 100%
+  width: 100%;
 }
 
 .success {
@@ -55,7 +55,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 50px
+  min-height: 50px;
 }
 
 .clickable {
@@ -63,7 +63,7 @@ body {
 }
 
 
-.autocomplete !important{
+.autocomplete {
   /*the container must be positioned relative:*/
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -71,8 +71,8 @@ body {
   position: absolute;
 }
 
-.autocomplete-items !important{
-  position: absolute
+.autocomplete-items {
+  position: absolute;
   border: 1px solid #d4d4d4;
   border-bottom: none;
   border-top: none;
@@ -82,18 +82,21 @@ body {
   left: 0;
   right: 0;
 }
-.autocomplete-items div !important {
+
+.autocomplete-items div {
   padding: 10px;
   cursor: default;
   background-color: #fff;
   border-bottom: 1px solid #d4d4d4;
   color: white;
 }
-.autocomplete-items div:hover !important{
+
+.autocomplete-items div:hover {
   /*when hovering an item:*/
   background-color: #e9e9e9;
 }
-.autocomplete-active !important{
+
+.autocomplete-active {
   /*when navigating through the items using the arrow keys:*/
   background-color: DodgerBlue !important;
   color: #ffffff;

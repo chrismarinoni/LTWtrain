@@ -13,11 +13,10 @@
   $query = "SELECT * FROM `stazione` WHERE `nome` = '".$destinazione."' ";
   $result = mysql_query($query, $connection) or die('Errore accesso database [ERROR 2A3] ...');
   $codStArrivo = mysql_result($result,0,"codStazione");
-  $query = "SELECT * FROM `treno` AS t INNER JOIN `viaggio` AS v ON t.codTreno = v.codTreno INNER JOIN `collegamento` AS c ON v.codCollegamento = c.codCollegamento WHERE `codStPart` = '".$codStPartenza."' AND codStArr = '".$codStArrivo."' AND `dataViaggio` = '".$data."'";
+  $query = "SELECT * FROM `treno` AS t INNER JOIN `viaggio` AS v ON t.codTreno = v.codTreno INNER JOIN `collegamento` AS c ON v.codCollegamento = c.codCollegamento WHERE `codStPart` = '".$codStPartenza."' AND codStArr = '".$codStArrivo."' AND `dataViaggio` = '".$data."' ORDER BY orarioPart DESC";
   // $query = "SELECT * FROM `collegamento` WHERE `codStPart` = '".$codStPartenza."' AND codStArr = '".$codStArrivo."'";
   $result = mysql_query($query, $connection) or die('Errore accesso database [ERROR 3A3] ...');
   $numRes = mysql_numrows($result);
-  echo($numRes);
 ?>
 
  <!DOCTYPE html>
@@ -74,6 +73,9 @@
      <div class="container">
        <?php
           $i = $numRes-1;
+          if($i == -1) {
+            echo ("<p style='font-size: 1.4rem;'>Nessun risultato per la ricerca effettuata");
+          }
           while($i > -1) {
             $dividiOrarioPart = explode(":", mysql_result($result, $i, "orarioPart"));
             $dividiOrarioArr = explode(":", mysql_result($result, $i, "orarioArr"));
@@ -140,7 +142,7 @@
                       <p>Posti disponibili: <strong>".$postiDisponibili."</strong></p>
                     </div>
                     <div class='col-md-2'>
-                      <button class='btn btn-primary'>Ordina</button>
+                      <button type='submit' class='btn btn-primary'>Prenota</button>
                     </div>
                   </div>
               </div>
@@ -150,7 +152,7 @@
         ?>
      </div>
 		
-    <br>
+    <!-- <br>
     <br>
     <h3>TEST CARD CLICK</h3>
      <div class='card card-body'>
@@ -172,7 +174,24 @@
                 <button>Ordina</button>
               </div>
             </div>
-				</div>
+				</div> -->
+
+      
+      <footer class="bg-red">
+        <div class="container pt-4 pb-2 text-light mt-5">
+          <div class="row">
+            <div class="col-md-6">
+              <h5 class="mb-4">LTWtrain</h5>
+              <a class="text-light" href="chi-siamo.html"><p>Chi siamo</p></a>
+              <a class="text-light" href="contatti.html"><p>Contatti</p></a>
+            </div>
+            <div class="col-md-6">
+                <h5 class="mb-4">Sito ad esclusivo uso didattico.</h5>
+                <p>Il sito è stato realizzato come progetto da presentare ad un corso di laurea. Le informazioni presenti sono totalmente inventate.</p>
+            </div>
+          </div>
+        </div>
+      </footer>
 	
 	<script
 		src="https://code.jquery.com/jquery-3.3.1.min.js"
