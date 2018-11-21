@@ -3,7 +3,7 @@
   $mysqlDb = new MysqlFunctions;
   $connection = $mysqlDb->connetti();
   // echo("<b>DEBUG MSG:</b><br />Connesso correttamente al database <br/>");
-  $query = "SELECT nome FROM stazioni WHERE true";
+  $query = "SELECT nome FROM stazione WHERE true";
   $result = mysql_query($query, $connection) or die('Errore...');
 
   $stazioni = mysql_fetch_array($result);

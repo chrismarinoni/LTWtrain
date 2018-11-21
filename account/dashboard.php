@@ -1,6 +1,15 @@
 <?php
-	$name = "Marco";
-	$numBigliettiAcquistati = 0;
+	$codUtente = $_POST["codiceUtente"];
+	$mysqlDb = new MysqlFunctions;
+	$connection = $mysqlDb->connetti();
+	// echo("<b>DEBUG MSG:</b><br />Connesso correttamente al database <br/>");
+	$query = "SELECT * FROM utenti WHERE codUtente='".$codUtente."'";
+	$result = mysql_query($query, $connection) or die('Errore...');
+	
+	$nome = mysql_result($result,0,"nome");
+	$numBigliettiAcquistati = mysql_result($result, 0, "numBigliettiAcquistati");
+	$abbonamento = mysql_result($result, 0, "abbonamento");
+	
 ?>
 
 <!doctype html>
@@ -52,7 +61,7 @@
 	
 	<div class="jumbotron">
 		<div class="container">
-			<h1 class="display-4">Ciao, <?php echo($name); ?>!</h1>
+			<h1 class="display-4">Ciao, <?php echo($nome); ?>!</h1>
 			<p class="lead">Benvenuto nella tua area personale</p>
 			<hr class="my-4">
 			<p>Al momento hai acquistato <?php echo($numBigliettiAcquistati); if($numBigliettiAcquistati==1) echo(" biglietto"); else echo(" biglietti"); ?>. <?php if($numBigliettiAcquistati == 0) echo("Raggiungi l'area \"biglietteria\" ed acquista il tuo primo biglietto"); else echo("Nell'area biglietteria puoi acquistare nuovi biglietti."); ?></p>
