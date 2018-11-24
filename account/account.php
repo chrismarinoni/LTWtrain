@@ -1,17 +1,13 @@
 <?php
-  include '../funzioni.php';
-  session_start();
-  $idUtente = $_SESSION["idUtente"];
-  $mysqlDb = new MysqlFunctions;
+	$codUtente = $_POST["idUtente"];
+	$mysqlDb = new MysqlFunctions;
 	$connection = $mysqlDb->connetti();
-	// echo("<b>DEBUG MSG:</b><br />Connesso correttamente al database <br/>");
-	// $query = "SELECT * FROM utente WHERE idUtente='".$codUtente."'";
-	// $result = mysql_query($query, $connection) or die('Errore...');
+	$query = "SELECT * FROM utenti WHERE codUtente='".$codUtente."'";
+	$result = mysql_query($query, $connection) or die('Errore...');
 	
-  $nome = $_SESSION['nome'];
-  $cognome = $_SESSION['cognome'];
-	$numBigliettiAcquistati = $_SESSION['numBigliettiAcquistati'];
-	$abbonamento = 0;
+	$nome = mysql_result($result,0,"nome");
+	$numBigliettiAcquistati = mysql_result($result, 0, "numBigliettiAcquistati");
+	$abbonamento = mysql_result($result, 0, "abbonamento");
 	
 ?>
 

@@ -49,7 +49,7 @@ body {
 
 .form-register {
   width: 100%;
-  max-width: 480px;
+  /* max-width: 480px; */
   padding: 30px;
   margin: auto;
   z-index: 1030;
@@ -66,5 +66,10 @@ body {
 }
 
 #form-register {
+  display: none;
+}
+
+
+#alert {
   display: none;
 }

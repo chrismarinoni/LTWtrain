@@ -4,11 +4,12 @@
     $destinazione = $_GET["destinazione"];
     $prezzo = $_GET["prezzo"];
     session_start();
-    if($_SESSION['codUtente'] == "")
-        header("location: ../account/signin.php");
+    $_SESSION['codUtente'] = "CCCCC";
+
     $_SESSION['codViaggio'] = $codViaggio;
     $_SESSION['stPartenza'] = $partenza;
     $_SESSION['stArrivo'] = $destinazione;
     $_SESSION['prezzo'] = $prezzo;
+    echo($codViaggio);
     header("location: checkout.php");
 ?>

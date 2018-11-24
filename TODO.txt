@@ -14,15 +14,27 @@ Collegamenti a pagine mancanti ed alcune sezioni del sito inagibili (login, chec
 PROSSIME COSE DA IMPLEMENTARE
 -----------------------------
 
-Login e registrazione funzionanti.
-
 Collegare area di ordine biglietti al proprio account per pagamento.
 
 Sistemare pagina checkout.
 
-Verificare correttezza generale del codice. Ridenominare i file per uniformarli (o in inglese o in italiano).
+Verificare correttezza generale del codice. Ridenominare i file per uniformarli (o in inglese o in italiano). Ridurre il numero di pagine php
 
 Aggiornare database (parzialmente fatto per la prima settiamana di Dicembre)
 
+Timer stile stazione (tempo perso)
+
 Rotazione freccia risultati ricerca (opzionale - a tempo perso)
 
+
+----------------------
+TIMELINE FUNZIONALITA'
+----------------------
+
+--> 23/11/2018: area login e registrazione funzionanti con accesso a pagina personale (fatto).
+
+--> 24/11/2018: Implementazione logout ed ottimizzazione delle pagine dopo il login. Aggiunta maggiori campi per l'area registrazione.
+
+--> 25/11/2018: pagina About Us (Yuri), ottimizzazione codice homepage (Chris) con possibile soluzione ad autocomplete.
+
+--> Realizzazione pagina "Biglietteria" con funzioni avanzate di ricerca.

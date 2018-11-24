@@ -98,8 +98,8 @@
       <div class="container">
         <div class="row">
           <div class="col-md-6">
-            <h1 class='display-4 font-italic'>Il tuo prossimo viaggio in treno comincia qui.</h1>
-            <p class="lead my-3">Ordina biglietti, controlla il tabellone degli orari, gestisci i tuoi viaggi dall'area privata.</p>
+            <h1 class='display-4 font-italic'>Your next train journey begins here.</h1>
+            <p class="lead my-3">Order tickets, ckeck for timetables, manage your journey in the personal area.</p>
           </div>
           <div class="col-md-6">
             <img class="img-responsive splash d-md-none" src="images/train-home.jpg" alt="">
@@ -234,40 +234,40 @@
       <h3 class="mb-3">Tutte le destinazioni raggiunte</h3>
         <div class="row">
           <div class="col-md-4 col-6">
-            <il>
+            <ul>
               <li>Roma</li>
               <li>Milano</li>
-            </il>
+            </ul>
           </div>
           <div class="col-md-4 col-6">
-            <il>
+            <ul>
               <li>Torino</li>
               <li>Genova</li>
-            </il>
+            </ul>
           </div>
           <div class="col-md-4 col-6">
-            <il>
+            <ul>
               <li>Bologna</li>
               <li>Trieste</li>
-            </il>
+            </ul>
           </div>
           <div class="col-md-4 col-6">
-            <il>
+            <ul>
               <li>Firenze</li>
               <li>Napoli</li>
-            </il>
+            </ul>
           </div>
           <div class="col-md-4 col-6">
-            <il>
+            <ul>
               <li>Venezia</li>
               <li>Reggio Calabria</li>
-            </il>
+            </ul>
           </div>
           <div class="col-md-4 col-6">
-            <il>
+            <ul>
               <li>Campobasso</li>
               <li>Ladispoli</li>
-            </il>
+            </ul>
           </div>
         </div>
       </div>
@@ -283,7 +283,7 @@
           </div>
           <div class="col-md-6">
             <h5 class="mb-4">Sito ad esclusivo uso didattico.</h5>
-            <p>Il sito è stato realizzato come progetto da presentare ad un corso di laurea. Le informazioni presenti sono totalmente inventate.</p>
+            <p>Il sito è stato realizzato come \n\n\nprogetto da presentare ad un corso di laurea. Le informazioni presenti sono totalmente inventate.</p>
           </div>
         </div>
       </div>

@@ -1,3 +1,17 @@
+<?php
+  session_start();
+  if($_SESSION['codUtente'] == "")
+    header("location: ../account/signin.php");
+  if($_SESSION['codViaggio'] == "")
+    header("location: ../index.php");
+  $codViaggio = $_SESSION['codViaggio'];
+  $stPartenza = $_SESSION['stPartenza'];
+  $stArrivo = $_SESSION['stArrivo'];
+  $prezzo = $_SESSION['prezzo'];
+  echo($_SESSION['codViaggio']);
+  echo($_SESSION['stPartenza']);
+?>
+
 <!doctype html>
 <html lang="en">
   <head>

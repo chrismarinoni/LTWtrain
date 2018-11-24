@@ -142,7 +142,7 @@
                       <p>Posti disponibili: <strong>".$postiDisponibili."</strong></p>
                     </div>
                     <div class='col-md-2'>
-                      <button type='submit' class='btn btn-primary'>Prenota</button>
+                    <a href='admissionOrder.php?codViaggio=".$codTreno."&partenza=".$partenza."&destinazione=".$destinazione."' class='btn btn-primary' role='button'>Prenota</a>
                     </div>
                   </div>
               </div>
@@ -192,6 +192,7 @@
           </div>
         </div>
       </footer>
+
 	
 	<script
 		src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -206,3 +207,7 @@
 	
    </body>
 </html>
+
+<?php 
+
+?>
