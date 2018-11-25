@@ -1,3 +1,8 @@
+<?php
+    include 'component/header.php';
+    include 'component/footer.php';
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,15 +10,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>LTWtrain - Tabellone</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <link href="css/flapper.css" type="text/css" rel="stylesheet" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-    <script src="transform/dist/jquery.transform-0.9.3.min.js"></script>
-    <script src="src/jquery.flapper.js"></script>
-    <script src="src/flapdemo.js"></script>
+    <link href="css/style.css" rel="stylesheet">
 
-    <style type="text/css">
+    <!-- <style type="text/css">
             body {
                 font-family: Roboto Condensed;
                 color: #333;
@@ -121,46 +123,47 @@
                 white-space: nowrap;
             }
 
-        </style>
+        </style> -->
 
 </head>
-<body>
-    <h1>Ci dispiace, questa pagina &egrave; ancora in fase di realizzazione.</h1>
-    <strong><a href="javascript: history.go(-1)">Torna indietro</a></strong>
+    <body>
 
-    <h1 id="hours">22</h1>
-    <h1 id="minutes">30</h1>
-    <h1 id="seconds">55</h1>
-
-    <input id="display" />
+        <!-- HEADER -->
+        <?php getHeader(); ?>
 
 
+        <div class="container">
+            <h1>Ci dispiace, questa pagina &egrave; ancora in fase di realizzazione.</h1>
+            <strong><a href="javascript: history.go(-1)">Torna indietro</a></strong>
+            
+            <span class="row" style="font-size:2rem;"><p id="hours">22</p>:<p id="minutes">30</p>:<p id="seconds">55</p></span>
+        </div>
+        
 
-</body>
+        <!-- FOOTER -->
+        <?php getFooter(); ?>
 
-<script language="JavaScript">
-    $('#display').flapper(options).val(12345).change();
-<script>
 
-<script type="text/javascript">
-    var getTime = function(){
-        var today = new Date();
-        var h = today.getHours();
-        var m = today.getMinutes();
-        var s = today.getSeconds();
-        h = this.checkTime(h);
-        m = this.checkTime(m);
-        s = this.checkTime(s);
-        document.getElementById('hours').innerText = h;
-        document.getElementById('minutes').innerText = m;
-        document.getElementById('seconds').innerText = s;
-        var t = setTimeout(this.getTime, 1000);
-        }
-        var checkTime = function(i) {
-        if (i < 10) {i = "0" + i};
-        return i;
-    }
-    getTime();
-</script>
+        <script type="text/javascript">
+            var getTime = function(){
+                var today = new Date();
+                var h = today.getHours();
+                var m = today.getMinutes();
+                var s = today.getSeconds();
+                h = this.checkTime(h);
+                m = this.checkTime(m);
+                s = this.checkTime(s);
+                document.getElementById('hours').innerText = h;
+                document.getElementById('minutes').innerText = m;
+                document.getElementById('seconds').innerText = s;
+                var t = setTimeout(this.getTime, 1000);
+                }
+                var checkTime = function(i) {
+                if (i < 10) {i = "0" + i};
+                return i;
+            }
+            getTime();
+        </script>
 
+    </body>
 </html>

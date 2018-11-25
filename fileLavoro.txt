@@ -1,8 +1,11 @@
 CHRISTIAN:
-- login.php (ore 8:44 - .. )
-- signin.php (ore 8:44 - ..)
-- dashboard.php (ore 8:44 - ..)
-- signin_validation.js (ore8:52 - .. )
+--- 25/11 ---
+- login.php (ore 11:00 - .. )
+- signin.php (ore 11:00 - ..)
+- dashboard.php (ore 11:00 - ..)
+- accountComplete.html (ore 11:25 - ..)
+- index.php (ore 11:56 - ..)
+- tabellone.php (16:21 - ..)
 
 YURI:
 -aboutUs.php(14:39 -...)

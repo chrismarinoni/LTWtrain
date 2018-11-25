@@ -4,6 +4,8 @@ PROBLEMI NOTI
 
 La funzione di autocomplete nella Home non funziona come dovrebbe.
 
+Nella pagina di registrazione cliccando su "Procedi" si passa al secondo passo senza validare i dati (quindi anche se mancanti).
+
 Mancano controlli sul testo inserito nella home per la ricerca.
 
 La pagina di login e registrazione non è correttamente visualizzata su schermi piccoli.

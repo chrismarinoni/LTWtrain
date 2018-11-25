@@ -1,4 +1,6 @@
 <?php
+    include '../component/header.php';
+    include '../component/footer.php';
 	$codUtente = $_POST["idUtente"];
 	$mysqlDb = new MysqlFunctions;
 	$connection = $mysqlDb->connetti();
@@ -33,31 +35,10 @@
   </head>
 
   <body>
-    <header id="nav">
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-red"  >
-        <div class="container" >
-          <a class="navbar-brand" href="#">LTWtrain</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="">Home <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="order/biglietteria.php">Biglietteria</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="tabellone.html">Tabellone</a>
-              </li>
-            </ul>
-            <a href="account/signin.php" class="btn btn-light" role="button" aria-pressed="true">Area Personale</a>
-          </div>
-        </div>
-      </nav>
-    </header>
-	
+    
+    <!-- HEADER -->
+    <?php getHeader(); ?>
+    
 	<div class="jumbotron">
 		<div class="container">
 			<h1 class="display-4">Ciao, <?php echo($nome); ?>!</h1>
@@ -77,5 +58,10 @@
 		<h2>I tuoi abbonamenti</h2>
 		<p>Al momento non ci sono abbonamenti acquistati</p>
     </div>
+
+    
+    <!-- FOOTER -->
+    <?php getFooter(); ?>
+
   </body>
 </html>

@@ -39,7 +39,25 @@
 			</div>
 		  </nav>
 		</header>
-		<div class="p-3"
+		
+		<div class="p-3 p-md-5 text-black bg-splash">
+			<div class="container">
+				<div class="row">
+					<h1 class="display-1">Chi siamo:</h1>
+				</div>
+				<div class="row">
+					<div class="col-6 col-md-4">
+						<img class="img-thumbnail img-fluid mx-auto d-block" src="images/i_like_trains_guy.png" alt="">
+						<p>Un ragazzo a cui piacciono i <strong> TRENI</strong></p>
+					</div>
+					<div class="col-6 col-md-4">
+						<img class="img-thumbnail img-fluid mx-auto d-block" src="images/sega-mega-drive-portable-console-620x372.jpg" alt="">
+						<p>Un ragazzo a cui piacciono i <strong> VIDEOGIOCHI</strong></p>
+					</div>
+				
+				</div>
+			</div>
+		</div>
 		
 		
 		<script>

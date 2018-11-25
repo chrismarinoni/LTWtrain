@@ -1,5 +1,7 @@
 <?php
   include '../funzioni.php';
+  include '../component/header.php';
+  include '../component/footer.php';
   $partenza = $_POST['partenza'];
   $destinazione = $_POST['destinazione'];
   $data = $_POST['data'];
@@ -42,30 +44,7 @@
 
    <body id="body">
 
-     <header id="nav" >
-       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-red"  >
-         <div class="container" >
-           <a class="navbar-brand" href="#">LTWtrain</a>
-           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-             <span class="navbar-toggler-icon"></span>
-           </button>
-           <div class="collapse navbar-collapse" id="navbarCollapse">
-             <ul class="navbar-nav mr-auto">
-               <li class="nav-item">
-                 <a class="nav-link" href="">Home </a>
-               </li>
-               <li class="nav-item">
-                 <a class="nav-link" href="biglietteria.html">Biglietteria</a>
-               </li>
-               <li class="nav-item">
-                 <a class="nav-link" href="tabellone.html">Tabellone</a>
-               </li>
-             </ul>
-             <button class="btn btn-light" type="login">Area personale</button>
-           </div>
-         </div>
-       </nav>
-     </header>
+     <?php getHeader(); ?>
 
      <div class="container mt-4">
        <p style="font-size: 1.3rem;">Ricerca per partenza da <strong><?php echo($partenza); ?></strong> e arrivo a <strong><?php echo($destinazione); ?></strong> il <strong><?php echo($data); ?></strong></p>
@@ -177,21 +156,8 @@
 				</div> -->
 
       
-      <footer class="bg-red">
-        <div class="container pt-4 pb-2 text-light mt-5">
-          <div class="row">
-            <div class="col-md-6">
-              <h5 class="mb-4">LTWtrain</h5>
-              <a class="text-light" href="chi-siamo.html"><p>Chi siamo</p></a>
-              <a class="text-light" href="contatti.html"><p>Contatti</p></a>
-            </div>
-            <div class="col-md-6">
-                <h5 class="mb-4">Sito ad esclusivo uso didattico.</h5>
-                <p>Il sito è stato realizzato come progetto da presentare ad un corso di laurea. Le informazioni presenti sono totalmente inventate.</p>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <!-- FOOTER -->
+      <?php getFooter(); ?>
 
 	
 	<script

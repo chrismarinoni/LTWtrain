@@ -1,17 +1,19 @@
 <?php
   include '../funzioni.php';
+  include '../component/header.php';
+  include '../component/footer.php';
   session_start();
+  if($_SESSION['codViaggio'] != "" && $_SESSION['accountFilled'] == 1)
+    header("location: ../order/checkout.php");
+  else if($_SESSION['codViaggio'] != "" && $_SESSION['accountFilled'] == 0)
+    header("location: accountComplete.php");
   $idUtente = $_SESSION["idUtente"];
-  $mysqlDb = new MysqlFunctions;
-	$connection = $mysqlDb->connetti();
-	// echo("<b>DEBUG MSG:</b><br />Connesso correttamente al database <br/>");
-	// $query = "SELECT * FROM utente WHERE idUtente='".$codUtente."'";
-	// $result = mysql_query($query, $connection) or die('Errore...');
 	
   $nome = $_SESSION['nome'];
   $cognome = $_SESSION['cognome'];
-	$numBigliettiAcquistati = $_SESSION['numBigliettiAcquistati'];
-	$abbonamento = 0;
+  $numBigliettiAcquistati = $_SESSION['numBigliettiAcquistati'];
+  $abbonamento = $_SESSION['abbonamento']
+  
 	
 ?>
 
@@ -37,30 +39,9 @@
   </head>
 
   <body>
-    <header id="nav">
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-red"  >
-        <div class="container" >
-          <a class="navbar-brand" href="#">LTWtrain</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="">Home <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="order/biglietteria.php">Biglietteria</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="tabellone.html">Tabellone</a>
-              </li>
-            </ul>
-            <a href="account/signin.php" class="btn btn-light" role="button" aria-pressed="true">Area Personale</a>
-          </div>
-        </div>
-      </nav>
-    </header>
+    
+    <!-- HEADER -->
+    <?php getHeader(); ?>
 	
 	<div class="jumbotron">
 		<div class="container">
@@ -74,12 +55,16 @@
 
     <div class="container mb-4">
       <h2>I tuoi biglietti</h2>
-      <p>Al momento non ci sono biglietti acquistati</p>
+      <?php if($numBigliettiAcquistati==0) echo("<p>Al momento non ci sono biglietti acquistati</p>"); ?>
     </div>
     
     <div class="container mb-4">
 		<h2>I tuoi abbonamenti</h2>
 		<p>Al momento non ci sono abbonamenti acquistati</p>
     </div>
+
+    <!-- FOOTER -->
+    <?php getFooter(); ?>
+
   </body>
 </html>

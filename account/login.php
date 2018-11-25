@@ -25,7 +25,7 @@
       $_SESSION['nome'] = $row['nome'];
       $_SESSION['cognome'] = $row['cognome'];
       $_SESSION['email'] = $row['email'];
-      $_SESSION['numBigliettiAcquistati'] = $row['numBigliettiAcquistati'];
+      $_SESSION['numBigliettiAcquistati'] = $row['numBigliettiAcquisti'];
       // e stampo 1 (che identifica il successo)
       echo 1;
     }else{

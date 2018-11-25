@@ -1,5 +1,7 @@
 <?php
   include 'funzioni.php';
+  include 'component/header.php';
+  include 'component/footer.php';
   $mysqlDb = new MysqlFunctions;
   $connection = $mysqlDb->connetti();
   // echo("<b>DEBUG MSG:</b><br />Connesso correttamente al database <br/>");
@@ -69,30 +71,8 @@
 
   <body id="body" onload="setParameters();" onscroll="fixBox();">
 
-    <header id="nav" >
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-red"  >
-        <div class="container" >
-          <a class="navbar-brand" href="#">LTWtrain</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="">Home <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="order/biglietteria.php">Biglietteria</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="tabellone.php">Tabellone</a>
-              </li>
-            </ul>
-            <a href="account/signin.php" class="btn btn-light" role="button" aria-pressed="true">Area Personale</a>
-          </div>
-        </div>
-      </nav>
-    </header>
+    <!-- HEADER -->
+    <?php getHeader(); ?>
 
     <div class="p-3 p-md-5 text-black bg-splash">
       <div class="container">
@@ -273,21 +253,10 @@
       </div>
     </div>
 
-    <footer class="bg-red">
-      <div class="container pt-4 pb-2 text-light">
-        <div class="row">
-          <div class="col-md-6">
-            <h5 class="mb-4">LTWtrain</h5>
-            <a class="text-light" href="chi-siamo.html"><p>Chi siamo</p></a>
-            <a class="text-light" href="contatti.html"><p>Contatti</p></a>
-          </div>
-          <div class="col-md-6">
-            <h5 class="mb-4">Sito ad esclusivo uso didattico.</h5>
-            <p>Il sito è stato realizzato come \n\n\nprogetto da presentare ad un corso di laurea. Le informazioni presenti sono totalmente inventate.</p>
-          </div>
-        </div>
-      </div>
-    </footer>
+
+    <!-- FOOTER -->
+    <?php getFooter(); ?>
+
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
