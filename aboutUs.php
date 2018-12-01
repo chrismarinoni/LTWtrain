@@ -1,3 +1,12 @@
+<?php
+	include 'funzioni.php';
+	include 'component/header.php';
+	include 'component/footer.php';
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="it" dir="ltr">
 	<head>
@@ -14,51 +23,42 @@
 		<link href="css/style.css" rel="stylesheet">
 		<script type="text/javascript" lang="javascript" src="js/autocomplete.js"></script>
 	</head>
-	<body id ="body" onload="setParameters();" onscroll="fixBox()">
-		<header id="nav" >
-		  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-red"  >
-			<div class="container" >
-			  <a class="navbar-brand" href="#">LTWtrain</a>
-			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			  </button>
-			  <div class="collapse navbar-collapse" id="navbarCollapse">
-				<ul class="navbar-nav mr-auto">
-				  <li class="nav-item active">
-					<a class="nav-link" href="">Home <span class="sr-only">(current)</span></a>
-				  </li>
-				  <li class="nav-item">
-					<a class="nav-link" href="order/biglietteria.php">Biglietteria</a>
-				  </li>
-				  <li class="nav-item">
-					<a class="nav-link" href="tabellone.php">Tabellone</a>
-				  </li>
-				</ul>
-				<a href="account/signin.php" class="btn btn-light" role="button" aria-pressed="true">Area Personale</a>
-			  </div>
-			</div>
-		  </nav>
-		</header>
+	<body id ="body" onload="setParameters();" onscroll="fixBox();">
+		<?php getHeader(); ?>
 		
 		<div class="p-3 p-md-5 text-black bg-splash">
 			<div class="container">
 				<div class="row">
 					<h1 class="display-1">Chi siamo:</h1>
+					<p class="lead my-3"> fcvfubyiuoupnmp nioubyivtucrycytvuybn bfvcrdyvubinuhughvbwonngve  qhfojèqmmi4jpqnh4pnfg8q 8quufmjqv0jqij0jqnpgqv8 08qiv0u4mtiqjmmpj3 i0qjfmoqj348fmqo</p>
 				</div>
 				<div class="row">
-					<div class="col-6 col-md-4">
-						<img class="img-thumbnail img-fluid mx-auto d-block" src="images/i_like_trains_guy.png" alt="">
-						<p>Un ragazzo a cui piacciono i <strong> TRENI</strong></p>
+					<div class="col-4 col-md-4">
+						<img class="img-thumbnail img-fluid  mx-auto d-block" src="images/trainguy.jpg" alt="">
+						<p>sdfgfhgjkhjlòkjhgfdhgjlkòjhgfdjkhjlòlkhgjfdgjhk</p>
 					</div>
-					<div class="col-6 col-md-4">
-						<img class="img-thumbnail img-fluid mx-auto d-block" src="images/sega-mega-drive-portable-console-620x372.jpg" alt="">
-						<p>Un ragazzo a cui piacciono i <strong> VIDEOGIOCHI</strong></p>
+					<div class="col-4 col-md-4">
+						<img class="img-thumbnail img-fluid mx-auto d-block" src="images/sonic.jpg" alt="">
+						<p>rtdcyguihjokplopjnhibguvfycdtxsrrdctfyguhig tfcrdsxzexcdfxgchjkldetfryguhiklopuhytfrdefhyioklopkihyut</p>
+					</div>
+					<div class="col-4">
+						<h4> Contatti: </h4>
+						<ul class="list-unstyled">
+							<li>email1:</li>
+							<li>utgtuyviybn@utib8n.com</li>
+							
+							<li>email2:</li>
+							<li>rdytvubynu@rtvybu.com</li>
+							
+						
+						</ul>
 					</div>
 				
 				</div>
 			</div>
 		</div>
 		
+		<?php getFooter(); ?>
 		
 		<script>
 

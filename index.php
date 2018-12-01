@@ -1,42 +1,6 @@
 <?php
-  include 'funzioni.php';
   include 'component/header.php';
   include 'component/footer.php';
-  $mysqlDb = new MysqlFunctions;
-  $connection = $mysqlDb->connetti();
-  // echo("<b>DEBUG MSG:</b><br />Connesso correttamente al database <br/>");
-  $query = "SELECT nome FROM stazione WHERE true";
-  $result = mysql_query($query, $connection) or die('Errore...');
-
-  $stazioni = mysql_fetch_array($result);
-  // $codStazione = mysql_result($result, 0, "codStazione");
-  // $nomeStazione = mysql_result($result, 0, "nome");
-  // echo("Test1: ".$codStazione." ".$nomeStazione);
-
-
-
-  // if (isset($_POST['search'])) {
-	// 	// $response = "<ul><li>Nessuna corrispondenza</li></ul>";
-  //
-	// 	//$connection2 = new mysqli('localhost', 'ltwtrain', '', 'my_ltwtrain');
-	// 	$q = $_POST['q'];
-	// 	//$sql = $connection->query("SELECT `nome` FROM `stazioni` WHERE `nome` LIKE %$q%'");
-  //   $sql = mysql_query("SELECT nome FROM stazioni WHERE nome LIKE '%$q%'");
-  //   $num = mysql_numrows($sql);
-  //   if ($num > 0) {
-	// 		// $response = "<ul class='result'>";
-  //     $i = $num-1;
-	// 		while ($i > -1) {
-	// 			$response .= '<div class="autocomplete-items">' . mysql_result($sql, $i, "nome") . "</div>";
-	// 		  // $response .= "</ul>";
-  //       $i--;
-  //     }
-	// 	}
-  //
-  //
-	// 	exit($response);
-	// }
-  //$mysqlDb->disconnetti();
 ?>
 
 <!DOCTYPE html>
@@ -57,19 +21,20 @@
     <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet">
 
-    <!-- <script type="text/javascript" lang="javascript" scr="js/searchScript.js"></script>
+    <script type="text/javascript" lang="javascript" src="searchScript.js"></script>
+
+    <script type="text/javascript" lang="javascript" src="js/autocomplete.js"></script>
 
     <script>
       window.onload = function() {setParameters();}
-      window.onscroll = function() {fixBox();}
-    </script> -->
+      window.onscroll = function() { fixBox(); }
+    </script>
 
-    <script type="text/javascript" lang="javascript" src="js/autocomplete.js"></script>
 
   </head>
 
 
-  <body id="body" onload="setParameters();" onscroll="fixBox();">
+  <body id="body">
 
     <!-- HEADER -->
     <?php getHeader(); ?>
@@ -93,27 +58,29 @@
 
     <div class="search" id="search-to-fix">
       <div class="container">
-        <form action="order/ricerca.php" method="post">
+        <form action="order/ricerca.php" method="post" onSubmit="return convalidaRicerca()">
           <div class="row">
             <div class="col-md-3 col-sm-6 col-6">
               <h5 class="lead text-light">Partenza:</h5>
 
-                <input name="partenza" class="form-control" type="text" placeholder="es. Roma" id="partenza">
-                <div class="autocomplete" id="autocomplete">
+                <input name="partenza" class="form-control" type="text" placeholder="es. Roma Termini" id="partenza" autocomplete="false">
+                <!-- <div class="autocomplete" id="autocomplete">
 
-                </div>
-              <!-- <div id="response" class="autocomplete"></div> -->
+                </div> -->
+                <div id="response" class="autocomplete result"></div>
+
             </div>
             <div class="col-md-3 col-sm-6 col-6">
               <h5 class="lead text-light">Destinazione:</h5>
-              <input name="destinazione" class="form-control" type="text" placeholder="es. Milano" id="arrivo">
+              <input name="destinazione" class="form-control" type="text" placeholder="es. Milano Centrale" id="destinazione">
+              <div id="responseDest" class="autocomplete result"></div>
             </div>
             <div class="col-md-3 col-sm-6 col-6">
               <h5 class="lead text-light">Data:</h5>
-              <input name="data" class="form-control is-datetime" type="date" placeholder="es. 01/11/2018" >
+              <input name="data" class="form-control is-datetime" type="date" id="data" placeholder="es. 01/11/2018" >
             </div>
             <div class="col-md-3 col-sm-6 col-6 ">
-              <button class="btn btn-primary search-button" type="submit" >Cerca</button>
+              <button class="btn btn-primary search-button" type="submit" id="cerca">Cerca</button>
               <!-- <button class="btn btn-primary search-button" type="login">Cerca</button> -->
             </div>
           </div>
@@ -271,84 +238,8 @@
     <script src="js/bootstrap.min.js"></script>
 
     <script>
-
-    var fixId, fixTop, navH, bodyId, fixH, topReached = 0;
-
-    function setParameters() {
-      fixId = document.getElementById("search-to-fix");
-      fixTop = fixId.offsetTop;
-      navId = document.getElementById("nav");
-      navH = navId.clientHeight + navId.getBoundingClientRect().top;
-      bodyId = document.getElementById("body");
-      fixH = fixId.offsetHeight;
-    }
-
-    function fixBox() {
-      if(window.pageYOffset >= (fixTop-navH)) {
-        fixId.classList.add("fixed-search");
-        fixId.style.top = navH + "px";
-        bodyId.style.marginTop = fixH + "px";
-        topReached=1;
-      } else {
-        fixId.classList.remove("fixed-search");
-        if(topReached==1){
-          fixId.style.top = 0 + "px";
-          bodyId.style.marginTop = 0 + "px";
-          topReached=0;
-        }
-      }
-    }
-    window.onload = function() {setParameters();}
-
-    window.onscroll = function() {fixBox();}
-
+      $(document).ready(autocomplete());
     </script>
-
-    <?php
-    $serialized = "";
-    for ($i = 0; $i < count($stazioni)-1; $i++) {
-      if($i > 0) $serialized .= ",";
-      $serialized .= "'" . $stazioni[$i] . "'";
-    }
-
-    echo '<script> var stazioni = [' . $serialized . ']; autocomplete(document.getElementById("partenza"),stazioni);</script>' ?>
-
-    <!-- <script type="text/javascript" >
-      autocomplete(document.getElementById("partenza"),['Ladispoli-Cerveteri']);
-    </script> -->
-
-    <!-- <script type="text/javascript">
-      $(document).ready(function () {
-            $("#partenza").keyup(function () {
-                var query = $("#partenza").val();
-
-                if (query.length > 1) {
-                    $.ajax(
-                        {
-                            url: 'index.php',
-                            method: 'POST',
-                            data: {
-                                search: 1,
-                                q: query
-                            },
-                            success: function (data) {
-                                console.log(data);
-                                $("#response").html(data);
-                            },
-                            dataType: 'text'
-                        }
-                    );
-                }
-            });
-
-            $(document).on('click', 'li', function () {
-                var nomeStazione = $(this).text();
-                $("#partenza").val(nomeStazione);
-                $("#response").html("");
-            });
-        });
-
-    </script> -->
 
   </body>
 </html>

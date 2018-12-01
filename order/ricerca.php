@@ -121,7 +121,7 @@
                       <p>Posti disponibili: <strong>".$postiDisponibili."</strong></p>
                     </div>
                     <div class='col-md-2'>
-                    <a href='admissionOrder.php?codViaggio=".$codTreno."&partenza=".$partenza."&destinazione=".$destinazione."' class='btn btn-primary' role='button'>Prenota</a>
+                    <a href='admissionOrder.php?codViaggio=".$codTreno."&partenza=".$partenza."&destinazione=".$destinazione."&operatore=".$operatore."&prezzo=".$prezzo."' class='btn btn-primary' role='button'>Prenota</a>
                     </div>
                   </div>
               </div>

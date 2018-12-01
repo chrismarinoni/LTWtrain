@@ -26,8 +26,13 @@
       $_SESSION['cognome'] = $row['cognome'];
       $_SESSION['email'] = $row['email'];
       $_SESSION['numBigliettiAcquistati'] = $row['numBigliettiAcquisti'];
+      $_SESSION['accountFilled'] = $row['accountFilled'];
+      if($_SESSION['acquistoInCorso'] == 1){
+        echo("order/checkout.php");
+      } else {
+        echo("account/dashboard.php");
+      }
       // e stampo 1 (che identifica il successo)
-      echo 1;
     }else{
       // in caso di comparazione non riuscita stampo zero
       echo 0;

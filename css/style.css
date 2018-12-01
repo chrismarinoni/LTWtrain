@@ -1,13 +1,32 @@
+html {
+  /* position: relative;
+  min-height: 100%; */
+  height: 100%;
+}
+
 body {
   /*min-height: 75rem;*/
   padding-top: 3.5rem;
+  /* margin-bottom: 60px; */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
+
 
 .bg-red {
   background-color: #004e89;
 }
 
 /*#c41329 */
+
+.container {
+  flex: 1 0 auto;
+}
+
+#footer {
+  flex-shrink: 0;
+}
 
 .splash {
   max-width: 100%;
@@ -58,6 +77,61 @@ body {
   min-height: 50px;
 }
 
+.hidden {
+  display: none;
+}
+
+
+
+
+.material-switch > input[type="checkbox"] {
+  display: none;   
+}
+
+.material-switch > label {
+  cursor: pointer;
+  height: 0px;
+  position: relative; 
+  width: 40px;  
+}
+
+.material-switch > label::before {
+  background: rgb(0, 0, 0);
+  box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  content: '';
+  height: 16px;
+  margin-top: -8px;
+  position:absolute;
+  opacity: 0.3;
+  transition: all 0.4s ease-in-out;
+  width: 40px;
+}
+.material-switch > label::after {
+  background: rgb(255, 255, 255);
+  border-radius: 16px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  content: '';
+  height: 24px;
+  left: -4px;
+  margin-top: -8px;
+  position: absolute;
+  top: -4px;
+  transition: all 0.3s ease-in-out;
+  width: 24px;
+}
+.material-switch > input[type="checkbox"]:checked + label::before {
+  background: inherit;
+  opacity: 0.5;
+}
+.material-switch > input[type="checkbox"]:checked + label::after {
+  background: inherit;
+  left: 20px;
+}
+
+
+
+
 .clickable {
 	cursor: pointer;
 }
@@ -99,6 +173,7 @@ to   { opacity: 1; }
   box-sizing: border-box;
   border: 1px solid black;
   position: absolute;
+  background-color: white;
 }
 
 .autocomplete-items {
@@ -135,7 +210,6 @@ to   { opacity: 1; }
 
 /*
   spunto per login
-
   .corretto,
 .errore {
   padding: 3px;
@@ -154,7 +228,6 @@ to   { opacity: 1; }
   background: #F7CBCA;
   color: #CC0000;
 }
-
 */
 
 
@@ -165,7 +238,6 @@ to   { opacity: 1; }
 
 
 /*
-
 .navbar-collapse {
   -ms-flex-preferred-size: 100%;
   flex-basis: 100%;
@@ -174,37 +246,30 @@ to   { opacity: 1; }
   -ms-flex-align: center;
   align-items: center;
 }
-
-
 .navbar-expand-sm .navbar-collapse {
   display: -ms-flexbox !important;
   display: flex !important;
   -ms-flex-preferred-size: auto;
   flex-basis: auto;
 }
-
-
 .navbar-expand-md .navbar-collapse {
   display: -ms-flexbox !important;
   display: flex !important;
   -ms-flex-preferred-size: auto;
   flex-basis: auto;
 }
-
 .navbar-expand-lg .navbar-collapse {
   display: -ms-flexbox !important;
   display: flex !important;
   -ms-flex-preferred-size: auto;
   flex-basis: auto;
 }
-
 .navbar-expand-xl .navbar-collapse {
   display: -ms-flexbox !important;
   display: flex !important;
   -ms-flex-preferred-size: auto;
   flex-basis: auto;
 }
-
 .navbar-expand .navbar-collapse {
   display: -ms-flexbox !important;
   display: flex !important;

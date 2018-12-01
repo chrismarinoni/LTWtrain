@@ -2,15 +2,11 @@
 PROBLEMI NOTI
 -------------
 
-La funzione di autocomplete nella Home non funziona come dovrebbe.
+La funzione di autocomplete nella Home non seleziona nell'input elementi suggeriti al di fuori del primo in lista.
 
-Nella pagina di registrazione cliccando su "Procedi" si passa al secondo passo senza validare i dati (quindi anche se mancanti).
-
-Mancano controlli sul testo inserito nella home per la ricerca.
+Mancano controlli nel testo inserito di login e registrazione.
 
 La pagina di login e registrazione non è correttamente visualizzata su schermi piccoli.
-
-Collegamenti a pagine mancanti ed alcune sezioni del sito inagibili (login, checkout, biglietteria, tabellone).
 
 -----------------------------
 PROSSIME COSE DA IMPLEMENTARE
@@ -18,13 +14,13 @@ PROSSIME COSE DA IMPLEMENTARE
 
 Collegare area di ordine biglietti al proprio account per pagamento.
 
-Sistemare pagina checkout.
+Sistemare pagina checkout. Al momento ci sono tre versioni in checkout.php checkout2.php e shoppingchart.
 
 Verificare correttezza generale del codice. Ridenominare i file per uniformarli (o in inglese o in italiano). Ridurre il numero di pagine php
 
-Aggiornare database (parzialmente fatto per la prima settiamana di Dicembre)
+Aggiornare database (parzialmente fatto fino agli inizi di Dicembre)
 
-Timer stile stazione (tempo perso)
+Timer stile stazione (a tempo perso)
 
 Rotazione freccia risultati ricerca (opzionale - a tempo perso)
 

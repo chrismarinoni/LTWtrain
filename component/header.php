@@ -22,7 +22,7 @@
                     </li>
                     </ul>
         ');
-        if($_SESSION['codUtente'] == "" ){
+        if($_SESSION['idUtente'] == "" ){
             echo('
                         <a href="http://www.ltwtrain.altervista.org/account/signin.html" class="btn btn-light" role="button" aria-pressed="true">Area Personale</a>
             ');
@@ -33,10 +33,10 @@
                             <div class="dropdown-menu">
                             <div class="text-center mt-2">
                                 <img src="https://cdn2.iconfinder.com/data/icons/circle-icons-1/64/profle-512.png" width="48px" height="48px"/>
-                                <p>ciao, utente prova</p>
+                                <p>Ciao, '.$_SESSION['nome'].'</p>
                             </div>
-                            <a class="dropdown-item" href="#">Dashboard</a>
-                            <a class="dropdown-item" href="#">Il tuo account</a>
+                            <a class="dropdown-item" href="http://www.ltwtrain.altervista.org/account/dashboard.php">Dashboard</a>
+                            <a class="dropdown-item" href="http://www.ltwtrain.altervista.org/account/profile.php">Il tuo account</a>
                             <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#">Log out</a>
                             </div>

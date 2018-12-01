@@ -22,7 +22,8 @@
         // se non ci sono risultati stampo zero
         $result = mysql_query("INSERT INTO `utente` (`nome`, `cognome`, `email`, `password`) VALUES ('".$nome."', '".$cognome."', '".$email."', '".$password."')");
         $result = mysql_query("SELECT idUtente FROM utente WHERE email = '" . mysql_real_escape_string($email) . "'");
-        $_SESSION['idUtente'] = "new_registered";
+        $row = mysql_fetch_assoc($result);
+        $_SESSION['idUtente'] = $row['idUtente'];
         $_SESSION['nome'] = $nome;
         $_SESSION['cognome'] = $cognome;
         $_SESSION['email'] = $email;

@@ -35,55 +35,71 @@
         <div class="container mt-5 mb-5">
             <div class="mb-5" >
                 <h1>Completa il tuo profilo</h1>
-                <p style="font-size:1.3rem;">Per procedere con un acquisto &egrave; necessario fornire ulteriori informazioni personali.</p>
+                <p style="font-size:1.3rem;">Per procedere con un acquisto &egrave; necessario fornire ulteriori informazioni personali. Tutti i dati possono essere modificati in qualunque momento dal profilo.</p>
             </div>
             <div>
-                <form method="POST">
+                <form method="POST" action="aComplete.php">
                     <div>
-                            <h5>Personal information</h5>
-                            <p>All your personal infos will never be distributed and will be used only to provide you the service.</p>
+                            <h5>Informazionim personali</h5>
+                            <p>Tutte le tue informazioni personali non saranno mai comunicate a terzi e verranno usate da noi per fornire i servizi richiesti.</p>
                             <div class="row mt-4">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="labelResidence">Residence address</label>
-                                         <input type="text" class="form-control" id="residenceAddress" placeholder="Enter your residence address">        
+                                        <label for="labelIndirizzo">Indirizzo di Residenza</label>
+                                         <input name="indirizzoResidenza" type="text" class="form-control" id="indirizzoResidenza" placeholder="Inserisci il tuo indirizzo di residenza">        
                                     </div>
                                     <div class="form-group">
-                                            <label for="labelCity">City</label>
-                                             <input type="text" class="form-control" id="residenceCity" placeholder="Enter your residence city">        
+                                            <label for="labelCitta">Citt&agrave;</label>
+                                             <input name="cittaResidenza" type="text" class="form-control" id="cittaResidenza" placeholder="Inserisci il tuo indirizzo di residenza">        
                                     </div>
                                     <div class="form-group">
-                                        <label for="labelProvince">Province</label>
-                                        <input type="text" class="form-control" id="residenceProvince" placeholder="Enter your residence province">        
+                                        <label for="labelProvincia">Provincia</label>
+                                        <input name="provinciaResidenza" type="text" class="form-control" id="provinciaResidenza" placeholder="Seleziona la provincia">        
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="labelCountry">Country</label>
-                                             <input type="text" class="form-control" id="residenceCountry" placeholder="Enter your residence country">        
+                                            <label for="labelPaese">Paese</label>
+                                             <input name="paeseResidenza" type="text" class="form-control" id="paeseResidenza" placeholder="Inserisci il Paese">        
                                         </div>
                                         <div class="form-group">
-                                                <label for="labelDateBirth">Date of Birth</label>
-                                                 <input type="date" class="form-control" id="residenceDateBirth" placeholder="Enter your date of birth">        
+                                                <label for="labelDataNascita">Data di Nascita</label>
+                                                 <input name="dataNascita" type="date" class="form-control" id="dataNascita" placeholder="La tua data di nascita">        
                                         </div>
                                         <div class="form-group">
-                                            <label for="label">Fiscal Code</label>
-                                            <input type="text" class="form-control" id="residenceProvince" placeholder="Enter your fiscal code">        
+                                            <label for="label">Codice Fiscale</label>
+                                            <input name="codiceFiscale" type="text" class="form-control" id="codiceFiscale" placeholder="Inserisci il tuo codice fiscale">        
                                         </div>
-                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                        <div class="form-group">
+                                        <label for="labelCountry">Sesso</label>
+                                            <select name="sesso" id="sesso" class="form-control">
+                                                <option value="seleziona">Seleziona un'opzione...</option>
+                                                <option value="M">M</option>
+                                                <option value="F">F</option>
+                                                <option value="ND">Non dichiaro</option>
+                                            </select>                                            
+                                        </div>
+                                </div>
                             </div>
                     </div>
                     <div class="mt-4 mb-4">
                             <h5 >Additional infos</h5>
                             <div class="form-group mt-3">
-                                <label for="labelResidence">Favourite station</label>
-                                <input type="text" class="form-control" id="residenceAddress" ariadescribedby="helpStation" placeholder="Enter your residence address">        
+                                <label for="labelResidence">Favourite station 1</label>
+                                <input name="stazionePartPreferita" type="text" class="form-control" id="stazionePartPreferita" ariadescribedby="helpStation" placeholder="Scrivi il nome di una stazione">        
+                                <small id="helpStation" class="form-text text-muted">Le stazioni preferite sono quelle stazioni che frequenti maggiormente. Una volta selezionate le due stazioni, il sistema ti suggerirà in fase di ricerca il collegamento fra le le due stazioni preferite.</small>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="labelResidence">Favourite station 2</label>
+                                <input name="stazioneArrPreferita" type="text" class="form-control" id="stazioneArrPreferita" ariadescribedby="helpStation" placeholder="Scrivi il nome di una seconda stazione">        
                                 <small id="helpStation" class="form-text text-muted">The "favourite station" is the one  you frequent the most.</small>
                             </div>
                     </div>
-                    <input class="btn btn-primary" type="submit" value="Submit"> or
+                    <input class="btn btn-primary" type="submit" value="Invia"> oppure
                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#cancelConfirm">
-                            Cancel
+                            Annulla
                     </button>
                 </form>
             </div>
@@ -94,16 +110,16 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                <h5 class="modal-title" id="cancelConfirmTitle">Are you sure?</h5>
+                <h5 class="modal-title" id="cancelConfirmTitle">Attento. Sei sicuro?</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
                 </div>
                 <div class="modal-body">
-                If you cancel this operation the information inserted will not be registered. If you were ordering a ticket, your order will be blocked. To order a ticket you need to submit this form.
+                    Se cancelli questa operazione le informazioni inserite non saranno registrate. Se stavi ordinando un biglietto, il tuo ordine sarà automaticamente cancellato. Per ordinare un biglietto &egrave; necessario inviare questo form.
                 </div>
                 <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" onclick="window.location.href='dashboard.php'">Continue with cancel</button>
+                <button type="button" class="btn btn-secondary" onclick="window.location.href='cleanOrder.php'">Continue with cancel</button>
                 <button type="button" class="btn btn-primary" data-dismiss="modal" >Come back</button>
                 </div>
             </div>

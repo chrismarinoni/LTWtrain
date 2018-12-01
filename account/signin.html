@@ -119,9 +119,9 @@
       // passo i dati (via POST) al file PHP che effettua le verifiche 
         $.post("login.php", { email: $('#email').val(), password: $('#password').val(), rand: Math.random() }, function(risposta) {
           // se i dati sono corretti...
-          if (risposta == 1) {
+          if (risposta == "account/dashboard.php" || risposta == "order/checkout.php") {
             alert("Login effettuato");
-            document.location= "dashboard.php";
+            document.location= "http://www.ltwtrain.altervista.org/" + risposta;
           // se, invece, i dati non sono corretti...
           }else{
             // stampo un messaggio di errore
@@ -137,7 +137,7 @@
       // passo i dati (via POST) al file PHP che effettua le verifiche 
         $.post("register.php", { nome: $('#inputName').val(), cognome: $('#inputSurname').val(), email: $('#inputEmailReg').val(), password: $('#inputPasswordReg').val(), rand: Math.random() }, function(risposta) {
           // se i dati sono corretti...
-          if (risposta == 1) {
+          if (risposta == 1 ) {
             // applico l'effetto allo span con id "messaggio"
             var el = document.getElementById("alert");
             $("#alert").removeClass('alert-danger').addClass('alert-success');

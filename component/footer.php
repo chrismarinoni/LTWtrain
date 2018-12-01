@@ -1,13 +1,13 @@
 <?php
     function getFooter() {
         echo('
-            <footer class="bg-red">
+            <footer class="bg-red" id="footer">
                 <div class="container pt-4 pb-2 text-light">
                     <div class="row">
                         <div class="col-md-6">
                             <h5 class="mb-4">LTWtrain</h5>
-                            <a class="text-light" href="chi-siamo.html"><p>Chi siamo</p></a>
-                            <a class="text-light" href="contatti.html"><p>Contatti</p></a>
+                            <a class="text-light" href="http://www.ltwtrain.altervista.org/aboutUs.php"><p>Chi siamo</p></a>
+                            <a class="text-light" href="assistenza.html"><p>Assistenza</p></a>
                         </div>
                         <div class="col-md-6">
                             <h5 class="mb-4">Sito ad esclusivo uso didattico.</h5>
