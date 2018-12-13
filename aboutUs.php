@@ -13,32 +13,37 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-		<title>Chi siamo</title>
-	
+		<title>Chi siamo - LTWtrain</title>
 
 		<!-- Bootstrap core CSS -->
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 
 		<!-- Custom styles for this template -->
 		<link href="css/style.css" rel="stylesheet">
-		<script type="text/javascript" lang="javascript" src="js/autocomplete.js"></script>
+		<style>
+			a#cambio1{background: url(images/trainguy.jpg); width:155px ; height :155px; display:block;}
+			a:hover#cambio1{background: url(images/oldmn.jpeg);}
+			a#cambio2{background: url(images/sonic.jpg); width:155px ; height :155px; display:block;}
+			a:hover#cambio2{background: url(images/glasses.jpeg);}
+		</style>
+
 	</head>
-	<body id ="body" onload="setParameters();" onscroll="fixBox();">
+	<body id ="body">
 		<?php getHeader(); ?>
 		
-		<div class="p-3 p-md-5 text-black bg-splash">
-			<div class="container">
+		<div class="p-3 p-md-5 text-black bg-splash" id="container">
+			<div class="container" >
 				<div class="row">
-					<h1 class="display-1">Chi siamo:</h1>
+					<h1 class="display-1">Chi siamo</h1>
 					<p class="lead my-3"> fcvfubyiuoupnmp nioubyivtucrycytvuybn bfvcrdyvubinuhughvbwonngve  qhfojèqmmi4jpqnh4pnfg8q 8quufmjqv0jqij0jqnpgqv8 08qiv0u4mtiqjmmpj3 i0qjfmoqj348fmqo</p>
 				</div>
 				<div class="row">
 					<div class="col-4 col-md-4">
-						<img class="img-thumbnail img-fluid  mx-auto d-block" src="images/trainguy.jpg" alt="">
+					    <a href="" id="cambio1"></a>
 						<p>sdfgfhgjkhjlòkjhgfdhgjlkòjhgfdjkhjlòlkhgjfdgjhk</p>
 					</div>
 					<div class="col-4 col-md-4">
-						<img class="img-thumbnail img-fluid mx-auto d-block" src="images/sonic.jpg" alt="">
+						<a href="" id="cambio2"></a>
 						<p>rtdcyguihjokplopjnhibguvfycdtxsrrdctfyguhig tfcrdsxzexcdfxgchjkldetfryguhiklopuhytfrdefhyioklopkihyut</p>
 					</div>
 					<div class="col-4">
@@ -56,43 +61,13 @@
 				
 				</div>
 			</div>
+
 		</div>
 		
+		<div id="wrap">
+		</div>
+
 		<?php getFooter(); ?>
-		
-		<script>
-
-		var fixId, fixTop, navH, bodyId, fixH, topReached = 0;
-
-		function setParameters() {
-		  fixId = document.getElementById("search-to-fix");
-		  fixTop = fixId.offsetTop;
-		  navId = document.getElementById("nav");
-		  navH = navId.clientHeight + navId.getBoundingClientRect().top;
-		  bodyId = document.getElementById("body");
-		  fixH = fixId.offsetHeight;
-		}
-
-		function fixBox() {
-		  if(window.pageYOffset >= (fixTop-navH)) {
-			fixId.classList.add("fixed-search");
-			fixId.style.top = navH + "px";
-			bodyId.style.marginTop = fixH + "px";
-			topReached=1;
-		  } else {
-			fixId.classList.remove("fixed-search");
-			if(topReached==1){
-			  fixId.style.top = 0 + "px";
-			  bodyId.style.marginTop = 0 + "px";
-			  topReached=0;
-			}
-		  }
-		}
-		window.onload = function() {setParameters();}
-
-		window.onscroll = function() {fixBox();}
-
-		</script>
 		
 	
 	</body>	

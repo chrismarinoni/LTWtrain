@@ -23,6 +23,7 @@
         $result = mysql_query("INSERT INTO `utente` (`nome`, `cognome`, `email`, `password`) VALUES ('".$nome."', '".$cognome."', '".$email."', '".$password."')");
         $result = mysql_query("SELECT idUtente FROM utente WHERE email = '" . mysql_real_escape_string($email) . "'");
         $row = mysql_fetch_assoc($result);
+        // echo($row['idUtente']);
         $_SESSION['idUtente'] = $row['idUtente'];
         $_SESSION['nome'] = $nome;
         $_SESSION['cognome'] = $cognome;

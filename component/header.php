@@ -38,7 +38,7 @@
                             <a class="dropdown-item" href="http://www.ltwtrain.altervista.org/account/dashboard.php">Dashboard</a>
                             <a class="dropdown-item" href="http://www.ltwtrain.altervista.org/account/profile.php">Il tuo account</a>
                             <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Log out</a>
+                                <a class="dropdown-item" href="http://www.ltwtrain.altervista.org/account/logout.php">Log out</a>
                             </div>
                         </div>
             ');

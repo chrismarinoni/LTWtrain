@@ -21,7 +21,7 @@
     <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet">
 
-    <script type="text/javascript" lang="javascript" src="searchScript.js"></script>
+    <script type="text/javascript" lang="javascript" src="js/searchScript.js"></script>
 
     <script type="text/javascript" lang="javascript" src="js/autocomplete.js"></script>
 
@@ -43,8 +43,8 @@
       <div class="container">
         <div class="row">
           <div class="col-md-6">
-            <h1 class='display-4 font-italic'>Your next train journey begins here.</h1>
-            <p class="lead my-3">Order tickets, ckeck for timetables, manage your journey in the personal area.</p>
+            <h1 class='display-4 font-italic'>Il tuo prossimo viaggio in treno comincia qui.</h1>
+            <p class="lead my-3">Ordina biglietti, controlla gli orari dei prossimi treni, gestisci il tuo viaggio dall'area personale.</p>
           </div>
           <div class="col-md-6">
             <img class="img-responsive splash d-md-none" src="images/train-home.jpg" alt="">
@@ -58,7 +58,7 @@
 
     <div class="search" id="search-to-fix">
       <div class="container">
-        <form action="order/ricerca.php" method="post" onSubmit="return convalidaRicerca()">
+        <form name="ricerca" action="order/ricerca.php" method="post" onSubmit="return convalidaRicerca()">
           <div class="row">
             <div class="col-md-3 col-sm-6 col-6">
               <h5 class="lead text-light">Partenza:</h5>
@@ -67,13 +67,13 @@
                 <!-- <div class="autocomplete" id="autocomplete">
 
                 </div> -->
-                <div id="response" class="autocomplete result"></div>
+                <div id="response" class="autocomplete result hidden"></div>
 
             </div>
             <div class="col-md-3 col-sm-6 col-6">
               <h5 class="lead text-light">Destinazione:</h5>
               <input name="destinazione" class="form-control" type="text" placeholder="es. Milano Centrale" id="destinazione">
-              <div id="responseDest" class="autocomplete result"></div>
+              <div id="responseDest" class="autocomplete result hidden"></div>
             </div>
             <div class="col-md-3 col-sm-6 col-6">
               <h5 class="lead text-light">Data:</h5>
@@ -238,7 +238,7 @@
     <script src="js/bootstrap.min.js"></script>
 
     <script>
-      $(document).ready(autocomplete());
+      $(document).ready(autocomplete(0));
     </script>
 
   </body>

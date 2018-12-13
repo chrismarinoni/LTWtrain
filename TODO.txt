@@ -2,11 +2,13 @@
 PROBLEMI NOTI
 -------------
 
-La funzione di autocomplete nella Home non seleziona nell'input elementi suggeriti al di fuori del primo in lista.
+La funzione di autocomplete nella Home non rimanda alla pagina corretta quando tutti i campi inseriti sono corretti.
 
 Mancano controlli nel testo inserito di login e registrazione.
 
-La pagina di login e registrazione non è correttamente visualizzata su schermi piccoli.
+La pagina di login e registrazione non è correttamente visualizzata su schermi piccoli (risoluzione del problema non prevista)
+
+Nella biglietteria non vengono mostrati i risultati per il ritorno, anche quando i dati inseriti sono corretti.
 
 -----------------------------
 PROSSIME COSE DA IMPLEMENTARE
@@ -14,11 +16,11 @@ PROSSIME COSE DA IMPLEMENTARE
 
 Collegare area di ordine biglietti al proprio account per pagamento.
 
-Sistemare pagina checkout. Al momento ci sono tre versioni in checkout.php checkout2.php e shoppingchart.
+Sistemare pagina checkout. Al momento ci sono tre versioni in checkout.php checkout2.php e shoppingcart.
 
 Verificare correttezza generale del codice. Ridenominare i file per uniformarli (o in inglese o in italiano). Ridurre il numero di pagine php
 
-Aggiornare database (parzialmente fatto fino agli inizi di Dicembre)
+Aggiornare database (al momento è popolato fino al 16/12)
 
 Timer stile stazione (a tempo perso)
 
@@ -31,8 +33,8 @@ TIMELINE FUNZIONALITA'
 
 --> 23/11/2018: area login e registrazione funzionanti con accesso a pagina personale (fatto).
 
---> 24/11/2018: Implementazione logout ed ottimizzazione delle pagine dopo il login. Aggiunta maggiori campi per l'area registrazione.
+--> 24/11/2018: Implementazione logout ed ottimizzazione delle pagine dopo il login. Aggiunta maggiori campi per l'area registrazione (fatto - con miglioramenti necessari).
 
---> 25/11/2018: pagina About Us (Yuri), ottimizzazione codice homepage (Chris) con possibile soluzione ad autocomplete.
+--> 25/11/2018: pagina About Us (Yuri), ottimizzazione codice homepage (Chris) con possibile soluzione ad autocomplete (fatto).
 
---> Realizzazione pagina "Biglietteria" con funzioni avanzate di ricerca.
+--> 14/12/2018 Realizzazione pagina "Biglietteria" con funzioni avanzate di ricerca.

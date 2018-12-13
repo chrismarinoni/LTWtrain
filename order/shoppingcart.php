@@ -1,14 +1,24 @@
 <?php
 	session_start();
 	if($_SESSION['idUtente'] == "")
-		header("location: ../account/signin.html");
+		// header("location: ../account/signin.html");
 	if($_SESSION['acquistoInCorso'] != 1)
-		header("location: ../index.php");
-	$codViaggio = $_SESSION['codViaggio'];
+		// header("location: ../index.php");
+	$codViaggioAndata = $_SESSION['codViaggioAndata'];
     $partenza = $_SESSION['stPartenza'];
     $destinazione = $_SESSION['stArrivo'];
-	$prezzo = $_SESSION['prezzo'];
-	$operatore = $_SESSION['operatore'];
+	$prezzoAndata = $_SESSION['prezzoAndata'];
+	$operatoreAndata = $_SESSION['operatoreAndata'];
+	$giornoAndata = explode("-", $_SESSION['giornoAndata']);
+	$giornoAndata = $giornoAndata[2]."/".$giornoAndata[1]."/".$giornoAndata[0];
+	$orarioAndata = $_SESSION['orarioAndata'];
+	$codViaggioRitorno = $_SESSION['codViaggioRitorno'];
+
+    $prezzoRitorno = $_SESSION['prezzoRitorno'];
+    $operatoreRitorno = $_SESSION['operatoreRitorno'];
+	$giornoRitorno = $_SESSION['giornoRitorno'];
+	$orarioRitorno = $_SESSION['orarioRitorno'];
+	
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +34,7 @@
 	 	<section class="shopping-cart dark" id="shopping-cart">
 	 		<div class="container">
 		        <div class="block-heading">
-				  <img class="mb-3" src="https://cdn2.iconfinder.com/data/icons/harry-potter-colour-collection/60/28_-_Harry_Potter_-_Colour_-_Hogwarts_Express-512.png" alt="" width="128" height="128">
+				  <a href="../index.php"><img class="mb-3" src="https://cdn2.iconfinder.com/data/icons/harry-potter-colour-collection/60/28_-_Harry_Potter_-_Colour_-_Hogwarts_Express-512.png" alt="" width="128" height="128"></a>
 		          <h2>Procedi con gli acquisti</h2>
 		          <p>Seleziona la quantit&agrave; del biglietto che vuoi acquistare.</p>
 		        </div>
@@ -42,10 +52,14 @@
 						 						<div class="row">
 							 						<div class="col-md-5 product-name">
 							 							<div class="product-name">
-								 							<a href="#">Biglietto <?php echo($operatore); ?></a>
+								 							<a href="#">Biglietto <?php if($codViaggioRitorno != "")echo("andata"); ?></a>
 								 							<div class="product-info">
 									 							<div>Partenza: <span class="value"><?php echo($partenza); ?></span></div>
 									 							<div>Destinazione: <span class="value"><?php echo($destinazione); ?></span></div>
+																<div>Giorno: <span class="value"><?php echo($giornoAndata); ?></span></div>
+																<div>Orario partenza: <span class="value"><?php echo($orarioAndata); ?></span></div>
+									 							<div>Operatore: <span class="value"><?php echo($operatoreAndata); ?></span></div>
+
 									 						</div>
 									 					</div>
 							 						</div>
@@ -54,9 +68,39 @@
 															<input id="quantity" type="number" value ="1" class="form-control quantity-input" min="1" max="5">
 													 </div>
 							 						<div class="col-md-3 price">
-							 							<span id="prezzo"><?php echo($prezzo); ?></span>€
+							 							<span id="prezzo"><?php echo($prezzoAndata); ?></span>€
 							 						</div>
 							 					</div>
+												<?php if($codViaggioRitorno != "")
+													echo('
+
+														<div class="row">
+															<div class="col-md-5 product-name">
+																<div class="product-name">
+																	<a href="#">Biglietto ritorno</a>
+																	<div class="product-info">
+																		<div>Partenza: <span class="value">'.
+																		$destinazione.'</span></div>
+																		<div>Destinazione: <span class="value">'.$destinazione.'</span></div>
+																	<div>Giorno: <span class="value">'.$giornoRitorno.'</span></div>
+																	<div>Orario partenza: <span class="value">'.$orarioRitorno.'</span></div>
+																		<div>Operatore: <span class="value">'.$operatoreRitorno.'</span></div>
+
+																	</div>
+																</div>
+															</div>
+															<div class="col-md-4 quantity">
+																<b><label for="quantity">Quantit&agrave;:</label></b>
+																<input id="quantity" type="number" value ="1" class="form-control quantity-input" min="1" max="5">
+															</div>
+															<div class="col-md-3 price">
+																<span id="prezzo">'.$prezzoRitorno.'</span>€
+															</div>
+														</div>
+
+							
+													');
+												?>
 							 				</div>
 					 					</div>
 					 				</div>

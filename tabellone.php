@@ -6,12 +6,12 @@
     $connection = $mysqlDb->connetti();
     $orarioCalcolato = date("H:i:s");
 
-    $data = date("Y-m-d");
-    $query = "SELECT * FROM `treno` AS t INNER JOIN `viaggio` AS v ON t.codTreno = v.codTreno INNER JOIN `collegamento` AS c ON v.codCollegamento = c.codCollegamento INNER JOIN (SELECT codStazione, nome AS nomeStPart FROM `stazione`) AS s ON c.codStPart = s.codStazione INNER JOIN (SELECT codStazione, nome AS nomeStArr FROM `stazione`) AS st ON c.codStArr = st.codStazione WHERE `dataViaggio` = '".$data."' AND `orarioPart` >= '".$orarioCalcolato."' ORDER BY `orarioPart` ASC LIMIT 8";
-    $result = mysql_query($query, $connection) or die('Errore accesso database [ERROR 2A3] ...');
-    $numRes = mysql_numrows($result);
-    $i = $numRes-1;
-    $orarioMin = mysql_result($result, 0, "orarioPart");
+    // $data = date("Y-m-d");
+    // $query = "SELECT * FROM `treno` AS t INNER JOIN `viaggio` AS v ON t.codTreno = v.codTreno INNER JOIN `collegamento` AS c ON v.codCollegamento = c.codCollegamento INNER JOIN (SELECT codStazione, nome AS nomeStPart FROM `stazione`) AS s ON c.codStPart = s.codStazione INNER JOIN (SELECT codStazione, nome AS nomeStArr FROM `stazione`) AS st ON c.codStArr = st.codStazione WHERE `dataViaggio` = '".$data."' AND `orarioPart` >= '".$orarioCalcolato."' ORDER BY `orarioPart` ASC LIMIT 8";
+    // $result = mysql_query($query, $connection) or die('Errore accesso database [ERROR 2A3] ...');
+    // $numRes = mysql_numrows($result);
+    // $i = $numRes-1;
+    // $orarioMin = mysql_result($result, 0, "orarioPart");
 ?>
 
 <!DOCTYPE html>
@@ -34,8 +34,9 @@
 
 
         <div class="container mt-2">
-            <!-- <h1>Ci dispiace, questa pagina &egrave; ancora in fase di realizzazione.</h1>
-            <strong><a href="javascript: history.go(-1)">Torna indietro</a></strong> -->
+            <h1>Ci dispiace, questa pagina &egrave; ancora in fase di realizzazione.</h1>
+            <!-- <strong><a href="javascript: history.go(-1)">Torna indietro</a></strong> --> 
+
             <div class="row">
                 <div class="col-md-3">
                     <span class="row" style="font-size:2rem; font-family: Roboto Condensed;"><p id="hours">22</p>:<p id="minutes">30</p>:<p id="seconds">55</p></span>

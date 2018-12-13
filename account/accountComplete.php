@@ -1,4 +1,5 @@
 <?php
+    session_start();
     include '../component/header.php';
     include '../component/footer.php';
 ?>
@@ -40,7 +41,7 @@
             <div>
                 <form method="POST" action="aComplete.php">
                     <div>
-                            <h5>Informazionim personali</h5>
+                            <h5>Informazioni personali</h5>
                             <p>Tutte le tue informazioni personali non saranno mai comunicate a terzi e verranno usate da noi per fornire i servizi richiesti.</p>
                             <div class="row mt-4">
                                 <div class="col-md-6">
@@ -119,8 +120,8 @@
                     Se cancelli questa operazione le informazioni inserite non saranno registrate. Se stavi ordinando un biglietto, il tuo ordine sarà automaticamente cancellato. Per ordinare un biglietto &egrave; necessario inviare questo form.
                 </div>
                 <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" onclick="window.location.href='cleanOrder.php'">Continue with cancel</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal" >Come back</button>
+                <button type="button" class="btn btn-secondary" onclick="window.location.href='cleanOrder.php'">Continua con l'annullamento</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" >Torna alla compilazione</button>
                 </div>
             </div>
             </div>
