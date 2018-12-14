@@ -54,8 +54,6 @@
 			</div>
 		</div>
 
-
-			 <form name="ricerca" action="biglietteria-ricerca.php" method="post">
 					<div class="hidden" id="form">
 						<h2 id="iniziamo">
 							Iniziamo.
@@ -87,6 +85,7 @@
 
 
 							<button type="button" class="btn btn-primary btn-lg ml-3 mt-2" id="goToStep2">Prosegui</button>
+							<button type="button" class="btn btn-primary btn-lg ml-3 mt-2" id="goBackB1">Indietro</button>
 
 						</div>
 					</div>
@@ -115,6 +114,7 @@
 							</div>
 
 							<button type="button" class="btn btn-primary btn-lg ml-3 mt-2" id="goToRisultatiPart">Ricerca andata</button>
+							<button type="button" class="btn btn-primary btn-lg ml-3 mt-2" id="goBackB2">Indietro</button>
 						</div>
 					</div>
 
@@ -130,6 +130,7 @@
 
 						<button type="button" class="btn btn-primary btn-lg mt-4 mb-4 hidden" id="goToCheckOut">Vai al checkout</button>
 						<button type="button" class="btn btn-primary btn-lg mt-4 mb-4 hidden" id="goToForm3">Prosegui con il ritorno</button>
+						<button type="button" class="btn btn-primary btn-lg mt-4 mb-4" id="goBackB3">Indietro</button>
 					</div>
 
 
@@ -158,6 +159,7 @@
 							</div>
 
 							<button type="button" class="btn btn-primary btn-lg ml-3 mt-2" id="goToRisultatiDest">Ricerca ritorno</button>
+							<button type="button" class="btn btn-secondary btn-lg ml-3 mt-2" id="goBackB4">Indietro</button>
 						
 						</div>
 					</div>
@@ -173,12 +175,12 @@
 						</div>
 
 						<button type="button" class="btn btn-primary btn-lg mt-4 mb-4" id="goToCheckOut2">Vai al checkout</button>
+						<button type="button" class="btn btn-secondary btn-lg mt-4 mb-4" id="goBackB5">Indietro</button>
 					</div>
              
               
-			 </form>
 			 
-			 <form name="abbonamento" action="abbonamento.php" method="post">
+			 <form name="abbonamento" action="shoppingcart.php" method="post">
 					<div class="hidden" id="formAbb">
 						<h2 id="iniziamo2">
 							Iniziamo
@@ -188,62 +190,62 @@
 							<div class="col-md-6 col-sm-3 col-lg-9 input-group-lg mb-4">
 								<label for="stazione1" style="font-size: 1.4rem"><strong>Stazione 1</strong></label>
 								<select name="stazione1" id="stazione1" class="form-control" required autofocus>
-									<option value="roma">Roma</option>
-									<option value="milano">Milano</option>
-									<option value="firenze">Firenze</option>
-									<option value="napoli">Napoli</option>
-									<option value="torino">Torino</option>
+									<option value="romaTermini">Roma Termini</option>
+									<option value="romaTiburtina">Roma Tiburtina</option>
+									<option value="milanoCentrale">Milano Centrale</option>
+									<option value="firenzeSantaLucia">Firenze Santa Lucia</option>
+									<option value="napoliCentrale">Napoli Centrale</option>
+									<option value="torino">Torino Porta Nuova</option>
 									<option value="genova">Genova</option>
 									<option value="venezia">Venezia</option>
-									<option value="reggio">Reggio Calabria</option>
-									<option value="bologna">Bologna</option>
+									<option value="bologna">Bologna Centrale</option>
 									<option value="trieste">Trieste</option>
-									<option value="campobasso">Campobasso</option>
-									<option value="ladispoli">Ladispoli</option>
+									<option value="ladispoli">Ladispoli-Cerveteri</option>
 								</select>
 								
 							</div>
 							<div class="col-md-6 col-sm-3 mb-4 col-lg-9 input-group-lg">
 								<label for="stazione2" style="font-size: 1.4rem"><strong>Stazione 2</strong></label>
 								<select name="stazione2" id="stazione2" class="form-control" required autofocus>
-									<option value="roma">Roma</option>
-									<option value="milano">Milano</option>
-									<option value="firenze">Firenze</option>
-									<option value="napoli">Napoli</option>
-									<option value="torino">Torino</option>
+									<option value="roma">Roma Termini</option>
+									<option value="romaTiburtina">Roma Tiburtina</option>
+									<option value="milano">Milano Centrale</option>
+									<option value="firenze">Firenze Santa Lucia</option>
+									<option value="napoli">Napoli Centrale</option>
+									<option value="torino">Torino Porta Nuova</option>
 									<option value="genova">Genova</option>
 									<option value="venezia">Venezia</option>
-									<option value="reggio">Reggio Calabria</option>
-									<option value="bologna">Bologna</option>
+									<option value="bologna">Bologna Centrale</option>
 									<option value="trieste">Trieste</option>
-									<option value="campobasso">Campobasso</option>
-									<option value="ladispoli">Ladispoli</option>
+									<option value="ladispoli">Ladispoli-Cerveteri</option>
 								</select>
 						
 
 							</div>
 							<button type="button" class="btn btn-primary btn-lg ml-3 mt-2" id="goToPasso2">Prosegui</button>
+							<button type="button" class="btn btn-primary btn-lg ml-3 mt-2" id="goBackA1">Indietro</button>
 						</div>
 					</div>
 					<div class="hidden" id="formAbb2">
 						<h2>Abbonamento</h2>
 						<div class="mt-5 mb-5" id="passo2">
-							<div class="col-md-6 col-sm-3 col-lg-9 input-group-lg ">
+							<div class="col-md-6 col-sm-3 col-lg-9 input-group-lg">
 								<label for="tipoAbbonamento" style="font-size: 1.4rem"><strong>Tipo Abbonamento</strong></label>
 								<select name="tipoAbbonamento" id="tipoAbbonamento" class="form-control" required>
-									<option value="settimanale">Settimanale(7 giorni)</option>
-									<option value="mensile">Mensile(1 Mese)</option>
-									<option value="stagionale">Stagionale(3 Mesi)</option>
-									<option value="semestrale">Semestrale(6 Mesi)</option>
-									<option value="scolastico">Scolastico(9 Mesi)</option>
-									<option value="annuale">Annuale(12 Mesi)</option>
+									<option value="settimanale">Settimanale (7 giorni)</option>
+									<option value="mensile">Mensile (1 Mese)</option>
+									<option value="stagionale">Stagionale (3 Mesi)</option>
+									<option value="semestrale">Semestrale (6 Mesi)</option>
+									<option value="scolastico">Scolastico (9 Mesi)</option>
+									<option value="annuale">Annuale (12 Mesi)</option>
 								</select>
 							</div>
-							<div class = "col-md-6 col-sm-3 col-lg-9 input-group-lg mb-4">
-								<label for="giornoPartenza" style="font-size: 1.4rem"><strong>Giorno partenza</strong>(il giorno in cui vuoi che il tuo abbonamento entri in vigore)</label>
+							<div class = "col-md-6 col-sm-3 col-lg-9 input-group-lg mb-4 mt-4">
+								<label for="giornoPartenza" ><strong style="font-size: 1.4rem">Giorno d'inizio</strong><br>Il "Giorno d'inizio" è il giorno in cui vuoi che il tuo abbonamento entri in vigore. Qualora tu abbia acquistato un altro abbonamento valido per la stessa tratta con scadenza successiva a quella qui inserita, la data di inizio sarà il giorno seguente alla scadenza naturale del tuo abbonamento. </label>
 								<input name="giornoPartenza" type="date" id="giornoPartenza" class="form-control" required>
 							</div>
-							<input class="btn btn-primary btn-lg ml-3mt-2 " type="submit" id="ricercaAbb" value="Ricerca">
+							<input class="btn btn-primary btn-lg ml-3 mt-2 " type="submit" id="ricercaAbb" value="Acquista abbonamento">
+							<button type="button" class="btn btn-primary btn-lg ml-3 mt-2" id="goBackA2">Indietro</button>
 						</div>
 					</div>
 			 
@@ -375,8 +377,8 @@
 				fasciaOrariaPart: $('#fasciaOrariaRitorno').val()
 				}, 
 				function(risposta) {
-					alert("ops "+risposta);
 					$('#boxRisultatiRitorno').html(risposta);
+					giornoRitorno = $('#dataRitorno').val();
 			});
 			$("#form3").slideUp(1500);
 			$("#risultatiRitorno").slideDown(1500);
@@ -386,7 +388,6 @@
 			if(ritornoSelezionato == -1) {
 				alert("Seleziona un risultato prima di poter proseguire con il checkout");
 			} else {
-				alert("prezzoRitorno: " + prezzoAndata + " -- codViaggio: " + andataSelezionata + " -- partenza: " + partenza + "-- destinazione: " + destinazione + " -- giornoAndata: " + giornoAndata + " -- orarioAndata: " + orarioAndata);
 				$.post("admissionOrder.php", {  
 					prezzoAndataA: prezzoAndata,
 					codViaggioA: andataSelezionata,
@@ -395,14 +396,13 @@
 					giornoAndataA: giornoAndata,
 					orarioAndataA: orarioAndata,
 					operatoreAndataA: operatoreAndata,
-					prezzoRitorno: prezzoRitorno,
+					prezzoRitornoR: prezzoRitorno,
 					codViaggioR: ritornoSelezionato,
 					giornoRitornoR: giornoRitorno,
 					orarioRitornoR: orarioRitorno,
-					operatoreRitornoA: operatoreRitorno
+					operatoreRitornoR: operatoreRitorno
 				}, 
 				function(risposta) {
-					alert(risposta);
 					window.location="shoppingcart.php";
 				});
 			}
@@ -466,15 +466,43 @@
 			}
 			
 		}
-
-
-
+		$("#goBackB1").click(function(){
+			$("#form").fadeOut("fast",function(){
+				$("#selezioneProdotto").fadeIn(1500);
+			});
+		});
+		$("#goBackB2").click(function(){
+			$("#form2").fadeOut("fast",function(){
+				$("#form").fadeIn(100, function() {
+					$("#istruzioni").fadeIn(100, function(){
+					$("#step1").fadeIn(100);
+					});
+				});
+			});
+		});
+		$("#goBackB3").click(function(){
+			$("#risultatiAndata").fadeOut("fast",function(){
+				$("#form2").fadeIn(100);
+			});
+		});
 		
+		$("#goBackB4").click(function(){
+			$("#form3").fadeOut("fast",function(){
+				$("#risultatiAndata").fadeIn(100);
+			});
+		});
+		
+		$("#goBackB5").click(function(){
+			$("#risultatiRitorno").fadeOut("fast",function(){
+				$("#form3").fadeIn(100);
+			});
+		});
+				
 		$("#abbonamento").click(function(){
-			$("#selezioneProdotto").fadeOut("slow",function() { 
-				$("#formAbb").fadeIn(1500,function() {
-					$("#istruzioniAbb").fadeIn(2000,function() {
-						$("#passo1").fadeIn(1500);
+			$("#selezioneProdotto").fadeOut("fast",function() { 
+				$("#formAbb").fadeIn(100,function() {
+					$("#istruzioniAbb").fadeIn(100,function() {
+						$("#passo1").fadeIn(100);
 					});
 				});
 			});
@@ -482,11 +510,24 @@
 		
 		$("#goToPasso2").click(function(){
 			if(document.abbonamento.stazione1.value != document.abbonamento.stazione2.value){
-				$("#formAbb").slideUp(1500);
-				$("#formAbb2").slideDown(1500);
+				$("#formAbb").slideUp(100);
+				$("#formAbb2").slideDown(100);
 			}
 			else {alert("Hai inserito la stessa stazione nei campi 'Stazione 1' e  'Stazione 2' ");}
 		});
+		
+		$("#goBackA1").click(function(){
+			$("#formAbb").fadeOut("fast",function(){
+				$("#selezioneProdotto").fadeIn(100);
+			});
+		});
+		
+		$("#goBackA2").click(function(){
+			$("#formAbb2").fadeOut("fast",function(){
+				$("#formAbb").fadeIn(100);
+			});
+		});
+		
 
 		function confronta_data(data1){
 			data = data1.substr(6)+data1.substr(3,2)+data1.substr(0,2);

@@ -4,20 +4,28 @@
 		// header("location: ../account/signin.html");
 	if($_SESSION['acquistoInCorso'] != 1)
 		// header("location: ../index.php");
-	$codViaggioAndata = $_SESSION['codViaggioAndata'];
-    $partenza = $_SESSION['stPartenza'];
-    $destinazione = $_SESSION['stArrivo'];
-	$prezzoAndata = $_SESSION['prezzoAndata'];
-	$operatoreAndata = $_SESSION['operatoreAndata'];
-	$giornoAndata = explode("-", $_SESSION['giornoAndata']);
-	$giornoAndata = $giornoAndata[2]."/".$giornoAndata[1]."/".$giornoAndata[0];
-	$orarioAndata = $_SESSION['orarioAndata'];
-	$codViaggioRitorno = $_SESSION['codViaggioRitorno'];
+	
+	if(!isset($_POST['tipoAbbonamento'])){
+		$codViaggioAndata = $_SESSION['codViaggioAndata'];
+		$partenza = $_SESSION['stPartenza'];
+		$destinazione = $_SESSION['stArrivo'];
+		$prezzoAndata = $_SESSION['prezzoAndata'];
+		$operatoreAndata = $_SESSION['operatoreAndata'];
+		$giornoAndata = explode("-", $_SESSION['giornoAndata']);
+		$giornoAndata = $giornoAndata[2]."/".$giornoAndata[1]."/".$giornoAndata[0];
+		$orarioAndata = $_SESSION['orarioAndata'];
+		$codViaggioRitorno = $_SESSION['codViaggioRitorno'];
 
-    $prezzoRitorno = $_SESSION['prezzoRitorno'];
-    $operatoreRitorno = $_SESSION['operatoreRitorno'];
-	$giornoRitorno = $_SESSION['giornoRitorno'];
-	$orarioRitorno = $_SESSION['orarioRitorno'];
+		$prezzoRitorno = $_SESSION['prezzoRitorno'];
+		$operatoreRitorno = $_SESSION['operatoreRitorno'];
+		$giornoRitorno = $_SESSION['giornoRitorno'];
+		$orarioRitorno = $_SESSION['orarioRitorno'];
+		
+		$prezzoTotale = $prezzoAndata + $prezzoRitorno;
+	} else {
+		$tipoAbbonamento = $_POST['tipoAbbonamento'];
+		//DA COMPLETARE
+	}
 	
 ?>
 
@@ -29,6 +37,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
 	<link rel="stylesheet" href="../css/shoppingcart.css">
+
+	
+
+
+
 </head>
 <body>
 	 	<section class="shopping-cart dark" id="shopping-cart">
@@ -71,9 +84,22 @@
 							 							<span id="prezzo"><?php echo($prezzoAndata); ?></span>€
 							 						</div>
 							 					</div>
-												<?php if($codViaggioRitorno != "")
-													echo('
+										
+							 				</div>
+					 					</div>
+					 				</div>
 
+
+
+									 <?php if($codViaggioRitorno != ""){
+									 echo('
+										<hr class="mt-5" size="1" width="70%" align="center" color="#5ea4f3" noshade>
+									 <div class="row">
+					 					<div class="col-md-3">
+					 						<img class="img-fluid mx-auto d-block image" src="https://cdn3.iconfinder.com/data/icons/travelling-icon-set-ii-part/800/ticket-128.png">
+					 					</div>
+					 					<div class="col-md-8">
+					 						<div class="info">
 														<div class="row">
 															<div class="col-md-5 product-name">
 																<div class="product-name">
@@ -90,30 +116,32 @@
 																</div>
 															</div>
 															<div class="col-md-4 quantity">
-																<b><label for="quantity">Quantit&agrave;:</label></b>
-																<input id="quantity" type="number" value ="1" class="form-control quantity-input" min="1" max="5">
+																<b><label for="quantityR">Quantit&agrave;:</label></b>
+																<input id="quantityR" type="number" value ="1" class="form-control quantity-input" min="1" max="5">
 															</div>
 															<div class="col-md-3 price">
-																<span id="prezzo">'.$prezzoRitorno.'</span>€
+																<span id="prezzoR">'.$prezzoRitorno.'</span>€
 															</div>
 														</div>
 
 							
-													');
-												?>
 							 				</div>
 					 					</div>
 					 				</div>
+									 ');
+									 } ?>
+
+
 				 				</div>
 				 			</div>
 			 			</div>
 			 			<div class="col-md-12 col-lg-4">
 			 				<div class="summary">
 			 					<!-- <h3>Summary</h3> -->
-			 					<!-- <div class="summary-item"><span class="text">Subtotal</span><span class="price">$360</span></div>
-			 					<div class="summary-item"><span class="text">Discount</span><span class="price">$0</span></div>
-			 					<div class="summary-item"><span class="text">Shipping</span><span class="price">$0</span></div> -->
-			 					<div class="summary-item"><span class="text">Totale</span><span class="price" id="totale"><?php echo($prezzo."€"); ?></span></div>
+			 					<div class="summary-item"><span class="text">Totale iva esclusa</span><span class="price">$360</span></div>
+			 					<div class="summary-item"><span class="text">Iva</span><span class="price">$0</span></div>
+			 					<div class="summary-item"><span class="text">Sconto</span><span class="price">0€</span></div>
+			 					<div class="summary-item"><span class="text" style="font-size: 1.3rem">Totale</span><span class="price" id="totale" style="font-size: 1.6rem"><b><?php echo($prezzoTotale."€"); ?></b></span></div>
 			 					<button type="button" class="btn btn-primary btn-lg btn-block">Checkout</button>
 				 			</div>
 			 			</div>
@@ -121,21 +149,60 @@
 		 		</div>
 			 </div>
 		</section>
-</body>
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
-<script>
-	function myFunction() {
-    var x = document.getElementById("quantity");
-	var prezzo = document.getElementById("prezzo").val; 
-	x.addEventListener("input", function(e) {
-    	var valore = x.value;
-		var tot = valore * prezzo;
-		alert("OPS" + tot);
-		document.getElementById("totale").innerHTML = to;
-	}, false);
-</script>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+
+	<!-- DOM -->
+	<script>
+		function myFunction() {
+			
+			var qA = document.getElementById("quantity");
+			var prezzoA = document.getElementById("prezzo").innerHTML; 
+			var totaleA = parseFloat(prezzoA);
+			var qR = document.getElementById("quantityR");
+			var prezzoR = document.getElementById("prezzoR");
+			var totaleR = 0
+			if(prezzoR != undefined) {
+				prezzoR = prezzoR.innerHTML;
+				totaleR = parseFloat(prezzoR);
+			}
+			var totale = totaleA+totaleR;
+
+			qA.addEventListener("input", function(e) {
+				var valore = parseInt(qA.value);
+				if(valore > 5) {
+					alert("Non puoi acquistare contemporaneamente più di 5 biglietti dello stesso tipo in un unico acquisto");
+				}else if (valore < 1) {
+					alert("Per procedere con un acquisto devi acquistare almeno un biglietto. Se non vuoi acquistare questi titoli di viaggio, annulla l'acquisto.");	
+				} else {
+					totaleA = valore * prezzoA;
+					totale = totaleR + totaleA;
+					document.getElementById("totale").innerHTML = "<b>" + totale + "€ </b>";
+				}
+			}, false);
+
+			if(prezzoR != undefined){
+				qR.addEventListener("input", function(e) {
+					var valore = parseInt(qR.value);
+					if(valore > 5) {
+						alert("Non puoi acquistare contemporaneamente più di 5 biglietti dello stesso tipo in un unico acquisto");
+					}else if (valore < 1) {
+						alert("Per procedere con un acquisto devi acquistare almeno un biglietto. Se non vuoi acquistare questi titoli di viaggio, annulla l'acquisto.");
+					} else {
+						totaleR = valore * prezzoR;
+						totale = totaleR + totaleA;
+						document.getElementById("totale").innerHTML = "<b>" + totale + "€ </b>";
+					}
+				}, false);
+			}
+			
+		}
+		myFunction();
+	</script>
+								
+
 
 </body>
 </html>

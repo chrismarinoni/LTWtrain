@@ -23,7 +23,19 @@
 	</head>
 	<body id="body">
 	<?php getHeader(); ?>
-		
+	
+	<div class="container">
+		<div class="mt-4">
+			<h3>Il tuo abbonamento in breve</h3>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+			
+			</div>
+		</div>
+
+	</div>
+
 	<?php getFooter(); ?>
 	</body>
 </html>
