@@ -170,7 +170,7 @@
         <h1 class="jumbotron-heading">Abbonamenti</h1>
         <p class="lead text-muted">Acquista il tuo abbonamento online e risparmi il 15%. Puoi gestirlo nella tua area personale e rinnovarlo quando vuoi.</p>
         <p>
-          <a href="#" class="btn btn-primary my-2">Acquista abbonamento</a>
+          <a href="order/biglietteria.php" class="btn btn-primary my-2">Acquista abbonamento</a>
 
         </p>
       </div>

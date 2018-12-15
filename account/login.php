@@ -12,8 +12,7 @@
   $connection = $mysqlDb->connetti();
 
   // effettuo la query per verificare la correttezza del login
-  $result = mysql_query("SELECT * FROM utente WHERE email = '" . mysql_real_escape_string($email) . "'", $connection);
-  
+  $result = mysql_query("SELECT * FROM utente WHERE email = '" . mysql_real_escape_string($email) . "'") or die("Errore nella query");
   // verifico che ci siano dei risltati...
   if (mysql_num_rows($result) > 0)
   {

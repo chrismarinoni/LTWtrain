@@ -30,13 +30,13 @@ PROSSIME COSE DA IMPLEMENTARE
 
 - Sistemare valori "prezzo iva escluso", "Iva" e "sconto" in 'shoppingcart.php' (RISOLTO)
 
-- Implementare gli abbonamenti in b'iglietteria.php' e 'shoppingcart.php' (IMPORTANTE)
+- Implementare gli abbonamenti in biglietteria.php' e 'shoppingcart.php' (IMPORTANTE)
 
 - Ultimare traduzione in italiano dei contenuti della pagina 'checkout.php'
 
 - Introdurre il pulsante "Annulla" in 'checkout.php' e 'shoppingcart.php' con deallocamento variabili sessione incluso
 
-- risolvere frammentazione checkout in checkout.php e checkout2.php
+- risolvere frammentazione checkout in checkout.php e checkout2.php (RISOLTO)
 
 - Verificare correttezza generale del codice. Ridenominare i file per uniformarli (o in inglese o in italiano). Ridurre il numero di pagine php
 
@@ -57,4 +57,10 @@ TIMELINE FUNZIONALITA'
 
 --> 25/11/2018: pagina About Us (Yuri), ottimizzazione codice homepage (Chris) con possibile soluzione ad autocomplete (fatto).
 
---> 14/12/2018 Realizzazione pagina "Biglietteria" con funzioni avanzate di ricerca.
+--> 14/12/2018: Realizzazione pagina "Biglietteria" con funzioni avanzate di ricerca. (fatto)
+
+--> 15/12/2018: Soluzione di bug. Ultimazione pagine. Sviluppo aree aggiuntive
+
+--> 16/12/2018: Soluzione di bug. Ultimazione pagine. Sviluppo aree aggiuntive
+
+--> 17/12/2018: Piccoli ritocchi

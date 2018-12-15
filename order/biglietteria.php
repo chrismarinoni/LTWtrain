@@ -351,7 +351,6 @@
 					operatoreAndataA: operatoreAndata
 				}, 
 				function(risposta) {
-					alert(risposta);
 					window.location="shoppingcart.php";
 				});
 			}

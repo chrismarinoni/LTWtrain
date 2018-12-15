@@ -119,7 +119,7 @@
       // passo i dati (via POST) al file PHP che effettua le verifiche 
         $.post("login.php", { email: $('#email').val(), password: $('#password').val(), rand: Math.random() }, function(risposta) {
           // se i dati sono corretti...
-          if (risposta == "account/dashboard.php" || risposta == "order/checkout.php") {
+          if (risposta == "account/dashboard.php" || risposta == "order/shoppingcart.php") {
             alert("Login effettuato");
             document.location= "http://www.ltwtrain.altervista.org/" + risposta;
           // se, invece, i dati non sono corretti...

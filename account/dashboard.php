@@ -64,33 +64,39 @@
         } else {
           $mysqlDb = new MysqlFunctions;
           $connection = $mysqlDb->connetti();
-          $query = "SELECT * FROM biglietto aS b INNER JOIN viaggio AS v ON b.codViaggio = v.codViaggio WHERE idUtente = '" .$idUtente. "'";
+          $query = "SELECT * FROM `biglietto` AS b INNER JOIN `viaggio` AS v ON b.codViaggio = v.codViaggio WHERE b.idUtente = '" .$idUtente. "'";
           $result = mysql_query($query, $connection) or die("Errore. Impossibile effettuare l'aquisto");
           for($i = 0; $i < mysql_num_rows($result); $i++) {
             $partenza = mysql_result($result,$i,"nomeStazionePart");
             $destinazione = mysql_result($result,$i,"nomeStazioneArr");
             $prezzo =  mysql_result($result,$i,"prezzo");
+            $dataViaggio =  mysql_result($result,$i,"dataViaggio");
+            $dataViaggio= explode("-", $dataViaggio);
+            $dataViaggio = $dataViaggio[2]."/".$dataViaggio[1]."/".$dataViaggio[0];
+
             echo(
               "
-              <div class='card bg-light mt-4' id='card".$i."'>
-            <div class='row mb-4 mt-4'>
-              <div class='col-md-2 text-center mt-1 mb-1'>
-                <span>".$partenza."</span>
-              </div>
-              <hr>
-              <div class='col-md-1 mt-1 mb-1 result-box'>
-                  <img src='https://cdn2.iconfinder.com/data/icons/harry-potter-colour-collection/60/28_-_Harry_Potter_-_Colour_-_Hogwarts_Express-512.png'  width='30px' height='30px' alt='' class='result-element'>
-              </div>
-              <div class='col-md-2 text-center mt-1 mb-1'>
-                <span>".$destinazione."
-              </div>
-              <div class='col-md-2 text-center mt-1 mb-1 result-box'>
-                <span>da<strong style='font-size:1.5rem;'><span id='prezzo".$i."'>".$prezzo."</span>€</strong></span></div>
-                <div class='col-md-1 text-center mt-1 mb-1 result-box'>
-                  <a data-toggle='collapse' href='#collapseResult".$i."' role='button' aria-expanded='false' aria-controls='collapseResult".$i."' >
-                  <img class='clickable' id='arrow-down' src='https://static.thenounproject.com/png/551749-200.png' alt='' width='25px' height='21px'>
-				          </a>
-                </div>
+              <div class='col-md-8 card bg-light mt-4' id='card".$i."'>
+                <div class='row mb-4 mt-4'>
+                  <div class='col-md-2 text-center mt-1 mb-1 result-box'>
+                  <b>".$dataViaggio."</b>
+                  </div>
+                  <div class='col-md-3 text-center mt-1 mb-1 result-box'>
+                    ".$partenza."
+                  </div>
+                  <hr>
+                  <div class='col-md-1 mt-1 mb-1 result-box'>
+                      <img src='https://cdn2.iconfinder.com/data/icons/harry-potter-colour-collection/60/28_-_Harry_Potter_-_Colour_-_Hogwarts_Express-512.png'  width='30px' height='30px' alt='' class='result-element'>
+                  </div>
+                  <div class='col-md-3 text-center mt-1 mb-1 result-box'>
+                    ".$destinazione."
+                  </div>
+                  <div class='col-md-1 text-center mt-1 mb-1 result-box'>
+                    <span id='prezzo".$i."'>".$prezzo."€</span>
+                  </div>
+                  <div class='col-md-2 text-center mt-1 mb-1 result-box'>
+                    <a href=''><strong style='font-size:1.1rem;'><span id='prezzo".$i."'>Download</span></strong></a>
+                  </div>     
               </div>
             </div>
               "

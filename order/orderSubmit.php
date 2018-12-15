@@ -1,6 +1,6 @@
 <?php
     session_start();
-    if(isset($_POST['procediConOrdine'])){
+    if($_POST['procediConOrdine']!= ""){
         include "../funzioni.php";
         $idUtente = $_SESSION['idUtente'];
         $codViaggioAndata = $_SESSION['codViaggioAndata'];
@@ -11,18 +11,26 @@
         $qR = $_SESSION['quantitaRitorno'];
         $stPart = $_SESSION['stPartenza'];
         $stArr = $_SESSION['stArrivo'];
-        $query = "INSERT INTO `biglietto`(`idUtente`, `codViaggio`, `classeServizio`, `prezzo`, `nomeStazionePart`, `nomeStazioneArr`) VALUES";
+        $query = "INSERT INTO `biglietto` (`idUtente`, `codViaggio`, `classeServizio`, `prezzo`, `nomeStazionePart`, `nomeStazioneArr`) VALUES ";
         for($i = 0; $i < $qA; $i++){
-            $query .= "('".$idUtente."','".$codViaggioAndata."','standard','".$prezzoAndata."','".$stPart."','".$stArr."')";
+            if($i == $qA-1){
+                $query .= "('".$idUtente."','".$codViaggioAndata."','standard','".$prezzoAndata."','".$stPart."','".$stArr."')";
+            }
+            else $query .= "('".$idUtente."','".$codViaggioAndata."','standard','".$prezzoAndata."','".$stPart."','".$stArr."'),";
         }
-        for($i = 0; $i < $qB; $i++){
-            $query .= "('".$idUtente."','".$codViaggioRitorno."','standard','".$prezzoRitorno."','".$stArr."','".$stPart."')";
+        if($qR == 0) $query .= (";"); 
+        for($i = 0; $i < $qR; $i++){
+            if($i == $qR-1){
+                $query .= "('".$idUtente."','".$codViaggioRitorno."','standard','".$prezzoRitorno."','".$stArr."','".$stPart."');";
+            } else if($i == 0){
+                $query .= ",('".$idUtente."','".$codViaggioRitorno."','standard','".$prezzoRitorno."','".$stArr."','".$stPart."'),";
+            } else $query .= "('".$idUtente."','".$codViaggioRitorno."','standard','".$prezzoRitorno."','".$stArr."','".$stPart."'),";
         }
         $mysqlDb = new MysqlFunctions;
         $connection = $mysqlDb->connetti();
-        echo($qA."--".$qR."--".$query);
+        // echo($query);
         $result = mysql_query($query, $connection) or die("Errore. Impossibile effettuare l'aquisto");
-        $_SESSION['numBigliettiAcquistati'] = $_SESSION['numBIgliettiAcquistati'] + $qA + $qR;
+        $_SESSION['numBigliettiAcquistati'] = $_SESSION['numBigliettiAcquistati'] + $qA + $qR;
         unset($_SESSION['codViaggioAndata']);
         unset($_SESSION['codViaggioRitorno']);
         unset($_SESSION['prezzoAndata']);

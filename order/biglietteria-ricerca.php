@@ -68,6 +68,7 @@
             $operatore = mysql_result($result, $i, "operatore");
             $dettagliConfort= explode("&&", mysql_result($result, $i, "dettagliTreno"));
             $giornoDopo = mysql_result($result, $i, "giornoDopo");
+            $codViaggio = mysql_result($result, $i, "codViaggio");
             if($giornoDopo == 1) $giornoDopo = "+1";
             else $giornoDopo = "";
             $confort = "";
@@ -80,10 +81,10 @@
             $postiDisponibili = $postiTotStandard - $postiOccupatiStandard;
 
 
-            $risposta .= "<div class='card bg-light mt-4' id='card".$codCollegamento."'>
+            $risposta .= "<div class='card bg-light mt-4' id='card".$codViaggio."'>
             <div class='row mb-4 mt-4'>
               <div class='col-md-2 text-center mt-1 mb-1'>
-                <span>".$partenza."</span></br>"."<strong style='font-size: 1.2rem;' id='orarioPart".$codCollegamento."'>".$orarioPart."</strong>
+                <span>".$partenza."</span></br>"."<strong style='font-size: 1.2rem;' id='orarioPart".$codViaggio."'>".$orarioPart."</strong>
               </div>
               <hr>
               <div class='col-md-1 mt-1 mb-1 result-box'>
@@ -98,20 +99,20 @@
               </div>
               <div class='col-md-2 text-center mt-1 mb-1 result-box'>".$tipoTreno."</div>
               <div class='col-md-2 text-center mt-1 mb-1 result-box'>
-                <span>da<strong style='font-size:1.5rem;'><span id='prezzo".$codCollegamento."'>".$prezzo."</span>€</strong></span></div>
+                <span>da<strong style='font-size:1.5rem;'><span id='prezzo".$codViaggio."'>".$prezzo."</span>€</strong></span></div>
                 <div class='col-md-1 text-center mt-1 mb-1 result-box'>
-                  <a data-toggle='collapse' href='#collapseResult".$codCollegamento."' role='button' aria-expanded='false' aria-controls='collapseResult".$i."' >
+                  <a data-toggle='collapse' href='#collapseResult".$codViaggio."' role='button' aria-expanded='false' aria-controls='collapseResult".$codViaggio."' >
                   <img class='clickable' id='arrow-down' src='https://static.thenounproject.com/png/551749-200.png' alt='' width='25px' height='21px'>
 				          </a>
                 </div>
               </div>
             </div>
-            <div class='collapse' id='collapseResult".$codCollegamento."'>
+            <div class='collapse' id='collapseResult".$codViaggio."'>
 
-              <div class='card card-body' id='cardCollapse".$codCollegamento."'>
+              <div class='card card-body' id='cardCollapse".$codViaggio."'>
                   <div class='row'>
                     <div class='col-md-5'>
-                      <p>Operatore: <strong id='operatore".$codCollegamento."'>".$operatore."</strong></p>
+                      <p>Operatore: <strong id='operatore".$codViaggio."'>".$operatore."</strong></p>
                       <p>Confort: <ul>".$confort."
                                   </ul></p>
                     </div>
@@ -122,7 +123,7 @@
                       <p>Posti disponibili: <strong>".$postiDisponibili."</strong></p>
                     </div>
                     <div class='col-md-2'>
-                    <button type='button' id='".$codCollegamento."'class='btn btn-primary' onClick='selected_button(this)'>Seleziona treno</button>
+                    <button type='button' id='".$codViaggio."'class='btn btn-primary' onClick='selected_button(this)'>Seleziona treno</button>
                     </div>
                   </div>
               </div>

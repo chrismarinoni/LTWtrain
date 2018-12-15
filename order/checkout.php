@@ -6,7 +6,8 @@
   if($_SESSION['codViaggioAndata'] == "")
     header("location: ../index.php");
   $qA = $_SESSION['quantitaA'];
-  $qB = $_SESSION['quantitaR'];
+  $qR = $_SESSION['quantitaR'];
+  echo($qA. " ". $qR);
 ?>
 
 <!doctype html>
@@ -258,8 +259,7 @@
                 	procediConOrdine : 1
                 }, 
                 function(risposta) {
-                  alert(risposta);
-                	// window.location="../account/dashboard.php";
+                	window.location="../account/dashboard.php";
                 });
               }
               form.classList.add('was-validated');

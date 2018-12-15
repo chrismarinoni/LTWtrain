@@ -49,6 +49,8 @@
         }else{
           alert(risposta);
         }
+        return false;
        });
-      return false;
+       
+       
     }
