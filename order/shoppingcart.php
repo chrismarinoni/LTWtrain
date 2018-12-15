@@ -5,28 +5,25 @@
 	if($_SESSION['acquistoInCorso'] != 1)
 		// header("location: ../index.php");
 	
-	if(!isset($_POST['tipoAbbonamento'])){
-		$codViaggioAndata = $_SESSION['codViaggioAndata'];
-		$partenza = $_SESSION['stPartenza'];
-		$destinazione = $_SESSION['stArrivo'];
-		$prezzoAndata = $_SESSION['prezzoAndata'];
-		$operatoreAndata = $_SESSION['operatoreAndata'];
-		$giornoAndata = explode("-", $_SESSION['giornoAndata']);
-		$giornoAndata = $giornoAndata[2]."/".$giornoAndata[1]."/".$giornoAndata[0];
-		$orarioAndata = $_SESSION['orarioAndata'];
-		$codViaggioRitorno = $_SESSION['codViaggioRitorno'];
+	$codViaggioAndata = $_SESSION['codViaggioAndata'];
+    $partenza = $_SESSION['stPartenza'];
+    $destinazione = $_SESSION['stArrivo'];
+	$prezzoAndata = $_SESSION['prezzoAndata'];
+	$operatoreAndata = $_SESSION['operatoreAndata'];
+	$giornoAndata = explode("-", $_SESSION['giornoAndata']);
+	$giornoAndata = $giornoAndata[2]."/".$giornoAndata[1]."/".$giornoAndata[0];
+	$orarioAndata = $_SESSION['orarioAndata'];
+	$codViaggioRitorno = $_SESSION['codViaggioRitorno'];
 
-		$prezzoRitorno = $_SESSION['prezzoRitorno'];
-		$operatoreRitorno = $_SESSION['operatoreRitorno'];
-		$giornoRitorno = $_SESSION['giornoRitorno'];
-		$orarioRitorno = $_SESSION['orarioRitorno'];
-		
-		$prezzoTotale = $prezzoAndata + $prezzoRitorno;
-	} else {
-		$tipoAbbonamento = $_POST['tipoAbbonamento'];
-		//DA COMPLETARE
-	}
+    $prezzoRitorno = $_SESSION['prezzoRitorno'];
+    $operatoreRitorno = $_SESSION['operatoreRitorno'];
+	$giornoRitorno = explode("-", $_SESSION['giornoRitorno']);
+	$giornoRitorno = $giornoRitorno[2]."/".$giornoRitorno[1]."/".$giornoRitorno[0];
+	$orarioRitorno = $_SESSION['orarioRitorno'];
 	
+	$prezzoTotale = $prezzoAndata + $prezzoRitorno;
+	$prezzoIvaEscl = round(($prezzoTotale/122)*100, 2);
+	$iva = $prezzoTotale - $prezzoIvaEscl;
 ?>
 
 <!DOCTYPE html>
@@ -138,9 +135,9 @@
 			 			<div class="col-md-12 col-lg-4">
 			 				<div class="summary">
 			 					<!-- <h3>Summary</h3> -->
-			 					<div class="summary-item"><span class="text">Totale iva esclusa</span><span class="price">$360</span></div>
-			 					<div class="summary-item"><span class="text">Iva</span><span class="price">$0</span></div>
-			 					<div class="summary-item"><span class="text">Sconto</span><span class="price">0€</span></div>
+			 					<div class="summary-item"><span class="text">Totale iva esclusa</span><span class="price" id="totIvaEscl"><?php echo($prezzoIvaEscl."€"); ?></span></div>
+			 					<div class="summary-item"><span class="text">Iva</span><span class="price" id="iva"><?php echo($iva."€"); ?></span></div>
+			 					<div class="summary-item"><span class="text">Sconto</span><span class="price" id="sconto">-</span></div>
 			 					<div class="summary-item"><span class="text" style="font-size: 1.3rem">Totale</span><span class="price" id="totale" style="font-size: 1.6rem"><b><?php echo($prezzoTotale."€"); ?></b></span></div>
 			 					<button type="button" class="btn btn-primary btn-lg btn-block">Checkout</button>
 				 			</div>
@@ -163,7 +160,10 @@
 			var totaleA = parseFloat(prezzoA);
 			var qR = document.getElementById("quantityR");
 			var prezzoR = document.getElementById("prezzoR");
-			var totaleR = 0
+			var totaleR = 0;
+			var totIvaEscl = 0;
+			var iva = 0;
+
 			if(prezzoR != undefined) {
 				prezzoR = prezzoR.innerHTML;
 				totaleR = parseFloat(prezzoR);
@@ -179,7 +179,12 @@
 				} else {
 					totaleA = valore * prezzoA;
 					totale = totaleR + totaleA;
+					totIvaEscl = ((totale/122)*100).toFixed(2);
+					iva = (totale - totIvaEscl).toFixed(2);
 					document.getElementById("totale").innerHTML = "<b>" + totale + "€ </b>";
+					document.getElementById("totIvaEscl").innerHTML = totIvaEscl + "€"
+					document.getElementById("iva").innerHTML = iva + "€"
+
 				}
 			}, false);
 
@@ -193,7 +198,11 @@
 					} else {
 						totaleR = valore * prezzoR;
 						totale = totaleR + totaleA;
+						totIvaEscl = ((totale/122)*100).toFixed(2);
+						iva = (totale - totIvaEscl).toFixed(2);
 						document.getElementById("totale").innerHTML = "<b>" + totale + "€ </b>";
+						document.getElementById("totIvaEscl").innerHTML = totIvaEscl + "€"
+						document.getElementById("iva").innerHTML = iva + "€"
 					}
 				}, false);
 			}

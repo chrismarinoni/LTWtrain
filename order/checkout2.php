@@ -1,9 +1,9 @@
 <?php
   session_start();
   if($_SESSION['idUtente'] == "")
-    header("location: ../account/signin.html");
+    // header("location: ../account/signin.html");
   if($_SESSION['codViaggio'] == "")
-    header("location: ../index.php");
+    // header("location: ../index.php");
   $codViaggio = $_SESSION['codViaggio'];
   $stPartenza = $_SESSION['stPartenza'];
   $stArrivo = $_SESSION['stArrivo'];

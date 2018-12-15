@@ -53,7 +53,7 @@
 				</div>
 			</div>
 		</div>
-
+			<form name="ricerca">
 					<div class="hidden" id="form">
 						<h2 id="iniziamo">
 							Iniziamo.
@@ -178,7 +178,7 @@
 						<button type="button" class="btn btn-secondary btn-lg mt-4 mb-4" id="goBackB5">Indietro</button>
 					</div>
              
-              
+              </form>
 			 
 			 <form name="abbonamento" action="shoppingcart.php" method="post">
 					<div class="hidden" id="formAbb">
