@@ -12,7 +12,6 @@
     $orarioAndata = "";
     $operatoreAndata = "";
 
-    echo("Avvio admissionOrder.php -- ");
 
     if(isset($_POST["codViaggioA"])){
         $codViaggioAndata = $_POST["codViaggioA"];
@@ -33,13 +32,12 @@
         $codViaggioAndata = $_GET["codViaggio"];
         $partenza = $_GET["partenza"];
         $destinazione = $_GET["destinazione"];
-        $prezzoAndata = $_GET["prezzoAndata"];
+        $prezzoAndata = $_GET["prezzo"];
         $operatoreAndata = $_GET["operatore"];
-        $giornoAndata = $_GET["giornoAndata"];
-        $orarioAndata = $_GET["orarioAndata"];
+        $giornoAndata = $_GET["giorno"];
+        $orarioAndata = $_GET["orario"];
     }
     
-    echo("Ho settato le variabili -- ");
     
     $_SESSION['acquistoInCorso'] = 1;
     $_SESSION['codViaggioAndata'] = $codViaggioAndata;
@@ -50,12 +48,13 @@
     $_SESSION['giornoAndata'] = $giornoAndata;
     $_SESSION['orarioAndata'] = $orarioAndata;
 
-    $_SESSION['codViaggioRitorno'] = $codViaggioRitorno;
-    $_SESSION['prezzoRitorno'] = $prezzoRitorno;
-    $_SESSION['operatoreRitorno'] = $operatoreRitorno;
-    $_SESSION['giornoRitorno'] = $giornoRitorno;
-    $_SESSION['orarioRitorno'] = $orarioRitorno;
-
-    echo("Tutto ok");
-    // header("location: shoppingcart.php");
+    if(isset($_POST["codViaggioA"])){
+        $_SESSION['codViaggioRitorno'] = $codViaggioRitorno;
+        $_SESSION['prezzoRitorno'] = $prezzoRitorno;
+        $_SESSION['operatoreRitorno'] = $operatoreRitorno;
+        $_SESSION['giornoRitorno'] = $giornoRitorno;
+        $_SESSION['orarioRitorno'] = $orarioRitorno;
+    } else {
+        header("location: shoppingcart.php");
+    } 
 ?>

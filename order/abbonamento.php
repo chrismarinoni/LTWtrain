@@ -49,6 +49,30 @@
 	else 
 				$stazione2= "Ladispoli";
 	$tipoAbbonamento=$_POST['tipoAbbonamento'];
+	if($tipoAbbonamento=="settimanale"){
+		$tipoAbbonamento="Settimanale";
+		$prezzo="50 €";
+	}
+	else if($tipoAbbonamento=="mensile"){
+		$tipoAbbonamento="Mensile";
+		$prezzo="100 €";
+	}
+	else if($tipoAbbonamento=="stagionale"){
+		$tipoAbbonamento="Stagionale";
+		$prezzo="150 €";
+	}
+	else if($tipoAbbonamento=="semestrale"){
+		$tipoAbbonamento="Semestrale";
+		$prezzo="200 €";
+	}
+	else if($tipoAbbonamento=="scolastico"){
+		$tipoAbbonamento="Scolastico";
+		$prezzo="250 €";
+	}
+	else {
+		$tipoAbbonamento="Annuale";
+		$prezzo="300 €";
+	}
 	$giornoPartenza=$_POST['giornoPartenza'];
 ?>
 <!DOCTYPE html>
@@ -77,7 +101,37 @@
 					<h5>Stazione 1</h5>
 					<?php echo($stazione1) ?>
 				</div>
+				<div class= "col-sm-3 col-md-6 col-6">
+					<h5>Stazione 2</h5>
+					<?php echo($stazione2) ?>
+				</div>
 			</div> 
+			<hr width="5%" color="white">
+			<div class="row">
+				<div class="col-sm-3 col-md-6 col-6">
+					<h5>Data inizio abbonamento</h5>
+					<?php echo($giornoPartenza) ?>
+				</div>
+				<div class="col-sm-3 col-md-6 col-6">
+					<h5>Data scadenza abbonamento</h5>
+					<?php echo($giornoPartenza) ?>
+				</div>
+				
+			</div>
+			<hr width="5%" color="white">
+			<div class="row">
+				<div class="col-sm-3 col-md-6 col-6">
+					<h5>Tipo abbonamento</h5>
+					<?php echo($tipoAbbonamento) ?>
+				</div>
+				<div class="col-sm-3 col-md-6 col-6">
+					<h5>Costo</h5>
+					<?php echo($prezzo) ?>
+				</div>
+				
+			</div>
+			<hr width="5%" color="white">
+			<button type="button" class="btn btn-primary btn-lg ml-3 mt-2" id="stampaPdf">Stampa abbonamento</button>
 		</div>
 	</div>
 		

@@ -184,38 +184,29 @@
             <ul>
               <li>Roma</li>
               <li>Milano</li>
-            </ul>
-          </div>
-          <div class="col-md-4 col-6">
-            <ul>
               <li>Torino</li>
               <li>Genova</li>
             </ul>
           </div>
+
           <div class="col-md-4 col-6">
             <ul>
               <li>Bologna</li>
               <li>Trieste</li>
-            </ul>
-          </div>
-          <div class="col-md-4 col-6">
-            <ul>
               <li>Firenze</li>
               <li>Napoli</li>
             </ul>
           </div>
+
           <div class="col-md-4 col-6">
             <ul>
               <li>Venezia</li>
               <li>Reggio Calabria</li>
-            </ul>
-          </div>
-          <div class="col-md-4 col-6">
-            <ul>
               <li>Campobasso</li>
               <li>Ladispoli</li>
             </ul>
           </div>
+        
         </div>
       </div>
     </div>

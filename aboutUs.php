@@ -21,10 +21,10 @@
 		<!-- Custom styles for this template -->
 		<link href="css/style.css" rel="stylesheet">
 		<style>
-			a#cambio1{background: url(images/trainguy.jpg); width:155px ; height :155px; display:block;}
-			a:hover#cambio1{background: url(images/oldmn.jpeg);}
-			a#cambio2{background: url(images/sonic.jpg); width:155px ; height :155px; display:block;}
-			a:hover#cambio2{background: url(images/glasses.jpeg);}
+			div#cambio1{background: url(images/trainguy.jpg); width:155px ; height :155px; display:block;}
+			div:hover#cambio1{background: url(images/oldmn.jpeg);}
+			div#cambio2{background: url(images/sonic.jpg); width:155px ; height :155px; display:block;}
+			div:hover#cambio2{background: url(images/glasses.jpeg);}
 		</style>
 
 	</head>
@@ -34,31 +34,39 @@
 		<div class="p-3 p-md-5 text-black bg-splash" id="container">
 			<div class="container" >
 				<div class="row">
-					<h1 class="display-1">Chi siamo</h1>
-					<p class="lead my-3"> fcvfubyiuoupnmp nioubyivtucrycytvuybn bfvcrdyvubinuhughvbwonngve  qhfojèqmmi4jpqnh4pnfg8q 8quufmjqv0jqij0jqnpgqv8 08qiv0u4mtiqjmmpj3 i0qjfmoqj348fmqo</p>
+					<h2 class="display-3">Chi siamo</h2>
+					<p class="lead my-3">Il lavoro qui presente &egrave; stato realizzato da due studenti dell'universit&agrave; "Sapienza" di Roma come progetto per il corso di Linguaggi e Tecnologie per il web:</p>
 				</div>
-				<div class="row">
+				<div class="row mt-3">
 					<div class="col-4 col-md-4">
-					    <a href="" id="cambio1"></a>
-						<p>sdfgfhgjkhjlòkjhgfdhgjlkòjhgfdjkhjlòlkhgjfdgjhk</p>
+					    <div id="cambio1"></div>
+						<p style="font-size: 1.3rem">Christian Marinoni</p>
 					</div>
 					<div class="col-4 col-md-4">
-						<a href="" id="cambio2"></a>
-						<p>rtdcyguihjokplopjnhibguvfycdtxsrrdctfyguhig tfcrdsxzexcdfxgchjkldetfryguhiklopuhytfrdefhyioklopkihyut</p>
+						<div id="cambio2"></div>
+						<p style="font-size: 1.3rem">Yuri Munno</p>
 					</div>
 					<div class="col-4">
 						<h4> Contatti: </h4>
 						<ul class="list-unstyled">
 							<li>email1:</li>
-							<li>utgtuyviybn@utib8n.com</li>
+							<li>marinoni.1745754@studenti.uniroma1.it</li>
 							
 							<li>email2:</li>
-							<li>rdytvubynu@rtvybu.com</li>
+							<li>munno.1744303@studenti.uniroma1.it</li>
 							
 						
 						</ul>
 					</div>
-				
+				</div>
+				<div class="row">
+					<h2 class="display-5 mt-5">Perch&eacute; un sito di "treni"</h2>
+					<p class="lead my-3">Spendiamo ogni giorno circa 2 ore in treno per percorrere i 50 chilometri che separano la citt&agrave; in cui risiediamo (Ladispoli) alla sede universitaria. Realizzare un sito per l'acquisto di biglietti del treno ci &egrave; sembrata subito la scelta migliore.</p>
+				</div>
+				<div class="row">
+					<h2 class="display-5 mt-5">Repository e linguaggi utilizzati</h2>
+					<p class="lead my-3">Per realizzare il progetto sono stati utilizzati i seguenti linguaggi e librerie: HTML, PHP, js, AJAX, jQuery, Bootstrap, MySql, Python* (*per produrre le query per popolare il database)</p>
+					<p class="lead my-3">&Egrave; disponibile una <a href="https://github.com/chrismarinoni/LTWtrain">repository su GitHub</a> contenete tutto il codice del progetto.</p>
 				</div>
 			</div>
 

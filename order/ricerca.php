@@ -93,7 +93,7 @@
                <strong style='font-size: 1.2rem;'>".$orarioArrivo."<i> ".$giornoDopo."</i></strong></span>
               </div>
               <div class='col-md-2 text-center mt-1 mb-1 result-box'>
-                Durata <strong>".$durataViaggio."</strong>
+                Durata <strong>".$durataViaggio."'</strong>
               </div>
               <div class='col-md-2 text-center mt-1 mb-1 result-box'>".$tipoTreno."</div>
               <div class='col-md-2 text-center mt-1 mb-1 result-box'>
@@ -121,7 +121,7 @@
                       <p>Posti disponibili: <strong>".$postiDisponibili."</strong></p>
                     </div>
                     <div class='col-md-2'>
-                    <a href='admissionOrder.php?codViaggio=".$codTreno."&partenza=".$partenza."&destinazione=".$destinazione."&operatore=".$operatore."&prezzo=".$prezzo."' class='btn btn-primary' role='button'>Prenota</a>
+                    <a href='admissionOrder.php?codViaggio=".$codTreno."&partenza=".$partenza."&destinazione=".$destinazione."&operatore=".$operatore."&prezzo=".$prezzo."&giorno=".$data."&orario=".$orarioPart."' class='btn btn-primary' role='button'>Prenota</a>
                     </div>
                   </div>
               </div>
@@ -130,7 +130,7 @@
           }
         ?>
      </div>
-		
+		<div class="mb-5"></div>
     <!-- <br>
     <br>
     <h3>TEST CARD CLICK</h3>

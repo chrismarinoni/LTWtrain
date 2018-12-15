@@ -42,7 +42,7 @@
 					<label for="inputComment">Descrizione Problema</label>
 					<textarea  name="comment" cols="80" rows="5" wrap="physical" id="inputComment" class="form-control" placeholder="Inserisci Testo.."  ></textarea>
 				</div>
-				<div class="col-md-6 mb-3">
+				<div class="col-md-6 mb-3 col-9">
 					<label for="inputFile">Inserisci Allegato</label>
 					<input type="file" name="file" id="inputFile" class="form-control" > 
 				</div>

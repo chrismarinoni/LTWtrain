@@ -16,7 +16,7 @@ PROSSIME COSE DA IMPLEMENTARE
 
 - Risolvere problemi index.php con ricerca (IMPORTANTE)
 
-- Fare session_unset di quelle variabili non utilizzate
+- Fare session_unset di quelle variabili non utilizzate (fatto)
 
 - La biglietteria non mostra i risultati per il ritorno e non mostra il pulsante "prosegui" quando i viaggi di andata vengono mostrati (RISOLTO)
 
