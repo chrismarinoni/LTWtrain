@@ -2,13 +2,11 @@
   session_start();
   include "../component/header.php";
   if($_SESSION['idUtente'] == "")
-    // header("location: ../account/signin.html");
-  if($_SESSION['codViaggio'] == "")
-    // header("location: ../index.php");
-  $codViaggio = $_SESSION['codViaggio'];
-  $stPartenza = $_SESSION['stPartenza'];
-  $stArrivo = $_SESSION['stArrivo'];
-  $prezzo = $_SESSION['prezzo'];
+    header("location: ../account/signin.html");
+  if($_SESSION['codViaggioAndata'] == "")
+    header("location: ../index.php");
+  $qA = $_SESSION['quantitaA'];
+  $qB = $_SESSION['quantitaR'];
 ?>
 
 <!doctype html>
@@ -27,6 +25,11 @@
 
     <!-- Custom styles for this template -->
     <link href="../css/style.css" rel="stylesheet">
+    
+    <script>
+      
+    </script>
+
   </head>
 
   <body class="bg-light">
@@ -100,7 +103,7 @@
         </div> 
         <div class="col-md-8 order-md-1">
           <h4 class="mb-3">Informazioni fatturazione</h4> 
-          <form class="needs-validation" novalidate>
+          <form id="form" class="needs-validation" novalidate>
             <div class="row mt-4">
               <div class="col-md-6 mb-3">
                 <label for="nome">Nome</label>
@@ -175,10 +178,7 @@
                 <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
                 <label class="custom-control-label" for="debit">Carta di debito</label>
               </div>
-              <div class="custom-control custom-radio">
-                <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
-                <label class="custom-control-label" for="paypal">PayPal</label>
-              </div>
+
             </div>
             <div id="carte">
               <div class="row">
@@ -216,12 +216,8 @@
               </div>
             </div>
 
-            <div class="hidden" id="paypal">
-              <img src="http://www.liveoptical.com/public/upload/files/PayPal.PNG" alt="" >
-            </div>
-
             <hr class="mb-4">
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Paga</button>
+            <button class="btn btn-primary btn-lg btn-block" type="submit" id="paga">Paga</button>
           </form>
         </div>
       </div>
@@ -257,10 +253,20 @@
               if (form.checkValidity() === false) {
                 event.preventDefault();
                 event.stopPropagation();
+              } else {
+                $.post("orderSubmit.php", {  
+                	procediConOrdine : 1
+                }, 
+                function(risposta) {
+                  alert(risposta);
+                	// window.location="../account/dashboard.php";
+                });
               }
               form.classList.add('was-validated');
             }, false);
+            
           });
+          
         }, false);
       })();
 
@@ -283,6 +289,15 @@
         });
       });
 
+      // $("#form").submit(function(){
+      //   alert("CIAO");
+      //   // $.post("orderSubmit.php", {  
+			// 	// 	procediConOrdine : 1
+			// 	// }, 
+			// 	// function(risposta) {
+			// 	// 	window.location="../account/dashboard.php";
+      //   // });
+      // });
 
     </script>
   </body>

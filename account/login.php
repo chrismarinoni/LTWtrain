@@ -12,7 +12,7 @@
   $connection = $mysqlDb->connetti();
 
   // effettuo la query per verificare la correttezza del login
-  $result = mysql_query("SELECT * FROM utente WHERE email = '" . mysql_real_escape_string($email) . "'");
+  $result = mysql_query("SELECT * FROM utente WHERE email = '" . mysql_real_escape_string($email) . "'", $connection);
   
   // verifico che ci siano dei risltati...
   if (mysql_num_rows($result) > 0)
@@ -28,7 +28,7 @@
       $_SESSION['numBigliettiAcquistati'] = $row['numBigliettiAcquisti'];
       $_SESSION['accountFilled'] = $row['accountFilled'];
       if($_SESSION['acquistoInCorso'] == 1){
-        echo("order/checkout.php");
+        echo("order/shoppingcart.php");
       } else {
         echo("account/dashboard.php");
       }

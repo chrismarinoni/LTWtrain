@@ -23,7 +23,7 @@
         $_SESSION['accountFilled'] = 1;
         $_SESSION['sesso'] = $sesso;
         if($_SESSION['acquistoInCorso'] == 1){
-            header("location: ../order/checkout.php");
+            header("location: ../order/shoppingcart.php");
           } else {
             header("location: dashboard.php");
           }

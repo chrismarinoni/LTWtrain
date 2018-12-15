@@ -6,7 +6,7 @@
         $connection = $mysqlDb->connetti();
         $id = $_SESSION['idUtente'];
         // effettuo la query per verificare la correttezza del login
-        $result = mysql_query("SELECT * FROM utente WHERE idUtente = '".$id."'") or die("Errore");
+        $result = mysql_query("SELECT * FROM utente WHERE idUtente = '".$id."'", $connection) or die("Errore");
         $nome = mysql_result($result, 0, "nome");
         $cognome = mysql_result($result, 0, "cognome");
         $email = mysql_result($result, 0, "email");

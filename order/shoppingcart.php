@@ -1,9 +1,9 @@
 <?php
 	session_start();
 	if($_SESSION['idUtente'] == "")
-		// header("location: ../account/signin.html");
+		header("location: ../account/signin.html");
 	if($_SESSION['acquistoInCorso'] != 1)
-		// header("location: ../index.php");
+		header("location: ../index.php");
 	
 	$codViaggioAndata = $_SESSION['codViaggioAndata'];
     $partenza = $_SESSION['stPartenza'];
@@ -139,7 +139,7 @@
 			 					<div class="summary-item"><span class="text">Iva</span><span class="price" id="iva"><?php echo($iva."€"); ?></span></div>
 			 					<div class="summary-item"><span class="text">Sconto</span><span class="price" id="sconto">-</span></div>
 			 					<div class="summary-item"><span class="text" style="font-size: 1.3rem">Totale</span><span class="price" id="totale" style="font-size: 1.6rem"><b><?php echo($prezzoTotale."€"); ?></b></span></div>
-			 					<button type="button" class="btn btn-primary btn-lg btn-block">Checkout</button>
+			 					<button type="button" class="btn btn-primary btn-lg btn-block" id="procedi">Conferma e procedi</button>
 				 			</div>
 			 			</div>
 					 </div> 
@@ -209,6 +209,19 @@
 			
 		}
 		myFunction();
+
+
+		$("#procedi").click(function(){
+			$.post("setQuantity.php", {  
+					quantitaA : $('#quantity').val(),
+					quantitaR : $("#quantityR").val()
+				}, 
+				function(risposta) {
+					window.location="checkout.php";
+				});
+		});
+
+	
 	</script>
 								
 
