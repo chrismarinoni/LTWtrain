@@ -88,7 +88,7 @@
               </div>
               <hr>
               <div class='col-md-1 mt-1 mb-1 result-box'>
-                  <img src='https://cdn2.iconfinder.com/data/icons/harry-potter-colour-collection/60/28_-_Harry_Potter_-_Colour_-_Hogwarts_Express-512.png'  width='30px' height='30px' alt='' class='result-element'>
+                  <img src='../images/train-logo-32.png'  width='30px' height='30px' alt='' class='result-element'>
               </div>
               <div class='col-md-2 text-center mt-1 mb-1'>
                 <span>".$destinazione."<br>
@@ -99,10 +99,10 @@
               </div>
               <div class='col-md-2 text-center mt-1 mb-1 result-box'>".$tipoTreno."</div>
               <div class='col-md-2 text-center mt-1 mb-1 result-box'>
-                <span>da<strong style='font-size:1.5rem;'><span id='prezzo".$codViaggio."'>".$prezzo."</span>€</strong></span></div>
+                <span><strong style='font-size:1.5rem;'><span id='prezzo".$codViaggio."'>".$prezzo."</span>€</strong></span></div>
                 <div class='col-md-1 text-center mt-1 mb-1 result-box'>
                   <a data-toggle='collapse' href='#collapseResult".$codViaggio."' role='button' aria-expanded='false' aria-controls='collapseResult".$codViaggio."' >
-                  <img class='clickable' id='arrow-down' src='https://static.thenounproject.com/png/551749-200.png' alt='' width='25px' height='21px'>
+                  <img class='clickable' id='arrow-down' src='../images/arrow.png' alt='Arrow for dropdown box' width='25px' height='21px'>
 				          </a>
                 </div>
               </div>

@@ -95,29 +95,25 @@
 
           <div class="col-md-4">
             <div class="card mb-4 shadow-sm">
-              <img class="card-img-top" src="https://www.settemuse.it/viaggi_italia_campania/NA_napoli_citta/foto_napoli_004.jpg" alt="Card image cap">
+              <img class="card-img-top" src="http://photos.openmedproject.eu/wp-content/uploads/2017/09/IMG_0663-508x381.jpg" alt="Torino immagine">
               <div class="card-body">
                 <div class="row">
                   <div class="col-md-6">
-                    <h4 class="card-title">Napoli</h4>
+                    <h4 class="card-title">Torino</h4>
                     <p class="card-text">Andata e ritorno</p>
                   </div>
                   <div class="col-md-6" >
-                    <p class="card-text mr-3" style="position:absolute; right:0;">DA <span class="font-weight-bold " style="font-size:2rem;">19€</span></p>
+                    <p class="card-text mr-3" style="position:absolute; right:0;">DA <span class="font-weight-bold " style="font-size:2rem;">25€</span></p>
                   </div>
                 </div>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  </div>
-                </div>
+               
               </div>
             </div>
           </div>
 
           <div class="col-md-4">
             <div class="card mb-4 shadow-sm">
-              <img class="card-img-top" src="https://abitarearoma.it/wp/wp-content/uploads/2018/04/Fori-Imperiali-Pedonali-508x381.jpg" alt="Card image cap">
+              <img class="card-img-top" src="https://abitarearoma.it/wp/wp-content/uploads/2018/04/Fori-Imperiali-Pedonali-508x381.jpg" alt="Roma immagine">
               <div class="card-body">
                 <div class="row">
                   <div class="col-md-6">
@@ -125,14 +121,10 @@
                     <p class="card-text">Andata e ritorno</p>
                   </div>
                   <div class="col-md-6" >
-                    <p class="card-text mr-3" style="position:absolute; right:0;">DA <span class="font-weight-bold " style="font-size:2rem;">19€</span></p>
+                    <p class="card-text mr-3" style="position:absolute; right:0;">DA <span class="font-weight-bold " style="font-size:2rem;">29€</span></p>
                   </div>
                 </div>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  </div>
-                </div>
+               
               </div>
             </div>
           </div>
@@ -140,7 +132,7 @@
 
           <div class="col-md-4">
             <div class="card mb-4 shadow-sm">
-              <img class="card-img-top" src="http://www.fiaf.net/agoradicult/wp-content/uploads/2016/12/02AAndreini-Isola-Porta-Volta-2.jpg" alt="Card image cap">
+              <img class="card-img-top" src="http://www.fiaf.net/agoradicult/wp-content/uploads/2016/12/02AAndreini-Isola-Porta-Volta-2.jpg" alt="Milano immagine">
               <div class="card-body">
                 <div class="row">
                   <div class="col-md-6">
@@ -148,14 +140,10 @@
                     <p class="card-text">Andata e ritorno</p>
                   </div>
                   <div class="col-md-6" >
-                    <p class="card-text mr-3" style="position:absolute; right:0;">DA <span class="font-weight-bold " style="font-size:2rem;">15€</span></p>
+                    <p class="card-text mr-3" style="position:absolute; right:0;">DA <span class="font-weight-bold " style="font-size:2rem;">25€</span></p>
                   </div>
                 </div>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  </div>
-                </div>
+            
               </div>
             </div>
           </div>

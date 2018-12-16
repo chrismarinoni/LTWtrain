@@ -19,6 +19,9 @@
   // $query = "SELECT * FROM `collegamento` WHERE `codStPart` = '".$codStPartenza."' AND codStArr = '".$codStArrivo."'";
   $result = mysql_query($query, $connection) or die('Errore accesso database [ERROR 3A3] ...');
   $numRes = mysql_numrows($result);
+
+  $data = explode("-", $data);
+  $data = $data[2]."/".$data[1]."/".$data[0];
 ?>
 
  <!DOCTYPE html>
@@ -60,6 +63,7 @@
             $dividiOrarioArr = explode(":", mysql_result($result, $i, "orarioArr"));
             $orarioPart = $dividiOrarioPart[0].":".$dividiOrarioPart[1];
             $orarioArrivo = $dividiOrarioArr[0].":".$dividiOrarioArr[1];
+            
             $durataViaggio = mysql_result($result, $i, "durata");
             $prezzo = mysql_result($result, $i, "prezzo");
             $dettagli = mysql_result($result, $i, "dettagli");
@@ -68,6 +72,7 @@
             $operatore = mysql_result($result, $i, "operatore");
             $dettagliConfort= explode("&&", mysql_result($result, $i, "dettagliTreno"));
             $giornoDopo = mysql_result($result, $i, "giornoDopo");
+            $codViaggio = mysql_result($result, $i, "codViaggio");
             if($giornoDopo == 1) $giornoDopo = "+1";
             else $giornoDopo = "";
             $confort = "";
@@ -86,7 +91,7 @@
               </div>
               <hr>
               <div class='col-md-1 mt-1 mb-1 result-box'>
-                  <img src='https://cdn2.iconfinder.com/data/icons/harry-potter-colour-collection/60/28_-_Harry_Potter_-_Colour_-_Hogwarts_Express-512.png'  width='30px' height='30px' alt='' class='result-element'>
+                  <img src='../images/train-logo-32.png' width='30px' height='30px' alt='logo train' class='result-element'>
               </div>
               <div class='col-md-2 text-center mt-1 mb-1'>
                 <span>".$destinazione."<br>
@@ -97,10 +102,10 @@
               </div>
               <div class='col-md-2 text-center mt-1 mb-1 result-box'>".$tipoTreno."</div>
               <div class='col-md-2 text-center mt-1 mb-1 result-box'>
-                <span>da<strong style='font-size:1.5rem;'>".$prezzo."€</strong></span></div>
+                <span><strong style='font-size:1.5rem;'>".$prezzo."€</strong></span></div>
                 <div class='col-md-1 text-center mt-1 mb-1 result-box'>
                   <a data-toggle='collapse' href='#collapseResult".$i."' role='button' aria-expanded='false' aria-controls='collapseResult".$i."' >
-                  <img class='clickable' id='arrow-down' src='https://static.thenounproject.com/png/551749-200.png' alt='' width='25px' height='21px'>
+                  <img class='clickable' id='arrow-down' src='../images/arrow.png' alt='Arrow for dropdown box' width='25px' height='21px'>
 				          </a>
                 </div>
               </div>
@@ -121,7 +126,7 @@
                       <p>Posti disponibili: <strong>".$postiDisponibili."</strong></p>
                     </div>
                     <div class='col-md-2'>
-                    <a href='admissionOrder.php?codViaggio=".$codTreno."&partenza=".$partenza."&destinazione=".$destinazione."&operatore=".$operatore."&prezzo=".$prezzo."&giorno=".$data."&orario=".$orarioPart."' class='btn btn-primary' role='button'>Prenota</a>
+                    <a href='admissionOrder.php?codViaggio=".$codViaggio."&partenza=".$partenza."&destinazione=".$destinazione."&operatore=".$operatore."&prezzo=".$prezzo."&giorno=".$data."&orario=".$orarioPart."' class='btn btn-primary' role='button'>Prenota</a>
                     </div>
                   </div>
               </div>
@@ -131,30 +136,6 @@
         ?>
      </div>
 		<div class="mb-5"></div>
-    <!-- <br>
-    <br>
-    <h3>TEST CARD CLICK</h3>
-     <div class='card card-body'>
-            <div class='row'>
-              <div class='col-md-5'>
-                <p>Operatore: <strong>Trenitalia</strong></p>
-                <p>Confort: <ul>
-                              <li>Wifi gratuito</li>
-                              <li>Servizio di ristoro</li>
-                            </ul></p>
-              </div>
-              <div class='col-md-5'>
-                <p>Tipologia Treno: <strong>Frecciarossa 1000</strong></p>
-                <p>Codice Treno: AR23931</p>
-                <p>Tipologia viaggio: nessun cambio</p>
-                <p>Posti disponibili: <strong>10</strong></p>
-              </div>
-              <div class='col-md-2'>
-                <button>Ordina</button>
-              </div>
-            </div>
-				</div> -->
-
       
       <!-- FOOTER -->
       <?php getFooter(); ?>

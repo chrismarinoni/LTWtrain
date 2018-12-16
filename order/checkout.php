@@ -259,7 +259,8 @@
                 	procediConOrdine : 1
                 }, 
                 function(risposta) {
-                	window.location="../account/dashboard.php";
+                  if(risposta == 0) window.location="../account/dashboard.php";
+                  else alert("Si è presentato un errore: "+risposta);
                 });
               }
               form.classList.add('was-validated');

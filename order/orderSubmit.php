@@ -18,18 +18,18 @@
             }
             else $query .= "('".$idUtente."','".$codViaggioAndata."','standard','".$prezzoAndata."','".$stPart."','".$stArr."'),";
         }
-        if($qR == 0) $query .= (";"); 
+        if($qR == 0) $query .= (";");
+        else $query .= (",");
         for($i = 0; $i < $qR; $i++){
             if($i == $qR-1){
                 $query .= "('".$idUtente."','".$codViaggioRitorno."','standard','".$prezzoRitorno."','".$stArr."','".$stPart."');";
             } else if($i == 0){
-                $query .= ",('".$idUtente."','".$codViaggioRitorno."','standard','".$prezzoRitorno."','".$stArr."','".$stPart."'),";
+                $query .= "('".$idUtente."','".$codViaggioRitorno."','standard','".$prezzoRitorno."','".$stArr."','".$stPart."'),";
             } else $query .= "('".$idUtente."','".$codViaggioRitorno."','standard','".$prezzoRitorno."','".$stArr."','".$stPart."'),";
         }
         $mysqlDb = new MysqlFunctions;
         $connection = $mysqlDb->connetti();
-        // echo($query);
-        $result = mysql_query($query, $connection) or die("Errore. Impossibile effettuare l'aquisto");
+        $result = mysql_query($query, $connection) or die("esecuzione query non riuscita");
         $_SESSION['numBigliettiAcquistati'] = $_SESSION['numBigliettiAcquistati'] + $qA + $qR;
         unset($_SESSION['codViaggioAndata']);
         unset($_SESSION['codViaggioRitorno']);
@@ -44,6 +44,7 @@
         unset($_SESSION['operatoreRitorno ']);
         unset($_SESSION['giornoAndata']);
         unset($_SESSION['giornoRitorno']);
+        echo(0);
     } else {
-        echo("Errore");
+        echo("processamento dell'ordine errato [ERR54A]");
     }

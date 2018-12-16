@@ -1,20 +1,30 @@
 <?php
-  include '../component/header.php';
-  include '../component/footer.php';
-  include '../funzioni.php';
+    include '../component/header.php';
+    include '../component/footer.php';
+    include '../funzioni.php';
 
-  session_start();
-  $idUtente = $_SESSION['idUtente'];
-  $nome = $_SESSION['nome'];
-  $numBigliettiAcquistati = $_SESSION['numBigliettiAcquistati'];
+    session_start();
+    $idUtente = $_SESSION['idUtente'];
+    $numBigliettiAcquistati = $_SESSION['numBigliettiAcquistati'];
   
-  $mysqlDb = new MysqlFunctions;
-  $connection = $mysqlDb->connetti();
+    $mysqlDb = new MysqlFunctions;
+    $connection = $mysqlDb->connetti();
 	$query = "SELECT * FROM utente WHERE idUtente='".$idUtente."'";
 	$result = mysql_query($query, $connection) or die('Errore...');
   
-  $cognome = mysql_result($result,0,"cognome");
-  $cognome = mysql_result($result,0,"cognome");
+    $nome = mysql_result($result,0,"nome");
+    $cognome = mysql_result($result,0,"cognome");
+    $email = mysql_result($result,0,"email");
+    $indirizzoResidenza = mysql_result($result, 0, 'indirizzoResidenza');
+    $cittaResidenza = mysql_result($result, 0, 'cittaResidenza');
+    $provinciaResidenza = mysql_result($result, 0, 'provinciaResidenza');
+    $paeseResidenza = mysql_result($result, 0, 'paeseResidenza');
+    $dataNascita = mysql_result($result, 0, 'dataNascita');
+    $indirizzoResidenza = mysql_result($result, 0, 'indirizzoResidenza');
+    $indirizzoResidenza = mysql_result($result, 0, 'indirizzoResidenza');
+    $indirizzoResidenza = mysql_result($result, 0, 'indirizzoResidenza');
+    $indirizzoResidenza = mysql_result($result, 0, 'indirizzoResidenza');
+
 
 	// $numBigliettiAcquistati = mysql_result($result, 0, "numBigliettiAcquistati");
 	// $abbonamento = mysql_result($result, 0, "abbonamento");
@@ -93,7 +103,7 @@
           
           <ul class="list-group">
             <li class="list-group-item text-muted">Attivit&agrave; <i class="fa fa-dashboard fa-1x"></i></li>
-            <li class="list-group-item text-right"><span class="pull-left"><strong>Biglietti Acquistati</strong></span> 0</li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Biglietti Acquistati</strong></span>  <?php echo($numBigliettiAcquistati); ?></li>
             <li class="list-group-item text-right"><span class="pull-left"><strong>Abbonamento</strong></span> 0</li>
           </ul> 
               
@@ -105,33 +115,47 @@
             <div class="tab-pane active" id="home">
                 <hr>
                   <form class="form" action="##" method="post" id="registrationForm">
-          
-                      <div class="form-group">
+
+                        <div class="form-group">
                           
                           <div class="col-xs-6">
-                              <label for="phone"><h4>Indirizzo residenza</h4></label>
-                              <input type="text" class="form-control" name="phone" id="phone" placeholder="enter phone" title="enter your phone number if any.">
+                              <label for="email"><h4>Email</h4></label>
+                              <input type="text" class="form-control" name="email" id="email" title="modifica la tua email" value="<?php echo($email) ?>">
                           </div>
-                      </div>
+                        </div>
+                        <div class="form-group">
+                          
+                          <div class="col-xs-6">
+                              <label for="email"><h4>Password</h4></label>
+                              <input type="password" class="form-control" name="password" id="password" title="modifica la tua password" value="****">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                            
+                            <div class="col-xs-6">
+                                <label for="phone"><h4>Indirizzo residenza</h4></label>
+                                <input type="text" class="form-control" name="indirizzoResidenza" id="indirizzoResidenza" title="modifica l'indirizzo di residenza" value="<?php echo($indirizzoResidenza); ?>">
+                            </div>
+                        </div>
           
                       <div class="form-group">
                           <div class="col-xs-6">
                              <label for="mobile"><h4>Citt&agrave; residenza</h4></label>
-                              <input type="text" class="form-control" name="mobile" id="mobile" placeholder="enter mobile number" title="enter your mobile number if any.">
+                              <input type="text" class="form-control" name="cittaResidenza" id="cittaResidenza" title="modifica la città di residenza" value="<?php echo($cittaResidenza); ?>">
                           </div>
                       </div>
                       <div class="form-group">
                           
                           <div class="col-xs-6">
-                              <label for="email"><h4>Provincia residenza</h4></label>
-                              <input type="email" class="form-control" name="email" id="email" placeholder="you@email.com" title="enter your email.">
+                              <label for="provinciaResidenza"><h4>Provincia residenza</h4></label>
+                              <input type="text" class="form-control" name="provinciaResidenza" id="provinciaResidenza" title="modifica la provincia di residenza" value="<?php echo($provinciaResidenza); ?>">
                           </div>
                       </div>
                       <div class="form-group">
                           
                           <div class="col-xs-6">
-                              <label for="email"><h4>Paese residenza</h4></label>
-                              <input type="email" class="form-control" id="location" placeholder="somewhere" title="enter a location">
+                              <label for="paeseResidenza"><h4>Paese residenza</h4></label>
+                              <input type="email" class="form-control" id="paeseResidenza" name="paeseResidenza" value="<?php echo($paeseResidenza) ?>">
                           </div>
                       </div>
                       <div class="form-group">

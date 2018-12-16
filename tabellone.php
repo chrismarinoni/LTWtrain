@@ -10,7 +10,7 @@
     $query = "SELECT * FROM `treno` AS t INNER JOIN `viaggio` AS v ON t.codTreno = v.codTreno INNER JOIN `collegamento` AS c ON v.codCollegamento = c.codCollegamento INNER JOIN (SELECT codStazione, nome AS nomeStPart FROM `stazione`) AS s ON c.codStPart = s.codStazione INNER JOIN (SELECT codStazione, nome AS nomeStArr FROM `stazione`) AS st ON c.codStArr = st.codStazione WHERE `dataViaggio` = '".$data."' AND `orarioPart` >= '".$orarioCalcolato."' ORDER BY `orarioPart` ASC LIMIT 8";
     $result = mysql_query($query, $connection) or die('Errore accesso database [ERROR 2A3] ...');
     $numRes = mysql_numrows($result);
-    $i = $numRes-1;
+    $i = 0;
     $orarioMin = mysql_result($result, 0, "orarioPart");
 ?>
 
@@ -26,6 +26,10 @@
 
         <link href="css/style.css" rel="stylesheet">
 
+		<link rel="stylesheet" href="css/flipclock.css">
+
+        <!-- <script type="text/javascript" lang="javascript"  src="js/flapper.js"> -->
+
     </head>
     <body id="body">
 
@@ -36,10 +40,60 @@
         <div class="container mt-2">
             <!-- <strong><a href="javascript: history.go(-1)">Torna indietro</a></strong> --> 
 
-            <div class="row">
-                <div class="col-md-3">
-                    <span class="row" style="font-size:2rem; font-family: Roboto Condensed;"><p id="hours">22</p>:<p id="minutes">30</p>:<p id="seconds">55</p></span>
+                <div class="clock">
+
+                    <div class="digit tenhour">
+                        <span class="base"></span>
+                        <div class="flap over front"></div>
+                        <div class="flap over back"></div>
+                        <div class="flap under"></div>
+                    </div>
+
+                    <div class="digit hour">
+                        <span class="base"></span>
+                        <div class="flap over front"></div>
+                        <div class="flap over back"></div>
+                        <div class="flap under"></div>
+                    </div>
+
+                    <div class="digit tenmin">
+                        <span class="base"></span>
+                        <div class="flap over front"></div>
+                        <div class="flap over back"></div>
+                        <div class="flap under"></div>
+                    </div>
+
+                    <div class="digit min">
+                        <span class="base"></span>
+                        <div class="flap over front"></div>
+                        <div class="flap over back"></div>
+                        <div class="flap under"></div>
+                    </div>
+                    
+                    <div class="digit tensec">
+                        <span class="base"></span>
+                        <div class="flap over front"></div>
+                        <div class="flap over back"></div>
+                        <div class="flap under"></div>
+                    </div>
+
+                    <div class="digit sec">
+                        <span class="base"></span>
+                        <div class="flap over front"></div>
+                        <div class="flap over back"></div>
+                        <div class="flap under"></div>
+                    </div>
+
                 </div>
+
+
+            
+            <br /><br/> <br />
+
+            <div class="row">
+                <!-- <div class="col-md-3">
+                    <span class="row" style="font-size:2rem; font-family: Roboto Condensed;"><p id="hours">22</p>:<p id="minutes">30</p>:<p id="seconds">55</p></span>
+                </div> -->
                 <div class="col-md-9">
                     <h4>Prossime partenze</h4>
                 </div>
@@ -48,7 +102,7 @@
                  if($i == -1) {
                     echo ("<p style='font-size: 1.4rem;'>Nessun treno risulta essere in partenza a breve.");
                   }
-                  while($i > -1) {
+                  while($i < $numRes) {
                     $dividiOrarioPart = explode(":", mysql_result($result, $i, "orarioPart"));
                     $dividiOrarioArr = explode(":", mysql_result($result, $i, "orarioArr"));
                     $orarioPart = $dividiOrarioPart[0].":".$dividiOrarioPart[1];
@@ -68,32 +122,56 @@
                                 </div>
                                 <hr>
                                 <div class='col-md-1 mt-1 mb-1 result-box'>
-                                    <img src='https://cdn2.iconfinder.com/data/icons/harry-potter-colour-collection/60/28_-_Harry_Potter_-_Colour_-_Hogwarts_Express-512.png'  width='30px' height='30px' alt='' class='result-element'>
+                                    <img src='images/train-logo-32.png'  width='30px' height='30px' alt='' class='result-element'>
                                 </div>
                                 <div class='col-md-2 text-center mt-1 mb-1'>
                                     <span>".$destinazione."<br>
                                 <strong style='font-size: 1.2rem;'>".$orarioArrivo."<i> ".$giornoDopo."</i></strong></span>
                                 </div>
                                 <div class='col-md-2 text-center mt-1 mb-1 result-box'>
-                                    Durata <strong> ".$durataViaggio."</strong>
+                                    Durata <strong> ".$durataViaggio."'</strong>
                                 </div>
                                 <div class='col-md-3 text-center mt-1 mb-1 result-box'>".$tipoTreno."</div>
                                 <div class='col-md-2 text-center mt-1 mb-1 result-box'>
-                                        Ritardo <br><strong>0min</strong>
+                                        Ritardo <br><strong>".rand(0,10)."min</strong>
                                 </div>
                             </div>
                         </div>
                     ");
-                    $i--;
+                    $i++;
                   }
             ?>
             
         </div>
         
+        <div class="mt-5"></div>
 
         <!-- FOOTER -->
         <?php getFooter(); ?>
 
+
+        <script
+		src="https://code.jquery.com/jquery-3.3.1.min.js"
+		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+		crossorigin="anonymous">
+  </script>
+
+
+    <script src="../js/bootstrap.min.js"></script>
+
+    <script src="js/flipclock.js"></script>		
+
+        <script>
+            
+            $(document).ready(function(){
+                
+                setTime(false);
+                setInterval(function(){
+                    setTime(true);
+                }, 1000);
+                
+            });
+        </script>
 
         <script type="text/javascript">
             var getTime = function(){

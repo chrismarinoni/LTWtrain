@@ -17,6 +17,7 @@
   $cognome = $_SESSION['cognome'];
   $numBigliettiAcquistati = $_SESSION['numBigliettiAcquistati'];
   $abbonamento = $_SESSION['abbonamento'];
+  $dataOggi = date('Y-m-d');
 ?>
 
 <!doctype html>
@@ -28,7 +29,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>Login - LTWtrain</title>
+    <title>Dashboard - LTWtrain</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
@@ -64,8 +65,9 @@
         } else {
           $mysqlDb = new MysqlFunctions;
           $connection = $mysqlDb->connetti();
-          $query = "SELECT * FROM `biglietto` AS b INNER JOIN `viaggio` AS v ON b.codViaggio = v.codViaggio INNER JOIN  `collegamento` AS c ON c.codCollegamento = v.codCollegamento WHERE b.idUtente = '" .$idUtente. "'";
+          $query = "SELECT * FROM `biglietto` AS b INNER JOIN `viaggio` AS v ON b.codViaggio = v.codViaggio INNER JOIN  `collegamento` AS c ON c.codCollegamento = v.codCollegamento WHERE b.idUtente = '" .$idUtente. "' AND v.dataViaggio >= '".$dataOggi."'";
           $result = mysql_query($query, $connection) or die("Errore. Impossibile effettuare l'aquisto");
+          
           for($i = 0; $i < mysql_num_rows($result); $i++) {
             $partenza = mysql_result($result,$i,"nomeStazionePart");
             $destinazione = mysql_result($result,$i,"nomeStazioneArr");
