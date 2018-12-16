@@ -30,9 +30,11 @@
     else if ($fasciaOrariaPartenza == "12/15") $fasciaOrariaPartenza = 2;
     else if ($fasciaOrariaPartenza ==  "16/18") $fasciaOrariaPartenza = 3;
     else if ($fasciaOrariaPartenza ==  "19/22") $fasciaOrariaPartenza = 4;
-    if($fasciaOrariaPartenza!=0) $fascia = " AND `fasciaOrariaPart` = '".$fasciaOrariaPartenza."'";
-    $query = "SELECT * FROM `treno` AS t INNER JOIN `viaggio` AS v ON t.codTreno = v.codTreno INNER JOIN `collegamento` AS c ON v.codCollegamento = c.codCollegamento WHERE `codStPart` = '".$codStPartenza."' AND codStArr = '".$codStArrivo."' AND `dataViaggio` = '".$dataPartenza."'".$fascia." ORDER BY orarioPart DESC";
-   
+    $now = date("H:i:s");
+    if(date("Y-m-d") == $data) {$now2 = "AND `orarioPart` >= '".$now."'";
+    } else $now2 = "";
+    if($fasciaOrariaPartenza!=0) $fascia = " AND `fasciaOrariaPart` = '".$fasciaOrariaPartenza."' ";
+    $query = "SELECT * FROM `treno` AS t INNER JOIN `viaggio` AS v ON t.codTreno = v.codTreno INNER JOIN `collegamento` AS c ON v.codCollegamento = c.codCollegamento WHERE `codStPart` = '".$codStPartenza."' AND codStArr = '".$codStArrivo."' AND `dataViaggio` = '".$dataPartenza."'".$fascia." AND `orarioPart` >= '".$now2."' ORDER BY orarioPart DESC";
   }
   // }else if($tipoRicerca == 2){ //Ritorno
 

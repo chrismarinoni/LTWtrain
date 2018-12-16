@@ -36,21 +36,30 @@
       }
       $.post("order/checkRicerca.php", { tipoRicerca: 1, partenza: $('#partenza').val(), destinazione: $('#destinazione').val(), data: $("#data").val() }, function(risposta) {
         // se i dati sono corretti...
-        alert("Ho ricevuto risposta "+risposta);
+        // alert("Ho ricevuto risposta "+risposta);
         if (risposta == 3 ) {
-          alert("tutto ok");
           return true;
         }else if (risposta == 0){
           alert("La stazione di partenza da te inserita non risulta essere presente nel nostro database. Verifica di averla inserita correttamente.");
+          return returnFalse();
         }else if(risposta == 1) {
           alert("La stazione di destinazione da te inserita non risulta essere presente nel nostro database. Verifica di averla inserita correttamente.");
+          return returnFalse();
         }else if(risposta == 2) {
           alert("Non siamo ancora in grado di mandarti nel passato. Puoi al momento comprare biglietti per la giornata odierna e per i giorni a seguire.");
+          return returnFalse();
         }else{
           alert(risposta);
+          return returnFalse();
+
         }
-        return false;
+        
        });
+
+
        
-       
+    }
+
+    function returnFalse(){
+      return false;
     }

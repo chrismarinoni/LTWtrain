@@ -58,7 +58,7 @@
 
     <div class="search" id="search-to-fix">
       <div class="container">
-        <form name="ricerca" action="order/ricerca.php" method="post" onSubmit="return convalidaRicerca()">
+        <form name="ricerca" action="order/ricerca.php" method="post" onsubmit="return convalidaRicerca();">
           <div class="row">
             <div class="col-md-3 col-sm-6 col-6">
               <h5 class="lead text-light">Partenza:</h5>
@@ -173,28 +173,29 @@
               <li>Roma</li>
               <li>Milano</li>
               <li>Torino</li>
-              <li>Genova</li>
+              <li>Genova*</li>
             </ul>
           </div>
 
           <div class="col-md-4 col-6">
             <ul>
-              <li>Bologna</li>
-              <li>Trieste</li>
-              <li>Firenze</li>
-              <li>Napoli</li>
+              <li>Bologna*</li>
+              <li>Trieste**</li>
+              <li>Firenze*</li>
+              <li>Napoli*</li>
             </ul>
           </div>
 
           <div class="col-md-4 col-6">
             <ul>
-              <li>Venezia</li>
-              <li>Reggio Calabria</li>
-              <li>Campobasso</li>
-              <li>Ladispoli</li>
+              <li>Venezia*</li>
+              <li>Reggio Calabria**</li>
+              <li>Campobasso**</li>
+              <li>Ladispoli*</li>
             </ul>
           </div>
-        
+          * presto servite dal servizio
+          ** presto raggiunte
         </div>
       </div>
     </div>

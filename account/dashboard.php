@@ -6,11 +6,11 @@
 
   $idUtente = $_SESSION["idUtente"];
 
-  if($_SESSION['acquistoInCorso'] == 1 && $_SESSION['codViaggio'] != "" && $_SESSION['accountFilled'] == 1)
-    header("location: ../order/checkout.php");
-  else if($_SESSION['acquistoInCorso'] == 1 && $_SESSION['codViaggio'] != "" && $_SESSION['accountFilled'] == 0)
+  // if($_SESSION['acquistoInCorso'] == 1 && $_SESSION['accountFilled'] == 1)
+  //   header("location: ../order/shoppingcart.php");
+  if($_SESSION['acquistoInCorso'] == 1 && $_SESSION['accountFilled'] == 0)
     header("location: accountComplete.php");
-  else if($idUtente ==""){
+  else if($idUtente == ""){
     header("location: signin.html");
   }
   $nome = $_SESSION['nome'];

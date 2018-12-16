@@ -15,7 +15,10 @@
   $query = "SELECT * FROM `stazione` WHERE `nome` = '".$destinazione."' ";
   $result = mysql_query($query, $connection) or die('Errore accesso database [ERROR 2A3] ...');
   $codStArrivo = mysql_result($result,0,"codStazione");
-  $query = "SELECT * FROM `treno` AS t INNER JOIN `viaggio` AS v ON t.codTreno = v.codTreno INNER JOIN `collegamento` AS c ON v.codCollegamento = c.codCollegamento WHERE `codStPart` = '".$codStPartenza."' AND codStArr = '".$codStArrivo."' AND `dataViaggio` = '".$data."' ORDER BY orarioPart DESC";
+  $now = date("H:i:s");
+  if(date("Y-m-d") == $data) $now = "AND `orarioPart` >= '".$now."'";
+  else $now = "";
+  $query = "SELECT * FROM `treno` AS t INNER JOIN `viaggio` AS v ON t.codTreno = v.codTreno INNER JOIN `collegamento` AS c ON v.codCollegamento = c.codCollegamento WHERE `codStPart` = '".$codStPartenza."' AND codStArr = '".$codStArrivo."' AND `dataViaggio` = '".$data."'".$now." ORDER BY orarioPart DESC";
   // $query = "SELECT * FROM `collegamento` WHERE `codStPart` = '".$codStPartenza."' AND codStArr = '".$codStArrivo."'";
   $result = mysql_query($query, $connection) or die('Errore accesso database [ERROR 3A3] ...');
   $numRes = mysql_numrows($result);

@@ -31,6 +31,9 @@
         $connection = $mysqlDb->connetti();
         $result = mysql_query($query, $connection) or die("esecuzione query non riuscita");
         $_SESSION['numBigliettiAcquistati'] = $_SESSION['numBigliettiAcquistati'] + $qA + $qR;
+        $biglAcq = $_SESSION['numBigliettiAcquistati'];
+        $query = "UPDATE `utente` SET `numBigliettiAcquisti`= '".$biglAcq."' WHERE idUtente = '".$idUtente."'";
+        $result = mysql_query($query, $connection) or die("esecuzione query non riuscita");
         unset($_SESSION['codViaggioAndata']);
         unset($_SESSION['codViaggioRitorno']);
         unset($_SESSION['prezzoAndata']);
@@ -38,6 +41,7 @@
         unset($_SESSION['quantitaAndata']);
         unset($_SESSION['quantitaRitorno']);
         unset($_SESSION['stArrivo']);
+        $_SESSION['acquistoInCorso'] = 0;
         unset($_SESSION['acquistoInCorso']);
         unset($_SESSION['stPartenza']);
         unset($_SESSION['operatoreAndata']);

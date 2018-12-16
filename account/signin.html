@@ -135,7 +135,14 @@
       });
       $("#form-register").submit(function() {
       // passo i dati (via POST) al file PHP che effettua le verifiche 
-        $.post("register.php", { nome: $('#inputName').val(), cognome: $('#inputSurname').val(), email: $('#inputEmailReg').val(), password: $('#inputPasswordReg').val(), rand: Math.random() }, function(risposta) {
+        if($("#inputEmailReg").val() != $("#reInputEmailReg").val()){
+          alert("Le due email inserite devono coincidere");
+          return false;
+        } else if($("#inputPasswordReg").val() != $("#reInputPasswordReg").val()){
+          alert("Le password inserite non coincidono. Riprovare.");
+          return false;
+        } else {
+          $.post("register.php", { nome: $('#inputName').val(), cognome: $('#inputSurname').val(), email: $('#inputEmailReg').val(), password: $('#inputPasswordReg').val(), rand: Math.random() }, function(risposta) {
           // se i dati sono corretti...
           if (risposta == 1 ) {
             // applico l'effetto allo span con id "messaggio"
@@ -158,6 +165,8 @@
          });
       // evito il submit del form (che deve essere gestito solo dalla funzione Javascript)
         return false;
+        }
+        
       });
     </script>
 

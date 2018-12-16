@@ -85,7 +85,7 @@
 
 
 							<button type="button" class="btn btn-primary btn-lg ml-3 mt-2" id="goToStep2">Prosegui</button>
-							<button type="button" class="btn btn-primary btn-lg ml-3 mt-2" id="goBackB1">Indietro</button>
+							<button type="button" class="btn btn-secondary btn-lg ml-3 mt-2" id="goBackB1">Indietro</button>
 
 						</div>
 					</div>
@@ -99,13 +99,13 @@
 						<div class=" mt-5 mb-5" id="step2">
 							<div class="col-md-6 col-sm-3 col-lg-9 input-group-lg mb-4">
 								<label for="dataPartenza" style="font-size: 1.4rem"><strong>Giorno di partenza</strong>*</label>
-								<input name="dataPartenza" type="date" id="dataPartenza" class="form-control" placeholder="Stazione Partenza" required >				
+								<input name="dataPartenza" type="date" id="dataPartenza" class="form-control" placeholder="Stazione Partenza" onChange="selezione(1)" required >				
 							</div>
 
 									
 							<div class="col-md-6 col-sm-3 mb-4 col-lg-9 input-group-lg">
 								<label for="fasciaOrariaPartenza" style="font-size: 1.4rem"><strong>Fascia oraria</strong></label>
-								<select name="fasciaOrariaPartenza"  id="fasciaOrariaPartenza" class="form-control">
+								<select name="fasciaOrariaPartenza"  id="fasciaOrariaPartenza" class="form-control" disabled>
 									<option value="7/11">Mattina (7-11)</option>
 									<option value="12/15">Pranzo (12-15)</option>
 									<option value="16/18">Pomeriggio (16-18)</option>
@@ -114,7 +114,7 @@
 							</div>
 
 							<button type="button" class="btn btn-primary btn-lg ml-3 mt-2" id="goToRisultatiPart">Ricerca andata</button>
-							<button type="button" class="btn btn-primary btn-lg ml-3 mt-2" id="goBackB2">Indietro</button>
+							<button type="button" class="btn btn-secondary btn-lg ml-3 mt-2" id="goBackB2">Indietro</button>
 						</div>
 					</div>
 
@@ -127,10 +127,12 @@
 						<div id="boxRisultatiAndata">
 							Risultati in caricamento...
 						</div>
-
-						<button type="button" class="btn btn-primary btn-lg mt-4 mb-4 hidden" id="goToCheckOut">Vai al checkout</button>
-						<button type="button" class="btn btn-primary btn-lg mt-4 mb-4 hidden" id="goToForm3">Prosegui con il ritorno</button>
-						<button type="button" class="btn btn-primary btn-lg mt-4 mb-4" id="goBackB3">Indietro</button>
+						<div class="row">
+							<button type="button" class="btn btn-primary btn-lg ml-3 mt-4 mb-4 hidden" id="goToCheckOut">Vai al checkout</button> &nbsp;
+							<button type="button" class="btn btn-primary btn-lg ml-3 mt-4 mb-4 hidden" id="goToForm3">Prosegui con il ritorno</button> &nbsp;
+							<button type="button" class="btn btn-secondary btn-lg mt-4 mb-4" id="goBackB3">Indietro</button>
+						</div>
+						
 					</div>
 
 
@@ -144,13 +146,13 @@
 						<div class=" mt-5 mb-5" id="step2">
 							<div class="col-md-6 col-sm-3 col-lg-9 input-group-lg mb-4">
 								<label for="dataRitorno" style="font-size: 1.4rem"><strong>Giorno di ritorno</strong>*</label>
-								<input name="dataRitorno" type="date" id="dataRitorno" class="form-control" placeholder="Stazione Partenza" >				
+								<input name="dataRitorno" type="date" id="dataRitorno" class="form-control" placeholder="Stazione Partenza" onChange="selezione(2)" >				
 							</div>
 
 									
 							<div class="col-md-6 col-sm-3 mb-4 col-lg-9 input-group-lg">
 								<label for="fasciaOrariaRitorno" style="font-size: 1.4rem"><strong>Fascia oraria</strong></label>
-								<select name="fasciaOrariaRitorno"  id="fasciaOrariaRitorno" class="form-control">
+								<select name="fasciaOrariaRitorno"  id="fasciaOrariaRitorno" class="form-control" disabled>
 									<option value="7/11">Mattina (7-11)</option>
 									<option value="12/15">Pranzo (12-15)</option>
 									<option value="16/18">Pomeriggio (16-18)</option>
@@ -289,6 +291,128 @@
 		id = "";
 		id2 = "";
 
+		function selezione(num) {
+			var d = new Date();
+			var month = d.getMonth() + 1;
+			var day = d.getDate();
+			var year = d.getFullYear();
+			var today = year + "-" + month + "-" + (day<10?'0':'') + day;
+			var option1 = $('<option></option>').attr("value", "7/11").text("Mattina (7-11)");
+			var option2 = $('<option></option>').attr("value", "12/15").text("Pranzo (12-15)");
+			var option3= $('<option></option>').attr("value", "16/18").text("Pomeriggio (16-18)");
+			var option4 = $('<option></option>').attr("value", "19/22").text("Sera (19-22)");
+			if(num == 1){
+				if(today < $("#dataPartenza").val()){
+					$("#fasciaOrariaPartenza").empty().append(option1);
+					$("#fasciaOrariaPartenza").append(option2);
+					$("#fasciaOrariaPartenza").append(option3);
+					$("#fasciaOrariaPartenza").append(option4);
+					$("#fasciaOrariaPartenza").prop('disabled', false);
+				}else if(today == $("#dataPartenza").val()){
+					var ora = d.getHours();
+					var minuto = d.getMinutes();
+					var timetoday = ora*100 + minuto;
+					if(timetoday > 2200){
+						alert("Tutti i treni della data odierna sono già partiti");
+						$("#fasciaOrariaPartenza").prop('disabled', true);
+						$("#fasciaOrariaPartenza").empty();
+					}else if(timetoday >= 1800 &&  timetoday <= 2200){
+						$("#fasciaOrariaPartenza").empty().append(option4);
+						$("#fasciaOrariaPartenza").prop('disabled', false);
+
+					}else if(timetoday >= 1600 &&  timetoday <= 2200){
+						$("#fasciaOrariaPartenza").empty().append(option3);
+						$("#fasciaOrariaPartenza").append(option4);
+						$("#fasciaOrariaPartenza").prop('disabled', false);
+					} else if(timetoday >= 1200 &&  timetoday <= 2200){
+						$("#fasciaOrariaPartenza").empty().append(option2);
+						$("#fasciaOrariaPartenza").append(option3);
+						$("#fasciaOrariaPartenza").append(option4);
+						$("#fasciaOrariaPartenza").prop('disabled', false);
+
+					} else {
+						$("#fasciaOrariaPartenza").prop('disabled', false);
+					}
+				} else if (today > $("#dataPartenza").val()){
+						$("#fasciaOrariaPartenza").empty();
+						$("#fasciaOrariaPartenza").prop('disabled', true);
+
+				}
+			} else if (num == 2){
+				if(today < $("#dataRitorno").val()){
+					$("#fasciaOrariaRitorno").empty().append(option1);
+					$("#fasciaOrariaRitorno").append(option2);
+					$("#fasciaOrariaRitorno").append(option3);
+					$("#fasciaOrariaRitorno").append(option4);
+					$("#fasciaOrariaRitorno").prop('disabled', false);
+				}else if(today == $("#dataRitorno").val()){
+					var ora = d.getHours();
+					var minuto = d.getMinutes();
+					var timetoday = ora*100 + minuto;
+					if(timetoday > 2200){
+						alert("Tutti i treni della data odierna sono già partiti");
+						$("#fasciaOrariaRitorno").prop('disabled', true);
+						$("#fasciaOrariaRitorno").empty();
+					}else if(timetoday >= 1800 &&  timetoday <= 2200){
+						$("#fasciaOrariaRitorno").empty().append(option4);
+						$("#fasciaOrariaRitorno").prop('disabled', false);
+
+					}else if(timetoday >= 1600 &&  timetoday <= 2200){
+						$("#fasciaOrariaRitorno").empty().append(option3);
+						$("#fasciaOrariaRitorno").append(option4);
+						$("#fasciaOrariaRitorno").prop('disabled', false);
+					} else if(timetoday >= 1200 &&  timetoday <= 2200){
+						$("#fasciaOrariaRitorno").empty().append(option2);
+						$("#fasciaOrariaRitorno").append(option3);
+						$("#fasciaOrariaRitorno").append(option4);
+						$("#fasciaOrariaRitorno").prop('disabled', false);
+
+					} else {
+						$("#fasciaOrariaRitorno").prop('disabled', false);
+					}
+				} else if (today > $("#dataRitorno").val()){
+						$("#fasciaOrariaRitorno").empty();
+						$("#fasciaOrariaRitorno").prop('disabled', true);
+
+				}
+
+
+
+				if(today < $("#dataRitorno").val()){
+					$("#fasciaOrariaRitorno").prop('disabled', false);
+				}else if(today == $("#dataRitorno").val()){
+					var option1 = $('<option></option>').attr("value", "7/11").text("Mattina (7-11)");
+					var option2 = $('<option></option>').attr("value", "12/15").text("Pranzo (12-15)");
+					var option3= $('<option></option>').attr("value", "16/18").text("Pomeriggio (16-18)");
+					var option4 = $('<option></option>').attr("value", "19/22").text("Sera (19-22)");
+					var ora = d.getHours();
+					var minuto = d.getMinutes();
+					var timetoday = ora + "" + minuto;
+					if(timetoday > 2200){
+						alert("Tutti i treni della data odierna sono già partiti");
+						
+					}else if(timetoday >= 1800 &&  timetoday <= 2200){
+						$("#fasciaOrariaRitorno").empty().append(option4);
+						$("#fasciaOrariaRitorno").prop('disabled', false);
+
+					}else if(timetoday >= 1600 &&  timetoday <= 2200){
+						$("#fasciaOrariaRitorno").empty().append(option3);
+						$("#fasciaOrariaRitorno").empty().append(option4);
+						$("#fasciaOrariaRitorno").prop('disabled', false);
+					} else if(timetoday >= 1200 &&  timetoday <= 2200){
+						$("#fasciaOrariaRitorno").empty().append(option2);
+						$("#fasciaOrariaRitorno").empty().append(option3);
+						$("#fasciaOrariaRitorno").empty().append(option4);
+						$("#fasciaOrariaRitorno").prop('disabled', false);
+
+					} else {
+						$("#fasciaOrariaRitorno").prop('disabled', false);
+					}
+				}
+			}
+			
+		}
+
 		//valori fadeOut "slow", FadeIn 1500, fadeIn 2000, fadeIn 1500
 
 		$("#biglietto").click(function(){
@@ -317,7 +441,12 @@
 		});
 
 		$("#goToRisultatiPart").click(function(){
-			$.post("biglietteria-ricerca.php", { 
+			if($("#dataPartenza").val() == ""){
+				alert("Devi prima selezionare un giorno per la partenza.");
+			} else if($("#fasciaOrariaPartenza").val() == null){
+				alert("Seleziona una data accettabile ed una fascia oraria");
+			} else {
+				$.post("biglietteria-ricerca.php", { 
 				tipoRicerca: 1, 
 				partenza: $('#partenza').val(), 
 				destinazione: $('#destinazione').val(),
@@ -328,19 +457,21 @@
 					$('#boxRisultatiAndata').html(risposta);
 					giornoAndata = $('#dataPartenza').val();
 
-			});
+				});
 
-			$("#form2").slideUp(1500);
-			$("#risultatiAndata").slideDown(1500);
-			if(document.ricerca.ar.checked) $("#goToForm3").show();
-			else $("#goToCheckOut").show();
+				$("#form2").slideUp(1500);
+				$("#risultatiAndata").slideDown(1500);
+				if(document.ricerca.ar.checked) $("#goToForm3").show();
+				else $("#goToCheckOut").show();
+			}
+			
 		});
 
 		$("#goToCheckOut").click(function(){
 			if(andataSelezionata == -1) {
 				alert("Seleziona un risultato prima di poter proseguire con il checkout");
 			} else {
-				alert("prezzoAndata: " + prezzoAndata + " -- codViaggio: " + andataSelezionata + " -- partenza: " + partenza + "-- destinazione: " + destinazione + " -- giornoAndata: " + giornoAndata + " -- orarioAndata: " + orarioAndata);
+				// alert("prezzoAndata: " + prezzoAndata + " -- codViaggio: " + andataSelezionata + " -- partenza: " + partenza + "-- destinazione: " + destinazione + " -- giornoAndata: " + giornoAndata + " -- orarioAndata: " + orarioAndata);
 				$.post("admissionOrder.php", {  
 					prezzoAndataA: prezzoAndata,
 					codViaggioA: andataSelezionata,
@@ -368,19 +499,25 @@
 		});
 
 		$("#goToRisultatiDest").click(function(){
-			$.post("biglietteria-ricerca.php", { 
-				tipoRicerca: 1, 
-				partenza: $('#destinazione').val(), 
-				destinazione: $('#partenza').val(),
-				dataPartenza: $('#dataRitorno').val(), 
-				fasciaOrariaPart: $('#fasciaOrariaRitorno').val()
-				}, 
-				function(risposta) {
-					$('#boxRisultatiRitorno').html(risposta);
-					giornoRitorno = $('#dataRitorno').val();
-			});
-			$("#form3").slideUp(1500);
-			$("#risultatiRitorno").slideDown(1500);
+			if($("#dataPartenza").val() == ""){
+				alert("Devi prima selezionare un giorno per la partenza.");
+			} else if($("#fasciaOrariaPartenza").val() == null){
+				alert("Seleziona una data accettabile ed una fascia oraria");
+			} else {
+				$.post("biglietteria-ricerca.php", { 
+					tipoRicerca: 1, 
+					partenza: $('#destinazione').val(), 
+					destinazione: $('#partenza').val(),
+					dataPartenza: $('#dataRitorno').val(), 
+					fasciaOrariaPart: $('#fasciaOrariaRitorno').val()
+					}, 
+					function(risposta) {
+						$('#boxRisultatiRitorno').html(risposta);
+						giornoRitorno = $('#dataRitorno').val();
+				});
+				$("#form3").slideUp(1500);
+				$("#risultatiRitorno").slideDown(1500);
+			}
 		});
 
 		$("#goToCheckOut2").click(function() {
