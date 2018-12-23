@@ -4,6 +4,8 @@
 		header("location: ../account/signin.html");
 	if($_SESSION['acquistoInCorso'] != 1)
 		header("location: ../index.php");
+	if($_SESSION['accountFilled'] != 1)
+		header("location: ../account/dashboard.php");
 	
 	$codViaggioAndata = $_SESSION['codViaggioAndata'];
     $partenza = $_SESSION['stPartenza'];
@@ -75,7 +77,7 @@
 							 						</div>
 							 						<div class="col-md-4 quantity">
 							 							<b><label for="quantity">Quantit&agrave;:</label></b>
-															<input id="quantity" type="number" value ="1" class="form-control quantity-input" min="1" max="5">
+															 <input id="quantity" type="number" size="1" value ="1" class="form-control quantity-input" min="1" max="5">
 													 </div>
 							 						<div class="col-md-3 price">
 							 							<span id="prezzo"><?php echo($prezzoAndata); ?></span>€
@@ -114,7 +116,7 @@
 															</div>
 															<div class="col-md-4 quantity">
 																<b><label for="quantityR">Quantit&agrave;:</label></b>
-																<input id="quantityR" type="number" value ="1" class="form-control quantity-input" min="1" max="5">
+																	<input id="quantityR" type="number" value ="1" class="form-control quantity-input" min="1" max="5">
 															</div>
 															<div class="col-md-3 price">
 																<span id="prezzoR">'.$prezzoRitorno.'</span>€
@@ -210,6 +212,11 @@
 		}
 		myFunction();
 
+
+		// $("#minus").click(function(){
+		// 	var q = $("#quantity").val();
+		// 	if(q < 5) $("#quantity").val(q+1); 
+		// });
 
 		$("#procedi").click(function(){
 			$.post("setQuantity.php", {  

@@ -31,10 +31,10 @@
     else if ($fasciaOrariaPartenza ==  "16/18") $fasciaOrariaPartenza = 3;
     else if ($fasciaOrariaPartenza ==  "19/22") $fasciaOrariaPartenza = 4;
     $now = date("H:i:s");
-    if(date("Y-m-d") == $data) {$now2 = "AND `orarioPart` >= '".$now."'";
+    if(date("Y-m-d") == $dataPartenza) {$now2 = " AND `orarioPart` >= '".$now."'";
     } else $now2 = "";
     if($fasciaOrariaPartenza!=0) $fascia = " AND `fasciaOrariaPart` = '".$fasciaOrariaPartenza."' ";
-    $query = "SELECT * FROM `treno` AS t INNER JOIN `viaggio` AS v ON t.codTreno = v.codTreno INNER JOIN `collegamento` AS c ON v.codCollegamento = c.codCollegamento WHERE `codStPart` = '".$codStPartenza."' AND codStArr = '".$codStArrivo."' AND `dataViaggio` = '".$dataPartenza."'".$fascia." AND `orarioPart` >= '".$now2."' ORDER BY orarioPart DESC";
+    $query = "SELECT DISTINCT * FROM `treno` AS t INNER JOIN `viaggio` AS v ON t.codTreno = v.codTreno INNER JOIN `collegamento` AS c ON v.codCollegamento = c.codCollegamento WHERE `codStPart` = '".$codStPartenza."' AND codStArr = '".$codStArrivo."' AND `dataViaggio` = '".$dataPartenza."'".$fascia.$now2." ORDER BY orarioPart DESC";
   }
   // }else if($tipoRicerca == 2){ //Ritorno
 
@@ -81,7 +81,6 @@
             $postiOccupatiStandard = mysql_result($result, $i, "postiOccupatiStandard");
             $codTreno = mysql_result($result, $i, "codTreno");
             $postiDisponibili = $postiTotStandard - $postiOccupatiStandard;
-
 
             $risposta .= "<div class='card bg-light mt-4' id='card".$codViaggio."'>
             <div class='row mb-4 mt-4'>

@@ -58,7 +58,7 @@
 
     <div class="search" id="search-to-fix">
       <div class="container">
-        <form name="ricerca" action="order/ricerca.php" method="post" onsubmit="return convalidaRicerca();">
+        <form name="ricerca" onsubmit="return convalidaRicerca();" method="post" action="order/ricerca.php" >
           <div class="row">
             <div class="col-md-3 col-sm-6 col-6">
               <h5 class="lead text-light">Partenza:</h5>
@@ -156,7 +156,7 @@
     <section class="jumbotron">
       <div class="container md-4">
         <h1 class="jumbotron-heading">Abbonamenti</h1>
-        <p class="lead text-muted">Acquista il tuo abbonamento online e risparmi il 15%. Puoi gestirlo nella tua area personale e rinnovarlo quando vuoi.</p>
+        <p class="lead text-muted">Prenota il tuo abbonamento online e risparmia il 15% consegnando il voucher generato alla biglietteria.</p>
         <p>
           <a href="order/biglietteria.php" class="btn btn-primary my-2">Acquista abbonamento</a>
 
@@ -219,6 +219,36 @@
 
     <script>
       $(document).ready(autocomplete(0));
+
+      $("ricerca").submit(function(e){
+        e.preventDefault();
+        if($('#partenza').val() == "" || $('#destinazione').val() == "" || $('#data').val() == ""){
+          alert("Inserisci tutti i campi per poter procedere con la ricerca");
+        } else if($('#partenza').val() == $('#destinazione').val()){
+          alert("La partenza e la destinazione coincidono. Puoi restare nello stesso posto anche senza pagare un biglietto.");
+        } else {
+          $.post("order/checkRicerca.php", { tipoRicerca: 1, partenza: $('#partenza').val(), destinazione: $('#destinazione').val(), data: $("#data").val() }, function(risposta) {
+            
+            alert("Sto entrando in then");
+            if (risposta == 0){
+              alert("La stazione di partenza da te inserita non risulta essere presente nel nostro database. Verifica di averla inserita correttamente.");
+              
+            }else if(risposta == 1) {
+              alert("La stazione di destinazione da te inserita non risulta essere presente nel nostro database. Verifica di averla inserita correttamente.");
+            }else if(risposta == 2) {
+              alert("Non siamo ancora in grado di mandarti nel passato. Puoi al momento comprare biglietti per la giornata odierna e per i giorni a seguire.");
+            } else if (risposta == 3){
+              return true;
+            } else {
+              alert("Si è presentato un errore non verificato. Controlla i campi ")
+            }
+          });
+        }
+        return false;         
+    });
+
+
+
     </script>
 
   </body>

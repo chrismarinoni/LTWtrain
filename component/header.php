@@ -36,7 +36,7 @@
                                 <p>Ciao, '.$_SESSION['nome'].'</p>
                             </div>
                             <a class="dropdown-item" href="http://www.ltwtrain.altervista.org/account/dashboard.php">Dashboard</a>
-                            <a class="dropdown-item" href="http://www.ltwtrain.altervista.org/account/profile.php">Il tuo account</a>
+                            <a class="dropdown-item" href="http://www.ltwtrain.altervista.org/account/profile.php">Profilo</a>
                             <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="http://www.ltwtrain.altervista.org/account/logout.php">Log out</a>
                             </div>

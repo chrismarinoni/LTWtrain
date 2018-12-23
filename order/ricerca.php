@@ -54,8 +54,6 @@
 
      <div class="container mt-4">
        <p style="font-size: 1.3rem;">Ricerca per partenza da <strong><?php echo($partenza); ?></strong> e arrivo a <strong><?php echo($destinazione); ?></strong> il <strong><?php echo($data); ?></strong></p>
-     </div>
-     <div class="container">
        <?php
           $i = $numRes-1;
           if($i == -1) {

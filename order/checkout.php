@@ -108,42 +108,32 @@
             <div class="row mt-4">
               <div class="col-md-6 mb-3">
                 <label for="nome">Nome</label>
-                <input type="text" class="form-control" id="nome" placeholder="" value="" required>
-                <div class="invalid-feedback">
-                  &Egrave; richiesto l'inserimento di un nome valido.
-                </div>
+                <input type="text" class="form-control" id="nome" value="" required>
+              
               </div>
               <div class="col-md-6 mb-3">
                 <label for="cognome">Cognome</label>
-                <input type="text" class="form-control" id="cognome" placeholder="" value="" required>
-                <div class="invalid-feedback">
-                &Egrave; richiesto l'inserimento di un cognome valido.
-                </div>
+                <input type="text" class="form-control" id="cognome"  value="" required>
+               
               </div>
             </div>
 
             <div class="mb-3">
               <label for="email">Email</label>
-              <input type="email" class="form-control" id="email" placeholder="latua@email.com" required>
-              <div class="invalid-feedback">
-                Please enter a valid email address for shipping updates.
-              </div>
+              <input type="email" class="form-control" id="email" required>
+         
             </div>
 
             <div class="row">
               <div class="mb-3 col-md-6">
                 <label for="indirizzo">Indirizzo</label>
-                <input type="text" class="form-control" id="indirizzo" placeholder="Viale Regina Elena 1" required>
-                <div class="invalid-feedback">
-                  Inserisci un indirizzo valido.
-                </div>
+                <input type="text" class="form-control" id="indirizzo"  required>
+            
               </div>
               <div class="col-md-6 mb-3">
                 <label for="citta">Città</label>
-                <input type="text" class="form-control" id="citta" placeholder="Roma" required>
-                <div class="invalid-feedback">
-                  Please provide a valid state.
-                </div>
+                <input type="text" class="form-control" id="citta"  required>
+        
               </div>
             </div>
             
@@ -152,18 +142,14 @@
 
               <div class="col-md-6 mb-3">
                 <label for="provincia">Provincia</label>
-                <input type="text" class="form-control" id="provincia" placeholder="Roma" required>
-                <div class="invalid-feedback">
-                  Please select a valid country.
-                </div>
+                <input type="text" class="form-control" id="provincia" required>
+                
               </div>
               
               <div class="col-md-6 mb-3">
                 <label for="cf">Codice Fiscale</label>
-                <input type="text" class="form-control" id="cf" placeholder="00000" required>
-                <div class="invalid-feedback">
-                  Zip code required.
-                </div>
+                <input type="text" class="form-control" id="cf"  pattern="[a-zA-Z]{6}[0-9]{2}[a-zA-Z][0-9]{2}[azA-Z][0-9]{3}[azA-Z]" required>
+               
               </div>
             </div>
             <hr class="mb-4">
@@ -184,35 +170,30 @@
             <div id="carte">
               <div class="row">
                 <div class="col-md-6 mb-3">
-                  <label for="cc-name">Nome intestatario</label>
+                  <label for="cc-name">Nome intestatario</label> <br />
+                  <small class="text-muted">(Nome completo come mostrato sulla carta)</small>
                   <input type="text" class="form-control" id="cc-name" placeholder="" required>
-                  <small class="text-muted">Nome completo come mostrato sulla carta</small>
-                  <div class="invalid-feedback">
-                    Name on card is required
-                  </div>
+        
                 </div>
                 <div class="col-md-6 mb-3">
-                  <label for="cc-number">Numero carta di credito</label>
-                  <input type="text" class="form-control" id="cc-number" placeholder="" required>
-                  <div class="invalid-feedback">
-                    Credit card number is required
-                  </div>
+                  <label for="cc-number">Numero carta di credito</label> <br />
+                  <small class="text-muted">(cod. identificativo di 16 cifre numeriche)</small>
+                  <input type="text" class="form-control" id="cc-number" placeholder="" pattern="[0-9]{16}" required>
+ 
                 </div>
               </div>
               <div class="row">
-                <div class="col-md-3 mb-3">
-                  <label for="cc-expiration">Scadenza</label>
-                  <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
-                  <div class="invalid-feedback">
-                    Expiration date required
-                  </div>
+                <div class="col-md-6 mb-3">
+                  <label for="cc-expiration">Scadenza</label> <br />
+                  <small class="text-muted">(formato MM/AA - esempio: 02/22)</small>
+                  <input type="text" class="form-control" id="cc-expiration" placeholder="" pattern="[0-9]{2}/[0-9]{2}" required>
+           
                 </div>
-                <div class="col-md-3 mb-3">
-                  <label for="cc-cvv">CVV</label>
-                  <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
-                  <div class="invalid-feedback">
-                    Security code required
-                  </div>
+                <div class="col-md-6 mb-3">
+                  <label for="cc-cvv">CVV</label> <br />
+                  <small class="text-muted">(3 cifre di sicurezza)</small>
+                  <input type="text" class="form-control" id="cc-cvv" pattern="[0-9]{3}" placeholder="" required>
+              
                 </div>
               </div>
             </div>
@@ -225,11 +206,7 @@
 
       <footer class="my-5 pt-5 text-muted text-center text-small">
         <p class="mb-1">&copy; 2018-2019 LTWtrain</p>
-        <ul class="list-inline">
-          <li class="list-inline-item"><a href="#">Privacy</a></li>
-          <li class="list-inline-item"><a href="#">Termini e condizioni</a></li>
-          <li class="list-inline-item"><a href="#">Supporto</a></li>
-        </ul>
+        <p>Attenzione: questa pagina di pagamento &egrave; stata realizzata al puro scopo dimostrativo. Non raccogli dati di pagamento e non processa pagamenti reali.</p>
       </footer>
     </div>
 
@@ -268,19 +245,36 @@
 
 
       function pay() {
-        $.post("orderSubmit.php", {  
-                	procediConOrdine : 1
-                }, 
-                function(risposta) {
-                  if(risposta == 0) {
-                    return true;
-                    // document.location ="http://www.ltwtrain.altervista.org/account/dashboard.php";
-                  } else { 
-                    alert("Si è presentato un errore: "+risposta); 
-                  return false;
-                }
-                }
-        );
+        var flag = 1;
+        $.ajax({
+          data: {
+            procediConOrdine : 1
+          },
+          async: false,
+          url: 'orderSubmit.php',
+          method: 'POST',
+          success: function(msg){
+            flag = msg;
+          } 
+        });
+        if(flag==0) return true;
+        else {
+          alert("Si è presentato un errore: "+risposta); 
+          return false;
+        }
+        // $.post("orderSubmit.php", {  
+        //         	procediConOrdine : 1
+        //         }, 
+        //         function(risposta) {
+        //           if(risposta == 0) {
+
+        //             // document.location ="http://www.ltwtrain.altervista.org/account/dashboard.php";
+        //           } else { 
+        //             alert("Si è presentato un errore: "+risposta); 
+        //           return false;
+        //         }
+        //         }
+        // );
       };
 
       $("#completamento").click(function() {

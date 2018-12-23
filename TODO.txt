@@ -2,49 +2,43 @@
 PROBLEMI NOTI
 -------------
 
-La funzione di autocomplete nella Home non rimanda alla pagina corretta quando tutti i campi inseriti sono corretti.
+La funzione di autocomplete nella Home non rimanda alla pagina corretta quando tutti i campi inseriti sono corretti (CORRETTO)
 
-Mancano controlli nel testo inserito di login e registrazione.
+Mancano controlli nel testo inserito di login e registrazione (CORRETTO)
 
-La pagina di login e registrazione non è correttamente visualizzata su schermi piccoli (risoluzione del problema non prevista)
+La pagina di login e registrazione non è sempre correttamente visualizzata su schermi piccoli (risoluzione del problema non prevista)
 
 -----------------------------
 PROSSIME COSE DA IMPLEMENTARE
 -----------------------------
 
-- Dinamicizzare tabellone con l'uso di jQuery
+- Risolvere problemi index.php con ricerca (IMPORTANTE - RISOLTO)
 
-- Risolvere problemi index.php con ricerca (IMPORTANTE)
-
-- Fare session_unset di quelle variabili non utilizzate (fatto)
+- Fare session_unset di quelle variabili non utilizzate (FATTO)
 
 - La biglietteria non mostra i risultati per il ritorno e non mostra il pulsante "prosegui" quando i viaggi di andata vengono mostrati (RISOLTO)
 
-- Pulire 'biglietteria.php' mettendo gli script in un altro file
+- Pulire 'biglietteria.php' mettendo gli script in un altro file (FATTO)
 
-- Implementare un controllo sulle date e le fasce orarie in 'biglietteria.php'
+- Implementare un controllo sulle date e le fasce orarie in 'biglietteria.php' (FATTO)
 
-- Aggiungere box con cartina della stazione nei risultati della ricerca
+- Aggiungere box con cartina della stazione nei risultati della ricerca (Non in tempo)
 
-- Aggiungere pulsanti (+) e (-) per la quantità nel checkbox in 'shoppingcart.php' per risolvere gli attuali problemi (IMPORTANTE)
-
-- Sistemare valori "prezzo iva escluso", "Iva" e "sconto" in 'shoppingcart.php' (RISOLTO)
+- Sistemare valori "prezzo iva escluso", "Iva" e "sconto" in 'shoppingcart.php' (FATTO)
 
 - Implementare gli abbonamenti in biglietteria.php' e 'shoppingcart.php' (IMPORTANTE)
 
-- Ultimare traduzione in italiano dei contenuti della pagina 'checkout.php'
-
-- Introdurre il pulsante "Annulla" in 'checkout.php' e 'shoppingcart.php' con deallocamento variabili sessione incluso
+- Ultimare traduzione in italiano dei contenuti della pagina 'checkout.php' (FATTO)
 
 - risolvere frammentazione checkout in checkout.php e checkout2.php (RISOLTO)
 
-- Verificare correttezza generale del codice. Ridenominare i file per uniformarli (o in inglese o in italiano). Ridurre il numero di pagine php
+- Verificare correttezza generale del codice. Ridenominare i file per uniformarli (o in inglese o in italiano). Ridurre il numero di pagine php (FATTO)
 
-- Aggiornare database (al momento è popolato fino al 16/12)
+- Aggiornare database (al momento è popolato fino al 16/12) (FATTO)
 
-- Timer stile stazione (a tempo perso)
+- Timer stile stazione (FATTO)
 
-- Rotazione freccia risultati ricerca (opzionale - a tempo perso)
+- Rotazione freccia risultati ricerca (Non in tempo)
 
 
 ----------------------

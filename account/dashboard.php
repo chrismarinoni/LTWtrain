@@ -65,9 +65,9 @@
         } else {
           $mysqlDb = new MysqlFunctions;
           $connection = $mysqlDb->connetti();
-          $query = "SELECT * FROM `biglietto` AS b INNER JOIN `viaggio` AS v ON b.codViaggio = v.codViaggio INNER JOIN  `collegamento` AS c ON c.codCollegamento = v.codCollegamento WHERE b.idUtente = '" .$idUtente. "' AND v.dataViaggio >= '".$dataOggi."'";
+          $query = "SELECT * FROM `biglietto` AS b INNER JOIN `viaggio` AS v ON b.codViaggio = v.codViaggio INNER JOIN  `collegamento` AS c ON c.codCollegamento = v.codCollegamento WHERE b.idUtente = '" .$idUtente. "' AND v.dataViaggio >= '".$dataOggi."' ORDER BY codBiglietto DESC";
           $result = mysql_query($query, $connection) or die("Errore. Impossibile effettuare l'aquisto");
-          
+          // echo(mysql_num_rows($result));
           for($i = 0; $i < mysql_num_rows($result); $i++) {
             $partenza = mysql_result($result,$i,"nomeStazionePart");
             $destinazione = mysql_result($result,$i,"nomeStazioneArr");
@@ -115,10 +115,10 @@
       ?>
     </div>
     
-    <div class="container mb-4">
+    <!--<div class="container mb-4">
 		<h2>I tuoi abbonamenti</h2>
 		<p>Al momento non ci sono abbonamenti acquistati</p>
-    </div>
+    </div> -->
 
     <!-- FOOTER -->
     <?php getFooter(); ?>
@@ -136,7 +136,7 @@
     <script src="../js/bootstrap.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.0/barcodes/JsBarcode.code128.min.js"></script>
-  
+
     <script>
       function textToBase64Barcode(text){
         var canvas = document.createElement("canvas");

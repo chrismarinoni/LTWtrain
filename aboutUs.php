@@ -49,11 +49,8 @@
 					<div class="col-4">
 						<h4> Contatti: </h4>
 						<ul class="list-unstyled">
-							<li>email1:</li>
-							<li>marinoni.1745754@studenti.uniroma1.it</li>
-							
-							<li>email2:</li>
-							<li>munno.1744303@studenti.uniroma1.it</li>
+							<li class="mb-3 mt-3">marinoni.1745754 [at] studenti.uniroma1.it</li>
+							<li>munno.1744303 [at] studenti.uniroma1.it</li>
 							
 						
 						</ul>
@@ -65,8 +62,8 @@
 				</div>
 				<div class="row">
 					<h2 class="display-5 mt-5">Repository e linguaggi utilizzati</h2>
-					<p class="lead my-3">Per realizzare il progetto sono stati utilizzati i seguenti linguaggi e librerie: HTML, PHP, js, AJAX, jQuery, Bootstrap, MySql, Python* (*per produrre le query per popolare il database)</p>
-					<p class="lead my-3">&Egrave; disponibile una <a href="https://github.com/chrismarinoni/LTWtrain">repository su GitHub</a> contenete tutto il codice del progetto.</p>
+					<p class="lead my-3">Per realizzare il progetto sono stati utilizzati i seguenti linguaggi e librerie: HTML, PHP, js,  jQuery, Bootstrap, MySql, Python* (*per produrre le query per popolare il database)</p>
+					<p class="lead my-3">&Egrave; disponibile una <a href="https://github.com/chrismarinoni/LTWtrain">repository su GitHub</a> contenente tutto il codice del progetto.</p>
 				</div>
 			</div>
 
