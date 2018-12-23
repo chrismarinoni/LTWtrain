@@ -22,4 +22,4 @@ La struttura del database è la seguente:
 Il sito funzionante è disponibile all'indirizzo web [ltwtrain.altervista.org](http://www.ltwtrain.altervista.org). In fase di ricerca potrebbero non essere mostrati risultati, essendo stati generati collegamenti solo per coprire un periodo limitato di tempo.
 
 ### Created in Italian
-Most of the variables used in this project have Italian names, so reading the code can be difficult for a non-Italians :(
+Most of the variables used in this project have Italian names, so reading the code can be difficult for non-Italians :(
